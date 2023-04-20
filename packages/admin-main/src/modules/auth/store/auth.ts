@@ -1,52 +1,39 @@
 import { defineStore } from 'pinia';
-// import Wujie from 'wujie-vue3';
-import { axiosBaseInstance, ApiRoots, ResultData } from '@/utils/requestUtils';
-import { goLogout } from '@/utils/authUtils';
-import { baseLocation } from '@/utils/pathUtils';
+import { ElMessage } from 'element-plus';
+import { axiosBaseInstance, ApiPath } from '@/utils/requestUtils';
+import { router } from '@/router';
+import type { ResultData } from '@/utils/requestUtils';
 
 // const { bus } = Wujie;
 
 export interface UserInfo {
-  /** 头像地址 */
-  avatar: string;
-  /** memberId */
-  id: string;
-  /** 手机号 */
-  mobile: string;
+  /** token */
+  accessToken: string;
+  /** 账号 */
+  account: string;
+  /** 账号id */
+  accountId: string;
+  /** 姓名 */
   name: string;
-  /** 昵称 */
-  nickname: string;
-  /** 机构 */
-  // organs: string[];
-  /** 性别： 1: 男 2: 女 */
-  sex: '1' | '2' | '';
-  /** 账号名 默认和nickname相等 */
-  username: string;
-}
-
-export enum UserIdentity {
-  Business = 'Business',
-  Teacher = 'Teacher',
-  Student = 'Student',
+  /** 权限码 */
+  perm: number;
 }
 
 interface AuthState {
   token: string;
   userInfo: UserInfo | Record<string, never>;
-  identity: UserIdentity | '';
 }
 
 export const useAuthStore = defineStore('auth', {
   state: (): AuthState => ({
     token: '',
     userInfo: {},
-    identity: '',
   }),
   persist: {
     enabled: true,
     strategies: [
       {
-        key: 'auth',
+        key: 'admin-auth',
         storage: localStorage,
       },
     ],
@@ -55,52 +42,52 @@ export const useAuthStore = defineStore('auth', {
     /** 保存Token */
     setToken(token: string) {
       this.token = token;
-      // bus.$emit('login', this.token);
     },
 
-    /** 获取用户信息：头像/memberId/手机号/账号等 */
+    getLoginKey() {
+      return axiosBaseInstance
+        .get<ResultData<{ publicKey: string }>>(`${ApiPath}/console/login_key`)
+        .then((res) => res.data.data.publicKey)
+        .catch(() => ElMessage.error('获取登录密钥出错'));
+    },
+
+    login(params: { cryptogram: string; key: string }) {
+      return axiosBaseInstance
+        .post<ResultData<{ accessToken: string }>>(`${ApiPath}/console/login`, params)
+        .then((res) => {
+          const token = res.data.data.accessToken;
+          if (token) {
+            this.setToken(token);
+            return token;
+          } else {
+            return '';
+          }
+        })
+        .catch(() => {
+          ElMessage.error('登录出错了');
+        });
+    },
+
     getUserInfo() {
-      return axiosBaseInstance
-        .get<ResultData<UserInfo>>(`${ApiRoots.portal}/customers/name_avatar`)
-        .then((res) => {
-          this.userInfo = res.data.data;
-          return res.data.data;
-        });
-    },
-
-    /** 获取用户身份 */
-    getUserIdentity() {
-      return axiosBaseInstance
-        .get<ResultData<UserIdentity>>(`${ApiRoots.portal}/customers/prioritized_identity`)
-        .then((res) => {
-          this.identity = res.data.data;
-          return res.data.data;
-        });
-    },
-
-    /** 同步 U+ 新工科 session */
-    async syncUplusSession() {
-      try {
-        // 同步 U+ 新工科 session
-        await axiosBaseInstance.get(`${ApiRoots.uranus}/auth/session/sync?ticket=${this.token}`);
-        await axiosBaseInstance.get(
-          `${ApiRoots.uranus}/auth/session/generate?ticket=${this.token}`,
-        );
-      } catch (err: any) {
-        // generate 接口会返回 302，虽然 302 但代表已同步成功，所以此处 catch 一下，不然会阻塞正常流程
-      }
+      return axiosBaseInstance.get<ResultData<UserInfo>>(`${ApiPath}/console/token`).then((res) => {
+        const userInfo = res.data.data;
+        if (userInfo) {
+          this.userInfo = userInfo;
+          return userInfo;
+        } else {
+          return null;
+        }
+      });
     },
 
     logout() {
-      if (this.token) {
-        this.token = '';
-        this.userInfo = {};
-        this.identity = '';
-        goLogout();
-      } else {
-        location.href = baseLocation;
-      }
-      // bus.$emit('logout');
+      return axiosBaseInstance.post(`${ApiPath}/console/logout`).then(() => {
+        if (this.token) {
+          this.token = '';
+          this.userInfo = {};
+        }
+        router.push({ name: 'login' });
+      });
     },
   },
 });

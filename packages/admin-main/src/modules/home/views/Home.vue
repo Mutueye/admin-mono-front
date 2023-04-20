@@ -1,15 +1,14 @@
 <template>
-  <div class="w-full flex flex-col items-center">
-    <!-- <Example /> -->
-    <Banner />
-    <Vue2Example />
-    <Vue2Demo />
-  </div>
+  <AdminScrollableContent>
+    <div class="w-full flex flex-col items-center">
+      <div class="w-full py-space-xxxl text-center font-bold">HOME</div>
+      <HelloWorld msg="Hellow World" />
+      <el-button>text</el-button>
+    </div>
+  </AdminScrollableContent>
 </template>
 
 <script lang="ts" setup>
-  // import Example from './components/Example.vue';
-  import Banner from './components/Banner.vue';
-  import Vue2Example from './components/Vue2Example.vue';
-  import Vue2Demo from './components/Vue2Demo.vue';
+  import HelloWorld from '@/components/HelloWorld.vue';
+  import AdminScrollableContent from '@/layout/admin/components/AdminScrollableContent.vue';
 </script>

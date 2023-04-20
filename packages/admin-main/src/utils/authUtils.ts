@@ -1,5 +1,13 @@
 import { Base64 } from 'js-base64';
 import { useAppConfigStore } from '@/store/appConfig';
+import Jsencrypt from 'jsencrypt';
+
+/**  对登录参数进行处理 */
+export const encodeLoginParams = (key: string, params: string[]) => {
+  const crypter = new Jsencrypt();
+  crypter.setPublicKey(key);
+  return crypter.encrypt(params.join('|'));
+};
 
 export const redirectUri = encodeURIComponent(
   `${location.origin}/api/login?redirect_uri=${location.href}`,

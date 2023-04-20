@@ -3,6 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 import type { RouteRecordData } from './types';
 import { layoutRoutes, LayoutEnum } from './layoutRouteConfig';
 import { basePath } from '@/utils/pathUtils';
+import { useAuthStore } from '@/modules/auth/store/auth';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
   const allRoutes: RouteRecordRaw[] = [...staticRoutes];
@@ -59,4 +60,18 @@ export const baseRoutes: RouteRecordRaw[] = [
 export const router = createRouter({
   history: createWebHistory(basePath),
   routes: generateAllRoutes(baseRoutes),
+});
+
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore();
+  if (to.name !== 'login') {
+    if (authStore.token) {
+      next();
+    } else {
+      // TODO 登录后跳转回from所在页面
+      next({ name: 'login' });
+    }
+  } else {
+    next();
+  }
 });

@@ -1,5 +1,5 @@
 {
-  "name": "athena-main",
+  "name": "admin-main",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -26,6 +26,7 @@
     "color2k": "^2.0.2",
     "element-plus": "^2.3.3",
     "js-base64": "^3.7.5",
+    "jsencrypt": "^3.3.2",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.0",
     "pinia": "^2.0.34",

@@ -63,11 +63,11 @@ export default defineConfig(({ mode }) => {
     process.env[k] = viteEnvs[k];
   }
   // api前缀
-  const proxyApiPrepend = process.env.VITE_API_BASE_PATH ? process.env.VITE_API_BASE_PATH : '/api';
+  const proxyApiPrepend = process.env.VITE_API_BASE_PATH ? process.env.VITE_API_BASE_PATH : '/spi';
   // 要代理的地址
   const gateway = process.env.VITE_API_GATEWAY
     ? process.env.VITE_API_GATEWAY
-    : 'https://qstcloud.com';
+    : 'https://console.uc.qstcloud.com';
 
   return {
     build: {
@@ -86,9 +86,9 @@ export default defineConfig(({ mode }) => {
           secure: false,
         },
         [proxyApiPrepend]: {
-          target: `${gateway}/api`,
+          target: gateway,
           changeOrigin: true,
-          rewrite: (path) => path.replace(proxyApiPrepend, ''),
+          // rewrite: (path) => path.replace(proxyApiPrepend, ''),
         },
       },
     },
