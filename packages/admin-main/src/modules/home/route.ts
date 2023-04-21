@@ -8,10 +8,10 @@ const routeData: RouteRecordData = {
       name: 'home',
       component: Home,
       meta: {
-        title: '首页',
+        title: '应用控制台',
         menuConfig: {
-          order: 1,
-          iconClass: 'i-mdi-collage',
+          order: 0,
+          iconClass: 'i-mdi-apps',
         },
       },
     },

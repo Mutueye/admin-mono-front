@@ -11,7 +11,6 @@ export enum LayoutEnum {
   base = 'base',
   admin = 'admin',
   wrapper = 'wrapper',
-  // Add more layouts here
 }
 
 const generateLayoutRoute = (config: {

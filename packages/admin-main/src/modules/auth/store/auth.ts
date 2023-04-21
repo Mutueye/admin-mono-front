@@ -86,7 +86,9 @@ export const useAuthStore = defineStore('auth', {
           this.token = '';
           this.userInfo = {};
         }
-        router.push({ name: 'login' });
+        if (router) {
+          router.push({ name: 'login' });
+        }
       });
     },
   },

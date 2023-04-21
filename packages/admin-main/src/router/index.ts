@@ -1,9 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { Router, createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 import type { RouteRecordData } from './types';
 import { layoutRoutes, LayoutEnum } from './layoutRouteConfig';
 import { basePath } from '@/utils/pathUtils';
 import { useAuthStore } from '@/modules/auth/store/auth';
+import { SubAppConfig } from '@/utils/subAppConfig';
+import AppWrapper from '@/modules/appWrapper/views/AppWrapper.vue';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
   const allRoutes: RouteRecordRaw[] = [...staticRoutes];
@@ -24,9 +26,43 @@ const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => 
     });
   }
 
+  const wrapperRoutes = allRoutes.find((rout) => rout.name === 'wrapper');
+  addSubAppRoutes(wrapperRoutes);
+
   addRouteParentMeta(allRoutes, null, null);
 
   return allRoutes;
+};
+
+// 从配置中读取子项目路由
+const addSubAppRoutes = (parentRoute?: RouteRecordRaw) => {
+  if (parentRoute) {
+    const subAppRoutes: RouteRecordRaw[] = [];
+    const appListStr = localStorage.getItem('sub-app-list');
+    if (appListStr) {
+      const appList = JSON.parse(appListStr) as SubAppConfig[];
+      appList.forEach((appConfig) => {
+        subAppRoutes.push({
+          name: appConfig.name,
+          path: '/' + appConfig.name,
+          component: AppWrapper,
+          meta: {
+            title: appConfig.title,
+            menuConfig: {
+              iconClass: appConfig.iconClass,
+              order: appConfig.order,
+            },
+            subAppUrl: appConfig.url,
+          },
+        });
+      });
+      if (parentRoute.children) {
+        parentRoute.children = [...parentRoute.children, ...subAppRoutes];
+      } else {
+        parentRoute.children = subAppRoutes;
+      }
+    }
+  }
 };
 
 // 给每个路由的meta增加parentRouteData信息
@@ -57,21 +93,25 @@ export const baseRoutes: RouteRecordRaw[] = [
   },
 ];
 
-export const router = createRouter({
-  history: createWebHistory(basePath),
-  routes: generateAllRoutes(baseRoutes),
-});
+export let router: Router | null = null;
 
-router.beforeEach((to, from, next) => {
-  const authStore = useAuthStore();
-  if (to.name !== 'login') {
-    if (authStore.token) {
-      next();
+export const initRouter = () => {
+  router = createRouter({
+    history: createWebHistory(basePath),
+    routes: generateAllRoutes(baseRoutes),
+  });
+
+  router.beforeEach((to, from, next) => {
+    const authStore = useAuthStore();
+    if (to.name !== 'login') {
+      if (authStore.token) {
+        next();
+      } else {
+        // TODO 登录后跳转回from所在页面
+        next({ name: 'login' });
+      }
     } else {
-      // TODO 登录后跳转回from所在页面
-      next({ name: 'login' });
+      next();
     }
-  } else {
-    next();
-  }
-});
+  });
+};
