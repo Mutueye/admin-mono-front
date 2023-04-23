@@ -1,10 +1,16 @@
 <template>
   <div
     class="flex flex-col h-full w-64px bg-bg-secondary flex-shrink-0 border-r border-border min-h-0">
-    <!-- TODO app menu -->
-    <i class="i-uplus:logo inline-block align-middle w-36px h-36px m-14px" />
+    <i
+      class="i-uplus:logo inline-block align-middle w-36px h-36px m-14px cursor-pointer"
+      @click="
+        () => {
+          route.name !== 'home' ? router.push({ name: 'home' }) : null;
+        }
+      " />
     <div class="w-full flex flex-col flex-1 min-h-0">
       <el-scrollbar>
+        <!-- apps menu -->
         <WrapperSidebarItem
           v-for="item in menus"
           :key="item.name"

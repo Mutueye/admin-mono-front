@@ -17,6 +17,8 @@ export interface SubAppConfig {
   authCode?: number | string;
 }
 
+const localSubAppListKey = 'sub-app-list';
+
 export const appList: SubAppConfig[] = [
   {
     title: '用户中心控制台',
@@ -38,17 +40,30 @@ export const appList: SubAppConfig[] = [
 
 export const getSubAppList = async () => {
   // TODO 请求接口取得子应用列表
-  const localSubAppListStr = localStorage.getItem('sub-app-list');
+  const localSubAppList = getLocalSubAppList();
   let subAppList: SubAppConfig[] = appList;
-  if (localSubAppListStr) {
-    subAppList = unionBy(JSON.parse(localSubAppListStr), appList, 'name');
+  if (localSubAppList) {
+    subAppList = unionBy(localSubAppList, appList, 'name');
   }
-  localStorage.setItem('sub-app-list', JSON.stringify(subAppList));
+  setLocalSubAppList(subAppList);
   // return subAppList;
   return new Promise<SubAppConfig[]>((resolve) => {
+    // 通过延时模拟接口请求
     setTimeout(() => {
-      console.log('subAppList::::::::::', subAppList);
       resolve(subAppList);
     }, 300);
   });
+};
+
+export const getLocalSubAppList = (): SubAppConfig[] | null => {
+  const appListStr = localStorage.getItem(localSubAppListKey);
+  if (appListStr) {
+    return JSON.parse(appListStr) as SubAppConfig[];
+  } else {
+    return null;
+  }
+};
+
+export const setLocalSubAppList = (list: SubAppConfig[]) => {
+  localStorage.setItem(localSubAppListKey, JSON.stringify(list));
 };

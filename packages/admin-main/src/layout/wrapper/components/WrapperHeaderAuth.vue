@@ -14,7 +14,7 @@
             <el-button text bg class="w-full">账号设置</el-button>
           </div>
           <div class="w-full mb-space-sm">
-            <el-button text bg class="w-full" @click="authStore.logout">退出登录</el-button>
+            <el-button text bg class="w-full" @click="logout">退出登录</el-button>
           </div>
           <ThemeToggler />
         </div>
@@ -25,9 +25,22 @@
 
 <script setup lang="ts">
   import { storeToRefs } from 'pinia';
+  import { ElMessageBox } from 'element-plus';
   import { useAuthStore } from '@/modules/auth/store/auth';
   import ThemeToggler from '@/components/ThemeToggler.vue';
 
   const authStore = useAuthStore();
   const { userInfo } = storeToRefs(authStore);
+
+  const logout = () => {
+    ElMessageBox.confirm('您确定要退出吗', '退出登录', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'info',
+    })
+      .then(() => {
+        authStore.logout();
+      })
+      .catch(() => null);
+  };
 </script>

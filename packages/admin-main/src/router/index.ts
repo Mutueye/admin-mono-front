@@ -4,7 +4,7 @@ import type { RouteRecordData } from './types';
 import { layoutRoutes, LayoutEnum } from './layoutRouteConfig';
 import { basePath } from '@/utils/pathUtils';
 import { useAuthStore } from '@/modules/auth/store/auth';
-import { SubAppConfig } from '@/utils/subAppConfig';
+import { getLocalSubAppList } from '@/utils/subAppConfig';
 import AppWrapper from '@/modules/appWrapper/views/AppWrapper.vue';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
@@ -38,9 +38,8 @@ const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => 
 const addSubAppRoutes = (parentRoute?: RouteRecordRaw) => {
   if (parentRoute) {
     const subAppRoutes: RouteRecordRaw[] = [];
-    const appListStr = localStorage.getItem('sub-app-list');
-    if (appListStr) {
-      const appList = JSON.parse(appListStr) as SubAppConfig[];
+    const appList = getLocalSubAppList();
+    if (appList) {
       appList.forEach((appConfig) => {
         subAppRoutes.push({
           name: appConfig.name,
