@@ -1,6 +1,8 @@
 import { unionBy } from 'lodash-es';
 
 export interface SubAppConfig {
+  /** id */
+  id?: string;
   /** 子应用中文标题 */
   title: string;
   /** 子应用名称 英文 用于路由配置 */
@@ -12,7 +14,7 @@ export interface SubAppConfig {
   /** 子应用url */
   url: string;
   /** 顺序号 */
-  order: number;
+  order?: number;
   /** auth code 权限码 */
   authCode?: number | string;
 }
@@ -64,6 +66,9 @@ export const getLocalSubAppList = (): SubAppConfig[] | null => {
   }
 };
 
-export const setLocalSubAppList = (list: SubAppConfig[]) => {
+export const setLocalSubAppList = (list: SubAppConfig[], reload = false) => {
   localStorage.setItem(localSubAppListKey, JSON.stringify(list));
+  if (reload) {
+    location.reload();
+  }
 };

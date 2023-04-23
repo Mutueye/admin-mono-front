@@ -40,7 +40,7 @@ body {
   /* --el-messagebox-title-color: var(--el-text-color-primary); */
   /* --el-messagebox-width: 420px; */
   /* 关联弹窗圆角到border-radius-small变量 */
-  --el-messagebox-border-radius: var(--el-border-radius-small);
+  --el-messagebox-border-radius: var(--el-border-radius-base);
 
   /* --el-messagebox-font-size: var(--el-font-size-large); */
   /* --el-messagebox-content-font-size: var(--el-font-size-base); */
@@ -49,6 +49,25 @@ body {
   /* --el-messagebox-padding-primary: 15px; */
 }
 
+.el-dialog {
+  --el-dialog-border-radius: var(--el-border-radius-base);
+}
+
 .el-tooltip__trigger:focus-visible {
   outline: none;
+}
+
+.el-form-item__label {
+  height: var(--el-component-size);
+  line-height: var(--el-component-size);
+}
+
+.el-form-item--large .el-form-item__label {
+  height: var(--el-component-size-large);
+  line-height: var(--el-component-size-large);
+}
+
+.el-form-item--small .el-form-item__label {
+  height: var(--el-component-size-small);
+  line-height: var(--el-component-size-small);
 }

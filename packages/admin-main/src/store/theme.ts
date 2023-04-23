@@ -14,7 +14,7 @@ export const useThemeStore = defineStore('theme', {
     enabled: true,
     strategies: [
       {
-        key: 'theme',
+        key: 'qst-theme',
         storage: localStorage,
       },
     ],

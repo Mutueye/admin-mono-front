@@ -4,6 +4,7 @@
     :key="route.name as string"
     width="100%"
     :height="height - 48 + 'px'"
+    class="overflow-y-auto"
     :name="route.name"
     :url="route.meta.subAppUrl"
     :sync="true" />

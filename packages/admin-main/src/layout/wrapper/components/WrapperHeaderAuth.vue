@@ -33,10 +33,9 @@
   const { userInfo } = storeToRefs(authStore);
 
   const logout = () => {
-    ElMessageBox.confirm('您确定要退出吗', '退出登录', {
+    ElMessageBox.confirm('您确定要退出吗？', '退出登录', {
       confirmButtonText: '确定',
       cancelButtonText: '取消',
-      type: 'info',
     })
       .then(() => {
         authStore.logout();

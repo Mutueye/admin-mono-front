@@ -1,28 +1,60 @@
 <template>
   <ScrollableContent>
-    <div class="grid grid-cols-3 xl:grid-cols-4 gap-space-md">
-      <div v-for="app in appList" :key="app.name" class="bg-bg-page p-space">{{ app.title }}</div>
+    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-space-md">
+      <AddAppBtn @click="() => open()" />
+      <AppBtn
+        v-for="app in appList"
+        :key="app.name"
+        :app-config="app"
+        @config="() => open(app)"
+        @delete="() => deleteApp(app)" />
     </div>
-
-    <!-- <div class="w-full flex flex-col items-center">
-      <div class="w-full py-space-xxxl text-center font-bold">HOME</div>
-      <HelloWorld msg="Hellow World" />
-      <el-button>text</el-button>
-    </div> -->
   </ScrollableContent>
+  <AppConfigDialog ref="appConfigDialogRef" />
 </template>
 
 <script lang="ts" setup>
   import { ref, onMounted } from 'vue';
-  // import HelloWorld from '@/components/HelloWorld.vue';
-  import ScrollableContent from '@/components/ScrollableContent.vue';
-  import type { SubAppConfig } from '@/utils/subAppConfig';
+  import { ElMessageBox } from 'element-plus';
+  import { remove } from 'lodash-es';
+  import { SubAppConfig, setLocalSubAppList } from '@/utils/subAppConfig';
   import { getLocalSubAppList } from '@/utils/subAppConfig';
 
+  import ScrollableContent from '@/components/ScrollableContent.vue';
+  import AppBtn from './components/AppBtn.vue';
+  import AddAppBtn from './components/AddAppBtn.vue';
+  import AppConfigDialog from './components/AppConfigDialog.vue';
+
   const appList = ref<SubAppConfig[]>([]);
+  const appConfigDialogRef = ref<InstanceType<typeof AppConfigDialog>>();
 
   onMounted(() => {
     const list = getLocalSubAppList();
     if (list) appList.value = list;
   });
+
+  const open = (data?: SubAppConfig) => {
+    if (appConfigDialogRef.value) {
+      appConfigDialogRef.value.open(data);
+    }
+  };
+
+  const deleteApp = (app: SubAppConfig) => {
+    ElMessageBox.confirm(`您确定要删除应用 [${app.title}] 吗？`, '删除应用', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+    })
+      .then(() => {
+        remove(appList.value, (item) => item.name === app.name);
+
+        // const newAppList: SubAppConfig[] = [];
+        // appList.value.forEach((item) => {
+        //   if (app.name !== item.name) {
+        //     newAppList.push(item);
+        //   }
+        // });
+        setLocalSubAppList(appList.value, true);
+      })
+      .catch(() => null);
+  };
 </script>
