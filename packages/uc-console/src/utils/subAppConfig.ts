@@ -26,8 +26,8 @@ export const appList: SubAppConfig[] = [
     title: '用户中心控制台',
     name: 'uc',
     iconClass: 'i-mdi-account-settings-outline',
-    devUrl: '//localhost:5300/',
-    url: '//localhost:5300/',
+    devUrl: '//localhost:5210/',
+    url: '//localhost:5210/',
     order: 1,
   },
   {

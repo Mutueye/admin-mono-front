@@ -7,7 +7,8 @@
     class="overflow-y-auto"
     :name="route.name"
     :url="route.meta.subAppUrl"
-    :sync="true" />
+    :sync="true"
+    :alive="true" />
 </template>
 
 <script lang="ts" setup>

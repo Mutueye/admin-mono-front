@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full bg-bg h-48px border-b border-border flex flex-row items-center justify-between relative pl-space-sm">
+    class="w-full bg-bg h-48px border-b border-border-light flex flex-row items-center justify-between relative pl-space-sm">
     <div class="flex flex-row items-center">
       <div class="text-size-medium font-500">统一运营管理平台</div>
       <div v-if="route.meta.title" class="flex flex-row items-center">

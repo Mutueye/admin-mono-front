@@ -9,6 +9,10 @@
       "path": "../packages/admin-main"
     },
     {
+      "name": "packages/uc-console",
+      "path": "../packages/uc-console"
+    },
+    {
       "name": "packages/athena-home-banner",
       "path": "../packages/athena-home-banner"
     },
@@ -30,10 +34,7 @@
       "source.fixAll.stylelint": true
     },
     "diffEditor.wordWrap": "off",
-    "unocss.root": [
-      "packages/admin-main",
-      "packages/athena-home-banner",
-    ],
+    "unocss.root": ["packages/admin-main", "packages/athena-home-banner"],
     "colorize.languages": [
       "json",
       "css",

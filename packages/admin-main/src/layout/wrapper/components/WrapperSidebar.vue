@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col h-full w-64px bg-bg-secondary flex-shrink-0 border-r border-border min-h-0">
+    class="flex flex-col h-full w-64px bg-bg-secondary flex-shrink-0 border-r border-border-light min-h-0">
     <i
       class="i-uplus:logo inline-block align-middle w-36px h-36px m-14px cursor-pointer"
       @click="

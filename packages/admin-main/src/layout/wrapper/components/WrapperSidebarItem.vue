@@ -2,7 +2,7 @@
   <el-tooltip effect="dark" :content="title" placement="right">
     <div
       class="w-36px h-36px mx-14px mt-14px flex flex-row items-center justify-center hover:bg-bg rounded-base"
-      :class="active ? 'bg-bg' : 'bg-transparent cursor-pointer'"
+      :class="active ? 'bg-white' : 'bg-transparent cursor-pointer'"
       @click="
         () => {
           active ? null : router.push(routeData);
