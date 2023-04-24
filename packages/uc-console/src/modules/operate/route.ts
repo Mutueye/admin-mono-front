@@ -1,42 +1,42 @@
 import { RouteRecordData } from '@/router/types';
-import Applets from './views/Applets.vue';
-import DataSyncMng from './views/DataSyncMng.vue';
+import UserMng from './views/UserMng.vue';
+import OrgMng from './views/OrgMng.vue';
 
 const routeData: RouteRecordData = {
   admin: [
     {
-      path: '/base',
-      name: 'base',
+      path: '/operate',
+      name: 'operate',
       meta: {
-        title: '基础信息配置',
+        title: '运营业务',
         menuConfig: {
-          order: 0,
+          order: 1,
           iconClass: 'i-mdi-database-cog-outline',
         },
       },
-      redirect: '/base/applets',
+      redirect: '/operate/userMng',
       children: [
         {
-          path: 'applets',
-          name: 'applets',
+          path: 'userMng',
+          name: 'userMng',
           meta: {
-            title: '应用配置',
+            title: '用户管理',
             menuConfig: {
               order: 0,
             },
           },
-          component: Applets,
+          component: UserMng,
         },
         {
-          path: 'events',
-          name: 'events',
+          path: 'orgMng',
+          name: 'orgMng',
           meta: {
-            title: '数据同步管理',
+            title: '组织机构管理',
             menuConfig: {
               order: 1,
             },
           },
-          component: DataSyncMng,
+          component: OrgMng,
         },
       ],
     },

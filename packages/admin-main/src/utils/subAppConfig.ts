@@ -1,4 +1,4 @@
-import { unionBy } from 'lodash-es';
+// import { unionBy } from 'lodash-es';
 
 export interface SubAppConfig {
   /** id */
@@ -44,8 +44,9 @@ export const getSubAppList = async () => {
   // TODO 请求接口取得子应用列表
   const localSubAppList = getLocalSubAppList();
   let subAppList: SubAppConfig[] = appList;
-  if (localSubAppList) {
-    subAppList = unionBy(localSubAppList, appList, 'name');
+  if (localSubAppList && localSubAppList.length > 0) {
+    // subAppList = unionBy(localSubAppList, appList, 'name');
+    subAppList = localSubAppList;
   }
   setLocalSubAppList(subAppList);
   // return subAppList;

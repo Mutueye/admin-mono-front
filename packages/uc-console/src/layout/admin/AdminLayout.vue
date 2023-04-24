@@ -1,10 +1,13 @@
 <template>
   <div
-    class="w-full min-h-full overflow-hidden flex flex-row self-stretch items-stretch min-w-1200px">
-    <div class="flex flex-col w-left-menu bg-bg-page border-r border-border-lighter flex-shrink-0">
-      <el-scrollbar>
-        <Menu :layout="layout" />
-      </el-scrollbar>
+    class="w-full min-h-full max-h-full overflow-hidden flex flex-row items-stretch min-w-1200px">
+    <div class="flex flex-col w-left-menu bg-bg-page flex-shrink relative">
+      <div class="flex flex-1 relative w-full z-10">
+        <el-scrollbar class="w-full">
+          <Menu :layout="layout" />
+        </el-scrollbar>
+      </div>
+      <div class="absolute w-1px top-0 bottom-0 right-0 bg-border-light" />
     </div>
     <div class="w-full flex flex-col bg-bg">
       <div class="flex flex-row items-center justify-between px-space-xl py-space">

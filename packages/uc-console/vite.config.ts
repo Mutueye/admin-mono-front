@@ -88,6 +88,7 @@ const baseConfig = defineConfig({
         'i-mdi-chart-timeline-variant-shimmer',
         'i-mdi-chemical-weapon',
         'i-mdi-city-variant-outline',
+        'i-mdi-database-cog-outline',
       ],
       transformers: [transformerDirectives(), transformerVariantGroup()],
       theme,

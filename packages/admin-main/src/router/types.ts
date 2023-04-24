@@ -5,7 +5,7 @@ export type RouteRecordData = Partial<Record<LayoutEnum | 'route', RouteRecordRa
 
 export interface MenuConfig {
   iconClass?: string;
-  order: number;
+  order?: number;
 }
 
 export interface ParentRouteData {

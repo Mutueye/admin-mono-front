@@ -34,7 +34,11 @@
       "source.fixAll.stylelint": true
     },
     "diffEditor.wordWrap": "off",
-    "unocss.root": ["packages/admin-main", "packages/athena-home-banner"],
+    "unocss.root": [
+      "packages/admin-main",
+      "packages/uc-console",
+      "packages/athena-home-banner"
+    ],
     "colorize.languages": [
       "json",
       "css",

@@ -31,9 +31,6 @@ importers:
       axios:
         specifier: ^1.3.5
         version: registry.npmmirror.com/axios@1.3.5
-      color2k:
-        specifier: ^2.0.2
-        version: registry.npmmirror.com/color2k@2.0.2
       element-plus:
         specifier: ^2.3.3
         version: registry.npmmirror.com/element-plus@2.3.3(vue@3.2.47)
@@ -46,9 +43,6 @@ importers:
       lodash-es:
         specifier: ^4.17.21
         version: registry.npmmirror.com/lodash-es@4.17.21
-      mitt:
-        specifier: ^3.0.0
-        version: registry.npmmirror.com/mitt@3.0.0
       pinia:
         specifier: ^2.0.34
         version: registry.npmmirror.com/pinia@2.0.34(typescript@4.9.5)(vue@3.2.47)
@@ -373,9 +367,6 @@ importers:
       axios:
         specifier: ^1.3.5
         version: 1.3.5
-      color2k:
-        specifier: ^2.0.2
-        version: 2.0.2
       element-plus:
         specifier: ^2.3.3
         version: 2.3.3(vue@3.2.47)
@@ -388,9 +379,6 @@ importers:
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
-      mitt:
-        specifier: ^3.0.0
-        version: 3.0.0
       pinia:
         specifier: ^2.0.34
         version: 2.0.34(typescript@4.9.5)(vue@3.2.47)
@@ -409,12 +397,6 @@ importers:
       vue-router:
         specifier: ^4.1.6
         version: 4.1.6(vue@3.2.47)
-      wujie:
-        specifier: ^1.0.14
-        version: 1.0.14
-      wujie-vue3:
-        specifier: ^1.0.14
-        version: 1.0.14(vue@3.2.47)
     devDependencies:
       '@types/lodash-es':
         specifier: ^4.17.7
@@ -550,13 +532,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.21.4
-
-  /@babel/runtime@7.21.0:
-    resolution: {integrity: sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.13.11
-    dev: false
 
   /@babel/types@7.21.4:
     resolution: {integrity: sha512-rU2oY501qDxE8Pyo7i/Orqma4ziCOrby0/9mvbDUGEfvZjb279Nk9k19e2fiCxHbRRpY2ZyrgW1eq22mvmOIzA==}
@@ -1770,10 +1745,6 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: true
 
-  /color2k@2.0.2:
-    resolution: {integrity: sha512-kJhwH5nAwb34tmyuqq/lgjEKzlFXn1U99NlnB6Ws4qVaERcRUYeYP1cBw6BJ4vxaWStAUEef4WMr7WjOCnBt8w==}
-    dev: false
-
   /colord@2.9.3:
     resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
     dev: true
@@ -2981,10 +2952,6 @@ packages:
       kind-of: 6.0.3
     dev: true
 
-  /mitt@3.0.0:
-    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
-    dev: false
-
   /mrmime@1.0.1:
     resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
     engines: {node: '>=10'}
@@ -3275,7 +3242,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.19
     dependencies:
-      postcss: 8.4.21
+      postcss: registry.npmmirror.com/postcss@8.4.21
     dev: true
 
   /postcss-selector-parser@6.0.11:
@@ -3389,10 +3356,6 @@ packages:
       indent-string: 4.0.0
       strip-indent: 3.0.0
     dev: true
-
-  /regenerator-runtime@0.13.11:
-    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: false
 
   /require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
@@ -4231,21 +4194,6 @@ packages:
       utf-8-validate:
         optional: true
     dev: true
-
-  /wujie-vue3@1.0.14(vue@3.2.47):
-    resolution: {integrity: sha512-iKD5IcFUTs1Ajc2IUG0nOmAOzzcPmORws6WC+xCyuKueo9WFE0wtfQxDRgPRdCyj7zKJv45Ypb5ksbJfr0uWDw==}
-    peerDependencies:
-      vue: ^3.0.0
-    dependencies:
-      vue: 3.2.47
-      wujie: 1.0.14
-    dev: false
-
-  /wujie@1.0.14:
-    resolution: {integrity: sha512-KKDcqV0la7SL33A2VCV1noJfUXKVMyWfjEdspccG7VxB6CKqKM5PaCFXT1u4RsmPTC+e5jI3GPKsFqQqYGp/9w==}
-    dependencies:
-      '@babel/runtime': 7.21.0
-    dev: false
 
   /xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
@@ -5324,6 +5272,22 @@ packages:
       typescript: registry.npmmirror.com/typescript@4.9.5
     dev: true
 
+  registry.npmmirror.com/@rollup/pluginutils@5.0.2:
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@rollup/pluginutils/-/pluginutils-5.0.2.tgz}
+    name: '@rollup/pluginutils'
+    version: 5.0.2
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': registry.npmmirror.com/@types/estree@1.0.0
+      estree-walker: registry.npmmirror.com/estree-walker@2.0.2
+      picomatch: registry.npmmirror.com/picomatch@2.3.1
+    dev: true
+
   registry.npmmirror.com/@rollup/pluginutils@5.0.2(rollup@3.20.2):
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@rollup/pluginutils/-/pluginutils-5.0.2.tgz}
     id: registry.npmmirror.com/@rollup/pluginutils/5.0.2
@@ -5824,7 +5788,7 @@ packages:
     hasBin: true
     dependencies:
       '@ampproject/remapping': registry.npmmirror.com/@ampproject/remapping@2.2.1
-      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.0.2(rollup@3.20.2)
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.0.2
       '@unocss/config': registry.npmmirror.com/@unocss/config@0.48.5
       '@unocss/core': registry.npmmirror.com/@unocss/core@0.48.5
       '@unocss/preset-uno': registry.npmmirror.com/@unocss/preset-uno@0.48.5
@@ -5991,7 +5955,7 @@ packages:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0
     dependencies:
       '@ampproject/remapping': registry.npmmirror.com/@ampproject/remapping@2.2.1
-      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.0.2(rollup@3.20.2)
+      '@rollup/pluginutils': registry.npmmirror.com/@rollup/pluginutils@5.0.2
       '@unocss/config': registry.npmmirror.com/@unocss/config@0.48.5
       '@unocss/core': registry.npmmirror.com/@unocss/core@0.48.5
       '@unocss/inspector': registry.npmmirror.com/@unocss/inspector@0.48.5
@@ -9924,12 +9888,6 @@ packages:
       minipass: registry.npmmirror.com/minipass@3.3.6
       yallist: registry.npmmirror.com/yallist@4.0.0
     dev: true
-
-  registry.npmmirror.com/mitt@3.0.0:
-    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/mitt/-/mitt-3.0.0.tgz}
-    name: mitt
-    version: 3.0.0
-    dev: false
 
   registry.npmmirror.com/mkdirp@1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/mkdirp/-/mkdirp-1.0.4.tgz}
