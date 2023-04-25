@@ -28,7 +28,7 @@
   import { storeToRefs } from 'pinia';
   import { useToggleDayNight } from '@/componsables/useToggleDayNight';
   import { useThemeStore } from '@/store/theme';
-  import { currentThemeList } from 'qst-ui-system';
+  import { currentThemeList } from '@itshixun/qst-ui-system';
 
   const themeStore = useThemeStore();
   const { currentThemeIndex } = storeToRefs(themeStore);

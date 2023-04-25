@@ -20,9 +20,9 @@
       <div class="active-line top" />
       <div class="active-line bottom" />
       <div class="active-arrow"><i class="icon i-mdi-chevron-right" /></div>
-      <div class="active-dot-1"><i class="icon i-mdi-circle-small" /></div>
-      <div class="active-dot-2"><i class="icon i-mdi-circle-small" /></div>
-      <div class="active-dot-3"><i class="icon i-mdi-circle-small" /></div>
+      <div class="active-dot active-dot-1"><i class="icon i-mdi-circle-small" /></div>
+      <div class="active-dot active-dot-2"><i class="icon i-mdi-circle-small" /></div>
+      <div class="active-dot active-dot-3"><i class="icon i-mdi-circle-small" /></div>
     </el-menu-item>
   </div>
 </template>
@@ -58,14 +58,17 @@
     .active-arrow {
       @apply absolute w-20px h-20px top-1/2 -mt-10px right-space-xxxs flex items-center justify-center transition-all duration-200 ease-out opacity-0 -translate-x-30px;
     }
+    .active-dot {
+      @apply absolute w-20px h-20px top-1/2 -mt-10px right-space-xxxs flex scale-90 items-center justify-center transition-all;
+    }
     .active-dot-1 {
-      @apply absolute w-20px h-20px top-1/2 -mt-10px right-space-xxxs flex scale-90 items-center justify-center transition-all duration-300 ease-out opacity-0 -translate-x-60px;
+      @apply duration-300 ease-out opacity-0 -translate-x-60px;
     }
     .active-dot-2 {
-      @apply absolute w-20px h-20px top-1/2 -mt-10px right-space-xxxs flex scale-90 items-center justify-center transition-all duration-400 ease-out opacity-0 -translate-x-90px;
+      @apply duration-400 ease-out opacity-0 -translate-x-90px;
     }
     .active-dot-3 {
-      @apply absolute w-20px h-20px top-1/2 -mt-10px right-space-xxxs flex scale-90 items-center justify-center transition-all duration-500 ease-out opacity-0 -translate-x-120px;
+      @apply duration-500 ease-out opacity-0 -translate-x-120px;
     }
 
     &.is-active {
@@ -82,13 +85,13 @@
         @apply opacity-100 translate-x-0;
       }
       .active-dot-1 {
-        @apply opacity-80 -translate-x-7px;
+        @apply opacity-45 -translate-x-6px;
       }
       .active-dot-2 {
-        @apply opacity-50 -translate-x-13px;
+        @apply opacity-30 -translate-x-12px;
       }
       .active-dot-3 {
-        @apply opacity-20 -translate-x-19px;
+        @apply opacity-15 -translate-x-18px;
       }
     }
   }

@@ -20,7 +20,7 @@ const routeData: RouteRecordData = {
           path: 'applets',
           name: 'applets',
           meta: {
-            title: '应用配置',
+            title: '应用管理',
             menuConfig: {
               order: 0,
             },

@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
   import { onMounted } from 'vue';
-  import { setThemeClassByIndex } from 'qst-ui-system';
+  import { setThemeClassByIndex } from '@itshixun/qst-ui-system';
   import { useToggleDayNight } from '@/componsables/useToggleDayNight';
 
   const { toggleDayNight } = useToggleDayNight();

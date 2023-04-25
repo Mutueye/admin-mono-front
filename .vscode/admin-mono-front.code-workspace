@@ -11,14 +11,6 @@
     {
       "name": "packages/uc-console",
       "path": "../packages/uc-console"
-    },
-    {
-      "name": "packages/athena-home-banner",
-      "path": "../packages/athena-home-banner"
-    },
-    {
-      "name": "packages/qst-ui-system",
-      "path": "../packages/qst-ui-system"
     }
   ],
   "settings": {

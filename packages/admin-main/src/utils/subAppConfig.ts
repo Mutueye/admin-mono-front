@@ -23,7 +23,7 @@ const localSubAppListKey = 'sub-app-list';
 
 export const appList: SubAppConfig[] = [
   {
-    title: '用户中心控制台',
+    title: '用户中心控管理',
     name: 'uc',
     iconClass: 'i-mdi-account-settings-outline',
     devUrl: '//localhost:5300/',
