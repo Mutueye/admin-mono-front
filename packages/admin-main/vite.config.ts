@@ -13,16 +13,7 @@ import { theme, uplusIconCollection } from './unocss.theme';
 
 const baseConfig = defineConfig({
   plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          isCustomElement: (tag) => {
-            const tagList = ['hex-color-picker', 'hex-alpha-color-picker'];
-            return tagList.includes(tag);
-          },
-        },
-      },
-    }),
+    vue(),
     Unocss({
       presets: [
         presetUno(),
@@ -120,9 +111,7 @@ export default defineConfig(({ mode }) => {
     : 'https://console.uc.qstcloud.com';
 
   return {
-    build: {
-      outDir: `../../dist/${process.env.npm_package_name}`,
-    },
+    build: { outDir: `../../dist/${process.env.npm_package_name}` },
     ...baseConfig,
     base: process.env.VITE_APP_BASE_PATH ? process.env.VITE_APP_BASE_PATH : '/',
     server: {

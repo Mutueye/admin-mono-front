@@ -1,8 +1,7 @@
-import AdminLayout from '@/layout/admin/AdminLayout.vue';
-import BaseLayout from '@/layout/base/Baselayout.vue';
-import WrapperLayout from '@/layout/wrapper/WrapperLayout.vue';
 import type { RouteRecordRaw } from 'vue-router';
 import type { Component } from 'vue';
+import AdminLayout from '@/layout/admin/AdminLayout.vue';
+import BaseLayout from '@/layout/base/Baselayout.vue';
 
 /**
  * Page layout enum.
@@ -10,7 +9,6 @@ import type { Component } from 'vue';
 export enum LayoutEnum {
   base = 'base',
   admin = 'admin',
-  wrapper = 'wrapper',
 }
 
 const generateLayoutRoute = (config: {
@@ -29,5 +27,4 @@ const generateLayoutRoute = (config: {
 export const layoutRoutes: Record<LayoutEnum, RouteRecordRaw> = {
   base: generateLayoutRoute({ name: LayoutEnum.base, component: BaseLayout }),
   admin: generateLayoutRoute({ name: LayoutEnum.admin, component: AdminLayout }),
-  wrapper: generateLayoutRoute({ name: LayoutEnum.wrapper, component: WrapperLayout }),
 };

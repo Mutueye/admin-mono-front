@@ -13,16 +13,7 @@ import { theme, uplusIconCollection } from './unocss.theme';
 
 const baseConfig = defineConfig({
   plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          isCustomElement: (tag) => {
-            const tagList = ['hex-color-picker', 'hex-alpha-color-picker'];
-            return tagList.includes(tag);
-          },
-        },
-      },
-    }),
+    vue(),
     Unocss({
       presets: [
         presetUno(),

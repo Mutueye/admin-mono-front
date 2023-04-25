@@ -49,7 +49,7 @@
             if (crypto) {
               authStore.login({ cryptogram: crypto, key: res }).then(() => {
                 authStore.getUserInfo().then(() => {
-                  router.replace({ name: 'home' });
+                  router.replace({ path: '/' });
                 });
               });
             }

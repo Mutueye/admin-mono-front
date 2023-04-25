@@ -6,7 +6,6 @@ import { initQstTheme } from '@itshixun/qst-ui-system';
 import App from '@/App.vue';
 import { router } from '@/router/index';
 import pinia from '@/store';
-// import { useAppConfigStore } from '@/store/appConfig';
 
 // element-plus styles
 import 'element-plus/dist/index.css';

@@ -11,7 +11,7 @@ const routeData: RouteRecordData = {
         title: '运营业务',
         menuConfig: {
           order: 1,
-          iconClass: 'i-mdi-database-cog-outline',
+          iconClass: 'i-mdi-atom-variant',
         },
       },
       redirect: '/operate/userMng',

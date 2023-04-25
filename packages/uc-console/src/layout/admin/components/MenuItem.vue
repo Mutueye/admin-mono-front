@@ -42,7 +42,7 @@
 
 <style lang="scss" scoped>
   .admin-menu-item {
-    @apply relative;
+    @apply relative mr-1px;
     .active-line {
       @apply absolute left-0 right-0 h-1px bg-transparent transition-transform duration-300 ease-out;
       &.top {
@@ -72,6 +72,7 @@
     }
 
     &.is-active {
+      @apply mr-0;
       .active-line {
         @apply bg-border-light;
         &.top {

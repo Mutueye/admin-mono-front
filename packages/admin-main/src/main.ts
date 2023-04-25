@@ -7,7 +7,6 @@ import { getSubAppList } from './utils/subAppConfig';
 import App from '@/App.vue';
 import { router, initRouter } from '@/router/index';
 import pinia from '@/store';
-// import { useAppConfigStore } from '@/store/appConfig';
 
 // element-plus styles
 import 'element-plus/dist/index.css';
@@ -27,11 +26,5 @@ getSubAppList().then(() => {
     app.mount('#app');
   }
 });
-
-// useAppConfigStore()
-//   .getAppConfig()
-//   .then(() => {
-//     app.mount('#app');
-//   });
 
 initQstTheme();

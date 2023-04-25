@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
   import { useRoute } from 'vue-router';
-  import { LayoutEnum } from '@/router/layoutRouteConfig';
+  import { LayoutEnum } from '@/layout/layoutRouteConfig';
   import Menu from './components/Menu.vue';
 
   const route = useRoute();

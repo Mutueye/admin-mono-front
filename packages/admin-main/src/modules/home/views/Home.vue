@@ -1,13 +1,13 @@
 <template>
   <ScrollableContent>
     <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-space-md">
-      <AddAppBtn @click="() => open()" />
       <AppBtn
         v-for="app in appList"
         :key="app.name"
         :app-config="app"
         @config="() => open(app)"
         @delete="() => deleteApp(app)" />
+      <AddAppBtn @click="() => open()" />
     </div>
   </ScrollableContent>
   <AppConfigDialog ref="appConfigDialogRef" />
