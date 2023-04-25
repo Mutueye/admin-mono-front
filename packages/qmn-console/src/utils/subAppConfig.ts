@@ -1,4 +1,4 @@
-// import { unionBy } from 'lodash-es';
+import { unionBy } from 'lodash-es';
 
 export interface SubAppConfig {
   /** id */
@@ -26,17 +26,9 @@ export const appList: SubAppConfig[] = [
     title: '用户中心控制台',
     name: 'uc',
     iconClass: 'i-mdi-account-settings-outline',
-    devUrl: '//localhost:5300/',
-    url: '//localhost:5300/',
+    devUrl: '//localhost:5210/',
+    url: '//localhost:5210/',
     order: 1,
-  },
-  {
-    title: '消息通知控制台',
-    name: 'qmn',
-    iconClass: 'i-mdi-bell-ring-outline',
-    devUrl: '//localhost:5400/',
-    url: '//localhost:5400/',
-    order: 2,
   },
   {
     title: '测试外网跨域',
@@ -44,7 +36,7 @@ export const appList: SubAppConfig[] = [
     iconClass: 'i-mdi-check-network-outline',
     devUrl: '',
     url: 'https://mutueye.github.io/vite-vue3-scaffold/',
-    order: 3,
+    order: 2,
   },
 ];
 
@@ -52,9 +44,8 @@ export const getSubAppList = async () => {
   // TODO 请求接口取得子应用列表
   const localSubAppList = getLocalSubAppList();
   let subAppList: SubAppConfig[] = appList;
-  if (localSubAppList && localSubAppList.length > 0) {
-    // subAppList = unionBy(localSubAppList, appList, 'name');
-    subAppList = localSubAppList;
+  if (localSubAppList) {
+    subAppList = unionBy(localSubAppList, appList, 'name');
   }
   setLocalSubAppList(subAppList);
   // return subAppList;

@@ -1,1 +1,1 @@
-# admin-main 统一运营管理平台 - 基座项目
+# uc-console 用户中心控制台

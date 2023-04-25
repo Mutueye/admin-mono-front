@@ -11,6 +11,10 @@
     {
       "name": "packages/uc-console",
       "path": "../packages/uc-console"
+    },
+    {
+      "name": "packages/qmn-console",
+      "path": "../packages/qmn-console"
     }
   ],
   "settings": {
@@ -29,7 +33,7 @@
     "unocss.root": [
       "packages/admin-main",
       "packages/uc-console",
-      "packages/athena-home-banner"
+      "packages/qmn-console"
     ],
     "colorize.languages": [
       "json",

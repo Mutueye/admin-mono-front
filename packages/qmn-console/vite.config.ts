@@ -79,7 +79,7 @@ const baseConfig = defineConfig({
         'i-mdi-chart-timeline-variant-shimmer',
         'i-mdi-chemical-weapon',
         'i-mdi-city-variant-outline',
-        'i-mdi-message-cog-outline',
+        'i-mdi-database-cog-outline',
       ],
       transformers: [transformerDirectives(), transformerVariantGroup()],
       theme,
@@ -112,13 +112,15 @@ export default defineConfig(({ mode }) => {
     : 'https://console.uc.qstcloud.com';
 
   return {
-    build: { outDir: `../../dist/${process.env.npm_package_name}` },
+    build: {
+      outDir: `../../dist/${process.env.npm_package_name}`,
+    },
     ...baseConfig,
     base: process.env.VITE_APP_BASE_PATH ? process.env.VITE_APP_BASE_PATH : '/',
     server: {
-      open: true,
+      open: false,
       host: '0.0.0.0',
-      port: 5100,
+      port: 5400,
       proxy: {
         '/get_appconfig': {
           target: gateway,

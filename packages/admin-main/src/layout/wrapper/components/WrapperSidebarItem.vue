@@ -3,11 +3,7 @@
     <div
       class="w-36px h-36px mx-14px mt-14px flex flex-row items-center justify-center hover:bg-bg rounded-base"
       :class="active ? 'bg-white' : 'bg-transparent cursor-pointer'"
-      @click="
-        () => {
-          active ? null : router.push(routeData);
-        }
-      ">
+      @click="clickItem">
       <i
         class="inline-block w-22px h-22px"
         :class="[iconClass, active ? 'color-primary' : 'color-text-regular']" />
@@ -24,11 +20,17 @@
   const router = useRouter();
 
   const props = defineProps<{ routeData: RouteRecordRaw; active: boolean }>();
-  const { routeData } = toRefs(props);
+  const { routeData, active } = toRefs(props);
 
   const title = computed(() => get(routeData.value, 'meta.title', ''));
 
   const iconClass = computed(() => {
     return get(routeData.value, 'meta.menuConfig.iconClass', 'i-mdi-record-circle');
   });
+
+  const clickItem = () => {
+    if (!active.value && routeData.value) {
+      router.push(routeData.value);
+    }
+  };
 </script>
