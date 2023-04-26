@@ -9,12 +9,16 @@
       "path": "../packages/admin-main"
     },
     {
-      "name": "packages/uc-console",
-      "path": "../packages/uc-console"
+      "name": "packages/quc-console",
+      "path": "../packages/quc-console"
     },
     {
       "name": "packages/qmn-console",
       "path": "../packages/qmn-console"
+    },
+    {
+      "name": "packages/qts-console",
+      "path": "../packages/qts-console"
     }
   ],
   "settings": {
