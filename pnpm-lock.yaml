@@ -271,6 +271,130 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(typescript@4.9.5)
 
+  packages/qts-console:
+    dependencies:
+      '@iconify/json':
+        specifier: ^2.2.50
+        version: 2.2.50
+      '@itshixun/qst-ui-system':
+        specifier: ^0.0.2
+        version: 0.0.2
+      '@vueuse/core':
+        specifier: ^9.13.0
+        version: 9.13.0(vue@3.2.47)
+      '@vueuse/head':
+        specifier: ^1.1.23
+        version: 1.1.23(vue@3.2.47)
+      axios:
+        specifier: ^1.3.5
+        version: 1.3.5
+      element-plus:
+        specifier: ^2.3.3
+        version: 2.3.3(vue@3.2.47)
+      js-base64:
+        specifier: ^3.7.5
+        version: 3.7.5
+      jsencrypt:
+        specifier: ^3.3.2
+        version: 3.3.2
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
+      pinia:
+        specifier: ^2.0.34
+        version: 2.0.34(typescript@4.9.5)(vue@3.2.47)
+      pinia-plugin-persist:
+        specifier: ^1.0.0
+        version: 1.0.0(pinia@2.0.34)(vue@3.2.47)
+      vanilla-colorful:
+        specifier: ^0.7.2
+        version: 0.7.2
+      vue:
+        specifier: ^3.2.47
+        version: 3.2.47
+      vue-router:
+        specifier: ^4.1.6
+        version: 4.1.6(vue@3.2.47)
+    devDependencies:
+      '@types/lodash-es':
+        specifier: ^4.17.7
+        version: 4.17.7
+      '@types/node':
+        specifier: ^18.15.11
+        version: 18.15.11
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.58.0
+        version: 5.58.0(@typescript-eslint/parser@5.58.0)(eslint@8.38.0)(typescript@4.9.5)
+      '@typescript-eslint/parser':
+        specifier: ^5.58.0
+        version: 5.58.0(eslint@8.38.0)(typescript@4.9.5)
+      '@vitejs/plugin-vue':
+        specifier: ^4.1.0
+        version: 4.1.0(vite@4.2.1)(vue@3.2.47)
+      '@vue/test-utils':
+        specifier: ^2.3.2
+        version: 2.3.2(vue@3.2.47)
+      eslint:
+        specifier: ^8.38.0
+        version: 8.38.0
+      eslint-config-prettier:
+        specifier: ^8.8.0
+        version: 8.8.0(eslint@8.38.0)
+      eslint-plugin-vue:
+        specifier: ^9.10.0
+        version: 9.10.0(eslint@8.38.0)
+      jsdom:
+        specifier: ^20.0.3
+        version: 20.0.3
+      postcss:
+        specifier: ^8.4.21
+        version: 8.4.21
+      postcss-html:
+        specifier: ^1.5.0
+        version: 1.5.0
+      postcss-scss:
+        specifier: ^4.0.6
+        version: 4.0.6(postcss@8.4.21)
+      prettier:
+        specifier: ^2.8.7
+        version: 2.8.7
+      sass:
+        specifier: ^1.62.0
+        version: 1.62.0
+      stylelint:
+        specifier: ^15.4.0
+        version: 15.4.0
+      stylelint-config-css-modules:
+        specifier: ^4.2.0
+        version: 4.2.0(stylelint@15.4.0)
+      stylelint-config-recess-order:
+        specifier: ^4.0.0
+        version: 4.0.0(stylelint@15.4.0)
+      stylelint-config-recommended-vue:
+        specifier: ^1.4.0
+        version: 1.4.0(postcss-html@1.5.0)(stylelint@15.4.0)
+      stylelint-config-standard-scss:
+        specifier: ^7.0.1
+        version: 7.0.1(postcss@8.4.21)(stylelint@15.4.0)
+      stylelint-scss:
+        specifier: ^4.6.0
+        version: 4.6.0(stylelint@15.4.0)
+      typescript:
+        specifier: ^4.9.5
+        version: 4.9.5
+      unocss:
+        specifier: ^0.48.5
+        version: 0.48.5(vite@4.2.1)
+      vite:
+        specifier: ^4.2.1
+        version: 4.2.1(@types/node@18.15.11)(sass@1.62.0)
+      vue-eslint-parser:
+        specifier: ^9.1.1
+        version: 9.1.1(eslint@8.38.0)
+      vue-tsc:
+        specifier: ^1.2.0
+        version: 1.2.0(typescript@4.9.5)
+
   packages/uc-console:
     dependencies:
       '@iconify/json':
@@ -1456,7 +1580,7 @@ packages:
       grapheme-splitter: 1.0.4
       ignore: 5.2.4
       natural-compare-lite: 1.4.0
-      semver: 7.4.0
+      semver: 7.5.0
       tsutils: 3.21.0(typescript@4.9.5)
       typescript: 4.9.5
     transitivePeerDependencies:
@@ -1530,7 +1654,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.4.0
+      semver: 7.5.0
       tsutils: 3.21.0(typescript@4.9.5)
       typescript: 4.9.5
     transitivePeerDependencies:
@@ -1551,7 +1675,7 @@ packages:
       '@typescript-eslint/typescript-estree': 5.58.0(typescript@4.9.5)
       eslint: 8.38.0
       eslint-scope: 5.1.1
-      semver: 7.4.0
+      semver: 7.5.0
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -6026,7 +6150,7 @@ packages:
       stylelint: '>=14.0.0'
     dependencies:
       postcss-html: 1.5.0
-      semver: 7.4.0
+      semver: 7.5.0
       stylelint: 15.4.0
       stylelint-config-html: 1.1.0(postcss-html@1.5.0)(stylelint@15.4.0)
       stylelint-config-recommended: 11.0.0(stylelint@15.4.0)
@@ -6626,7 +6750,7 @@ packages:
       espree: 9.5.1
       esquery: 1.5.0
       lodash: 4.17.21
-      semver: 7.4.0
+      semver: 7.5.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9086,7 +9210,7 @@ packages:
       fs.realpath: registry.npmmirror.com/fs.realpath@1.0.0
       inflight: registry.npmmirror.com/inflight@1.0.6
       inherits: registry.npmmirror.com/inherits@2.0.4
-      minimatch: registry.npmmirror.com/minimatch@5.1.6
+      minimatch: 5.1.6
       once: registry.npmmirror.com/once@1.4.0
     dev: true
 
@@ -9801,15 +9925,6 @@ packages:
       brace-expansion: registry.npmmirror.com/brace-expansion@1.1.11
     dev: true
 
-  registry.npmmirror.com/minimatch@5.1.6:
-    resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/minimatch/-/minimatch-5.1.6.tgz}
-    name: minimatch
-    version: 5.1.6
-    engines: {node: '>=10'}
-    dependencies:
-      brace-expansion: registry.npmmirror.com/brace-expansion@2.0.1
-    dev: true
-
   registry.npmmirror.com/minimatch@6.2.0:
     resolution: {integrity: sha512-sauLxniAmvnhhRjFwPNnJKaPFYyddAgbYdeUpHULtCT/GhzdCx/MDNy+Y40lBxTQUrMzDE8e0S43Z5uqfO0REg==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/minimatch/-/minimatch-6.2.0.tgz}
     name: minimatch
@@ -9892,7 +10007,7 @@ packages:
     dependencies:
       hosted-git-info: registry.npmmirror.com/hosted-git-info@2.8.9
       resolve: registry.npmmirror.com/resolve@1.22.2
-      semver: registry.npmmirror.com/semver@5.7.1
+      semver: 5.7.1
       validate-npm-package-license: registry.npmmirror.com/validate-npm-package-license@3.0.4
     dev: true
 
@@ -10472,13 +10587,6 @@ packages:
     engines: {node: '>=v12.22.7'}
     dependencies:
       xmlchars: registry.npmmirror.com/xmlchars@2.2.0
-    dev: true
-
-  registry.npmmirror.com/semver@5.7.1:
-    resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/semver/-/semver-5.7.1.tgz}
-    name: semver
-    version: 5.7.1
-    hasBin: true
     dev: true
 
   registry.npmmirror.com/semver@7.4.0:
