@@ -1,12 +1,12 @@
 <template>
   <div class="w-full h-100vh bg-bg-page flex flex-col items-center justify-center">
-    <div class="w-480px h-auto p-space-xxxl bg-bg rounded-large border border-border-light">
-      <div class="text-size-24px font-semibold mb-space-xxxl text-center">统一运营管理平台</div>
+    <div class="w-480px h-auto p-spacing-xxxl bg-bg rounded-large border border-border-light">
+      <div class="text-size-24px font-semibold mb-spacing-xxxl text-center">统一运营管理平台</div>
       <el-form ref="formRef" :model="formData" :rules="rules" size="large" class="-mb-18px">
-        <el-form-item prop="account" class="mb-space-xxl">
+        <el-form-item prop="account" class="mb-spacing-xxl">
           <el-input v-model="formData.account" placeholder="账号" />
         </el-form-item>
-        <el-form-item prop="pass" class="mb-space-xxl">
+        <el-form-item prop="pass" class="mb-spacing-xxl">
           <el-input v-model="formData.pass" type="password" autocomplete="off" placeholder="密码" />
         </el-form-item>
         <el-form-item>

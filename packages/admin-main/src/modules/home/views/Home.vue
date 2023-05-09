@@ -1,6 +1,6 @@
 <template>
   <ScrollableContent>
-    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-space-md">
+    <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-spacing-md">
       <AppBtn
         v-for="app in appList"
         :key="app.name"

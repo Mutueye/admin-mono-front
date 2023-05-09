@@ -26,7 +26,7 @@
               <div class="w-20px h-16px flex items-center justify-center">
                 <i class="inline-block text-size-16px color-regular" :class="item" />
               </div>
-              <div class="ml-space-xxxs">{{ item }}</div>
+              <div class="ml-spacing-xxxs">{{ item }}</div>
             </div>
           </el-option>
           <template v-if="formData.iconClass" #prefix>
