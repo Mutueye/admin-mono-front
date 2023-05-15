@@ -11,6 +11,8 @@ import {
 } from 'unocss';
 import { theme, uplusIconCollection } from './unocss.theme';
 
+const envDir = path.join(__dirname + '/../../env');
+
 const baseConfig = defineConfig({
   plugins: [
     vue(),
@@ -90,6 +92,7 @@ const baseConfig = defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  envDir,
 });
 
 /**
@@ -100,7 +103,7 @@ const baseConfig = defineConfig({
  */
 export default defineConfig(({ mode }) => {
   // 取env环境变量配置，没取到则默认开发环境
-  const viteEnvs = loadEnv(mode, process.cwd() + '/env');
+  const viteEnvs = loadEnv(mode, envDir);
   for (const k in viteEnvs) {
     process.env[k] = viteEnvs[k];
   }
