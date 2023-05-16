@@ -21,7 +21,7 @@
       </el-form-item>
       <el-form-item prop="iconClass" label="应用图标">
         <el-select v-model="formData.iconClass" placeholder="请选择应用图标" class="w-full">
-          <el-option v-for="item in appIcons" :key="item" :value="item">
+          <el-option v-for="item in iconList" :key="item" :value="item">
             <div class="flex flex-row w-full items-center justify-start">
               <div class="w-20px h-16px flex items-center justify-center">
                 <i class="inline-block text-size-16px color-regular" :class="item" />
@@ -89,7 +89,7 @@
   import { ElForm } from 'element-plus';
   import type { FormInstance, FormRules } from 'element-plus';
   import type { SubAppConfig } from '@/utils/subAppConfig';
-  import { appIcons } from '@/utils/appIcons';
+  import { iconList } from 'common-utils';
   import { getLocalSubAppList, setLocalSubAppList } from '@/utils/subAppConfig';
 
   const initialFormData = {

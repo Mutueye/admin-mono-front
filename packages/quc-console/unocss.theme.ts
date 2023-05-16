@@ -1,4 +1,7 @@
 import { generateUnocssTheme } from '@itshixun/qst-ui-system';
+import { iconList } from 'common-utils';
+
+export const safelist = [...iconList];
 
 export const theme = generateUnocssTheme();
 

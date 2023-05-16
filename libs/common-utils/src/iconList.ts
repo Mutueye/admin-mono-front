@@ -1,4 +1,4 @@
-export const appIcons = [
+export const iconList = [
   'i-mdi-home',
   'i-mdi-home-city-outline',
   'i-mdi-home-modern',
@@ -50,4 +50,5 @@ export const appIcons = [
   'i-mdi-chemical-weapon',
   'i-mdi-city-variant-outline',
   'i-mdi-message-cog-outline',
-];
+  'i-mdi-database-cog-outline',
+]

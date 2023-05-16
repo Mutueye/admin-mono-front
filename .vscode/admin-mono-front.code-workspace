@@ -19,6 +19,10 @@
     {
       "name": "packages/qts-console",
       "path": "../packages/qts-console"
+    },
+    {
+      "name": "libs/common-utils",
+      "path": "../libs/common-utils"
     }
   ],
   "settings": {
@@ -36,8 +40,9 @@
     "diffEditor.wordWrap": "off",
     "unocss.root": [
       "packages/admin-main",
-      "packages/uc-console",
-      "packages/qmn-console"
+      "packages/quc-console",
+      "packages/qmn-console",
+      "packages/qts-console"
     ],
     "colorize.languages": [
       "json",
