@@ -1,6 +1,6 @@
 # admin-mono-front
 
-统一运营管理平台前端：本项目为多包项目(Monorepo)，项目使用 lerna-lite 结合 pnpm 的 workspace 进行多包管理
+统一运营管理平台前端：本项目为多包项目(Monorepo)，项目使用 pnpm 的 workspace 进行多包管理
 
 ## scripts
 
