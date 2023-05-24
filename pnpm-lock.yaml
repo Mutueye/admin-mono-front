@@ -40,9 +40,6 @@ importers:
 
   packages/admin-main:
     dependencies:
-      '@iconify/json':
-        specifier: ^2.2.62
-        version: 2.2.62
       '@itshixun/qst-ui-system':
         specifier: ^0.0.9
         version: 0.0.9
@@ -92,6 +89,12 @@ importers:
         specifier: ^1.0.15
         version: 1.0.15(vue@3.2.47)
     devDependencies:
+      '@iconify-json/line-md':
+        specifier: ^1.1.24
+        version: 1.1.24
+      '@iconify-json/mdi':
+        specifier: ^1.1.52
+        version: 1.1.52
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
@@ -173,9 +176,6 @@ importers:
 
   packages/qmn-console:
     dependencies:
-      '@iconify/json':
-        specifier: ^2.2.62
-        version: 2.2.62
       '@itshixun/qst-ui-system':
         specifier: ^0.0.9
         version: 0.0.9
@@ -219,6 +219,12 @@ importers:
         specifier: ^4.1.6
         version: 4.1.6(vue@3.2.47)
     devDependencies:
+      '@iconify-json/line-md':
+        specifier: ^1.1.24
+        version: 1.1.24
+      '@iconify-json/mdi':
+        specifier: ^1.1.52
+        version: 1.1.52
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
@@ -300,9 +306,6 @@ importers:
 
   packages/qts-console:
     dependencies:
-      '@iconify/json':
-        specifier: ^2.2.62
-        version: 2.2.62
       '@itshixun/qst-ui-system':
         specifier: ^0.0.9
         version: 0.0.9
@@ -346,6 +349,12 @@ importers:
         specifier: ^4.1.6
         version: 4.1.6(vue@3.2.47)
     devDependencies:
+      '@iconify-json/line-md':
+        specifier: ^1.1.24
+        version: 1.1.24
+      '@iconify-json/mdi':
+        specifier: ^1.1.52
+        version: 1.1.52
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
@@ -427,9 +436,6 @@ importers:
 
   packages/quc-console:
     dependencies:
-      '@iconify/json':
-        specifier: ^2.2.62
-        version: 2.2.62
       '@itshixun/qst-ui-system':
         specifier: ^0.0.9
         version: 0.0.9
@@ -473,6 +479,12 @@ importers:
         specifier: ^4.1.6
         version: 4.1.6(vue@3.2.47)
     devDependencies:
+      '@iconify-json/line-md':
+        specifier: ^1.1.24
+        version: 1.1.24
+      '@iconify-json/mdi':
+        specifier: ^1.1.52
+        version: 1.1.52
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
@@ -958,15 +970,21 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify/json@2.2.62:
-    resolution: {integrity: sha512-61Ix9UTlnguZiAZtjM+91dNnu7G47W85PIB7d0QAfV1i+O0Fm1WH6ZyJfckGtnyHuKXxR8Xtn5oOexzVYCci5A==}
+  /@iconify-json/line-md@1.1.24:
+    resolution: {integrity: sha512-vHQnRZ3ZVDnrFoj8BMU0iTYR9404TrePP4UhCjkfOqkH4gibFoyM6JGO5OiIHv5m/GQvu4nteTICjklsRFUKpA==}
     dependencies:
       '@iconify/types': 2.0.0
-      pathe: 1.1.0
-    dev: false
+    dev: true
+
+  /@iconify-json/mdi@1.1.52:
+    resolution: {integrity: sha512-tLzpFcmoGw1/jHcl+BshUd4bqvP4755OUluaARsuKskTp2aIPIAkRQOhzJGpry9CZ0i82z0alq4HrKrp9uvj4A==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
 
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: true
 
   /@iconify/utils@2.1.5:
     resolution: {integrity: sha512-6MvDI+I6QMvXn5rK9KQGdpEE4mmLTcuQdLZEiX5N+uZB+vc4Yw9K1OtnOgkl8mp4d9X0UrILREyZgF1NUwUt+Q==}
@@ -4458,6 +4476,7 @@ packages:
 
   /pathe@1.1.0:
     resolution: {integrity: sha512-ODbEPR0KKHqECXW1GoxdDb+AZvULmXjVPy4rt+pGo2+TnjJTIPJQSVS6N63n8T2Ip+syHhbn52OewKicV0373w==}
+    dev: true
 
   /perfect-debounce@1.0.0:
     resolution: {integrity: sha512-xCy9V055GLEqoFaHoC1SoLIaLmWctgCUaBaWxDZ7/Zx4CTyX7cJQLJOok/orfjZAh9kEYpjJa4d0KcJmCbctZA==}
