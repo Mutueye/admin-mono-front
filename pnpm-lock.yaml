@@ -9,6 +9,10 @@ importers:
         version: 2.8.1
 
   libs/common-utils:
+    dependencies:
+      axios:
+        specifier: ^1.4.0
+        version: 1.4.0
     devDependencies:
       '@rollup/plugin-terser':
         specifier: ^0.4.3

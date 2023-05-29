@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia';
 import { ElMessage } from 'element-plus';
-import { axiosBaseInstance, ApiPath } from '@/utils/requestUtils';
+import { axiosBaseInstance } from 'common-utils';
+import type { ResultData } from 'common-utils';
+import { ApiPath } from '@/utils/consts';
 import { router } from '@/router';
-import type { ResultData } from '@/utils/requestUtils';
+import { setupRequestInterceptor } from '@/utils/requestUtils';
 
 // const { bus } = Wujie;
 
@@ -58,12 +60,14 @@ export const useAuthStore = defineStore('auth', {
           const token = res.data.data.accessToken;
           if (token) {
             this.setToken(token);
+            setupRequestInterceptor();
             return token;
           } else {
             return '';
           }
         })
-        .catch(() => {
+        .catch((err) => {
+          console.log('登录接口出错:', err);
           ElMessage.error('登录出错了');
         });
     },

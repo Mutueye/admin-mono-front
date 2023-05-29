@@ -28,6 +28,7 @@ module.exports = outputList.map((outputData) => {
   if (outputData.name) output.name = outputData.name
 
   return {
+    external: ['axios'],
     input: resolve('src/index.ts'),
     output,
     plugins: [typescript({ tsconfig: './tsconfig.json' })]
