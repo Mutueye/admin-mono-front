@@ -14,9 +14,9 @@ export const axiosBaseInstanceAuthorize = () => {
   if (token && token !== headerToken) setHeaderAccessToken(token);
 };
 
-/** 设置headers的X-Accesss-Token */
-export const setHeaderAccessToken = (token: string) => {
+/** 设置headers的X-Accesss-Token，不传则为清空 */
+export const setHeaderAccessToken = (token?: string) => {
   axiosBaseController.setHeaders({
-    'X-Access-Token': token,
+    'X-Access-Token': token ? token : null,
   });
 };

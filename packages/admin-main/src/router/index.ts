@@ -6,7 +6,7 @@ import { basePath } from '@/utils/pathUtils';
 import { useAuthStore } from '@/modules/auth/store/auth';
 import { getLocalSubAppList } from '@/utils/subAppConfig';
 import AppWrapper from '@/modules/appWrapper/views/AppWrapper.vue';
-import { axiosBaseInstance, axiosBaseInstanceAuthorize } from '@/utils/requestUtils';
+import { axiosBaseInstanceAuthorize } from '@/utils/requestUtils';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
   const allRoutes: RouteRecordRaw[] = [...staticRoutes];

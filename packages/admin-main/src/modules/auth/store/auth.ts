@@ -7,7 +7,7 @@ import { router } from '@/router';
 import {
   axiosBaseInstanceAuthorize,
   axiosBaseInstance,
-  axiosBaseController,
+  setHeaderAccessToken,
 } from '@/utils/requestUtils';
 
 // const { bus } = Wujie;
@@ -101,9 +101,7 @@ export const useAuthStore = defineStore('auth', {
         if (this.token) {
           this.token = '';
           this.userInfo = {};
-          axiosBaseController.setHeaders({
-            'X-Access-Token': null,
-          });
+          setHeaderAccessToken();
         }
         if (router) {
           router.push({ name: 'login' });
