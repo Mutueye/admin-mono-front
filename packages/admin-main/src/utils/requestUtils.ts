@@ -1,21 +1,22 @@
-import { axiosBaseInstance, setupAxiosRequestInterceptor } from 'common-utils';
+import { AxiosController } from 'common-utils';
 import { useAuthStore } from '@/modules/auth/store/auth';
 
-console.log('reuest utils:::test');
+export const axiosBaseController = new AxiosController();
+export const axiosBaseInstance = axiosBaseController.instance;
 
-export const setupRequestInterceptor = () =>
-  setupAxiosRequestInterceptor({
-    instance: axiosBaseInstance,
-    onFulfilled: (config) => {
-      const token = useAuthStore().token;
-      if (token) {
-        config.headers = Object.assign(config.headers, { 'X-Access-Token': token });
-      }
-      return config;
-    },
-    onRejected: (err) => {
-      // TODO error handler
-      console.log('err:::', err);
-      return err;
-    },
+/**
+ * 根据store里存储的token设置axiosBaseInstance实例的headers['X-Access-Token'],
+ * 如果store里存储的token和headers['X-Access-Token']一致，则忽略
+ */
+export const axiosBaseInstanceAuthorize = () => {
+  const token = useAuthStore().token;
+  const headerToken = axiosBaseInstance.defaults.headers['X-Access-Token'];
+  if (token && token !== headerToken) setHeaderAccessToken(token);
+};
+
+/** 设置headers的X-Accesss-Token */
+export const setHeaderAccessToken = (token: string) => {
+  axiosBaseController.setHeaders({
+    'X-Access-Token': token,
   });
+};

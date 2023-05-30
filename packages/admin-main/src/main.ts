@@ -8,6 +8,9 @@ import App from '@/App.vue';
 import { router, initRouter } from '@/router/index';
 import pinia from '@/store';
 
+// 初始化aixos控制器及其实例
+import '@/utils/requestUtils';
+
 // element-plus styles
 import 'element-plus/dist/index.css';
 // element-plus darkmode css variables

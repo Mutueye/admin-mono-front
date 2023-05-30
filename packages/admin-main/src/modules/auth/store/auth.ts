@@ -1,10 +1,14 @@
 import { defineStore } from 'pinia';
 import { ElMessage } from 'element-plus';
-import { axiosBaseInstance } from 'common-utils';
-import type { ResultData } from 'common-utils';
+// import { InterceptorTypeEnum } from 'common-utils';
+import type { ResultData /* InterceptorItem */ } from 'common-utils';
 import { ApiPath } from '@/utils/consts';
 import { router } from '@/router';
-import { setupRequestInterceptor } from '@/utils/requestUtils';
+import {
+  axiosBaseInstanceAuthorize,
+  axiosBaseInstance,
+  axiosBaseController,
+} from '@/utils/requestUtils';
 
 // const { bus } = Wujie;
 
@@ -46,21 +50,29 @@ export const useAuthStore = defineStore('auth', {
       this.token = token;
     },
 
-    getLoginKey() {
+    async getLoginKey() {
       return axiosBaseInstance
         .get<ResultData<{ publicKey: string }>>(`${ApiPath}/console/login_key`)
         .then((res) => res.data.data.publicKey)
         .catch(() => ElMessage.error('获取登录密钥出错'));
     },
 
-    login(params: { cryptogram: string; key: string }) {
+    async login(params: { cryptogram: string; key: string }) {
       return axiosBaseInstance
         .post<ResultData<{ accessToken: string }>>(`${ApiPath}/console/login`, params)
         .then((res) => {
           const token = res.data.data.accessToken;
           if (token) {
             this.setToken(token);
-            setupRequestInterceptor();
+            axiosBaseInstanceAuthorize();
+            // 添加拦截器示例
+            // axiosBaseController.addInterceptor({
+            //   name: 'test',
+            //   type: InterceptorTypeEnum.ResponseFulfilled,
+            //   method: (response) => {
+            //     return response;
+            //   },
+            // } as InterceptorItem<InterceptorTypeEnum.ResponseFulfilled>);
             return token;
           } else {
             return '';
@@ -72,7 +84,7 @@ export const useAuthStore = defineStore('auth', {
         });
     },
 
-    getUserInfo() {
+    async getUserInfo() {
       return axiosBaseInstance.get<ResultData<UserInfo>>(`${ApiPath}/console/token`).then((res) => {
         const userInfo = res.data.data;
         if (userInfo) {
@@ -84,11 +96,14 @@ export const useAuthStore = defineStore('auth', {
       });
     },
 
-    logout() {
+    async logout() {
       return axiosBaseInstance.post(`${ApiPath}/console/logout`).then(() => {
         if (this.token) {
           this.token = '';
           this.userInfo = {};
+          axiosBaseController.setHeaders({
+            'X-Access-Token': null,
+          });
         }
         if (router) {
           router.push({ name: 'login' });

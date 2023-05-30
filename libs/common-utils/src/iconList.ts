@@ -1,3 +1,7 @@
+/**
+ * @description iconify/json的图标样式类名列表
+ * unocss框架中，动态赋值的图标样式会丢失，需要在配置中增加一个safelist，指定可能用到的图标样式名列表
+ */
 export const iconList = [
   'i-mdi-home',
   'i-mdi-home-city-outline',
@@ -51,4 +55,4 @@ export const iconList = [
   'i-mdi-city-variant-outline',
   'i-mdi-message-cog-outline',
   'i-mdi-database-cog-outline',
-]
+];

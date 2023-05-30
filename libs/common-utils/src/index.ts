@@ -1,2 +1,2 @@
-export * from './iconList'
-export * from './requestUtils'
+export * from './iconList';
+export * from './requestUtils';

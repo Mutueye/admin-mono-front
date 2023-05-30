@@ -43,31 +43,6 @@
       "packages/quc-console",
       "packages/qmn-console",
       "packages/qts-console"
-    ],
-    "colorize.languages": [
-      "json",
-      "css",
-      "sass",
-      "scss",
-      "less",
-      "stylus",
-      "xml",
-      "svg",
-      "javascript",
-      "typescript",
-      "vue"
-    ],
-    "colorize.include": [
-      "**/*.json",
-      "**/*.css",
-      "**/*.scss",
-      "**/*.sass",
-      "**/*.less",
-      "**/*.styl",
-      "**/*.js",
-      "**/*.ts",
-      "**/*.vue"
-    ],
-    "volar.inlayHints.eventArgumentInInlineHandlers": false
+    ]
   }
 }
