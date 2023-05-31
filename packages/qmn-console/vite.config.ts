@@ -72,6 +72,7 @@ export default defineConfig(({ mode }) => {
       open: false,
       host: '0.0.0.0',
       port: 5400,
+      cors: { origin: ['http://localhost:5100'], credentials: true },
       proxy: {
         '/get_appconfig': {
           target: gateway,

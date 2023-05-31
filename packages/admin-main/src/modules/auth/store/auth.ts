@@ -4,11 +4,7 @@ import { ElMessage } from 'element-plus';
 import type { ResultData /* InterceptorItem */ } from 'common-utils';
 import { ApiPath } from '@/utils/consts';
 import { router } from '@/router';
-import {
-  axiosBaseInstanceAuthorize,
-  axiosBaseInstance,
-  setHeaderAccessToken,
-} from '@/utils/requestUtils';
+import { axiosBaseInstance } from '@/utils/requestUtils';
 
 // const { bus } = Wujie;
 
@@ -64,7 +60,6 @@ export const useAuthStore = defineStore('auth', {
           const token = res.data.data.accessToken;
           if (token) {
             this.setToken(token);
-            axiosBaseInstanceAuthorize();
             // 添加拦截器示例
             // axiosBaseController.addInterceptor({
             //   name: 'test',
@@ -101,7 +96,6 @@ export const useAuthStore = defineStore('auth', {
         if (this.token) {
           this.token = '';
           this.userInfo = {};
-          setHeaderAccessToken();
         }
         if (router) {
           router.push({ name: 'login' });

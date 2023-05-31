@@ -4,7 +4,6 @@ import type { RouteRecordData } from './types';
 import { layoutRoutes, LayoutEnum } from '@/layout/layoutRouteConfig';
 import { basePath } from '@/utils/pathUtils';
 import { useAuthStore } from '@/modules/auth/store/auth';
-import { axiosBaseInstanceAuthorize } from '@/utils/requestUtils';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
   const allRoutes: RouteRecordRaw[] = [...staticRoutes];
@@ -65,7 +64,6 @@ export const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
-  axiosBaseInstanceAuthorize();
   if (to.name !== 'login') {
     if (authStore.token) {
       next();

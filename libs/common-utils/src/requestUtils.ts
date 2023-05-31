@@ -4,6 +4,7 @@ import type {
   AxiosHeaderValue,
   InternalAxiosRequestConfig,
   AxiosResponse,
+  CreateAxiosDefaults,
 } from 'axios';
 
 /** 约定的常规数据结构体 */
@@ -91,8 +92,8 @@ export class AxiosController {
   /** 拦截器列表 */
   interceptorList: Array<InterceptorItem<InterceptorTypeEnum>>;
 
-  constructor() {
-    this.instance = axios.create();
+  constructor(config?: CreateAxiosDefaults<any>) {
+    this.instance = axios.create(config);
     this.setHeaders({ 'Content-Type': ContentTypeEnum.JSON });
     this.interceptorList = [];
     this.setAxiosInterceptors();

@@ -6,7 +6,6 @@ import { basePath } from '@/utils/pathUtils';
 import { useAuthStore } from '@/modules/auth/store/auth';
 import { getLocalSubAppList } from '@/utils/subAppConfig';
 import AppWrapper from '@/modules/appWrapper/views/AppWrapper.vue';
-import { axiosBaseInstanceAuthorize } from '@/utils/requestUtils';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
   const allRoutes: RouteRecordRaw[] = [...staticRoutes];
@@ -103,7 +102,6 @@ export const initRouter = () => {
 
   router.beforeEach((to, from, next) => {
     const authStore = useAuthStore();
-    axiosBaseInstanceAuthorize();
 
     if (to.name !== 'login') {
       if (authStore.token) {

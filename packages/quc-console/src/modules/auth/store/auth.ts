@@ -2,11 +2,7 @@ import { defineStore } from 'pinia';
 import { ElMessage } from 'element-plus';
 import type { ResultData } from 'common-utils';
 import { ApiPath } from '@/utils/consts';
-import {
-  axiosBaseInstance,
-  axiosBaseInstanceAuthorize,
-  setHeaderAccessToken,
-} from '@/utils/requestUtils';
+import { axiosBaseInstance } from '@/utils/requestUtils';
 import { router } from '@/router';
 
 // const { bus } = Wujie;
@@ -63,7 +59,6 @@ export const useAuthStore = defineStore('auth', {
           const token = res.data.data.accessToken;
           if (token) {
             this.setToken(token);
-            axiosBaseInstanceAuthorize();
             return token;
           } else {
             return '';
@@ -91,7 +86,6 @@ export const useAuthStore = defineStore('auth', {
         if (this.token) {
           this.token = '';
           this.userInfo = {};
-          setHeaderAccessToken();
         }
         if (router) {
           router.push({ name: 'login' });
