@@ -1,10 +1,12 @@
 import { defineStore } from 'pinia';
 import { ElMessage } from 'element-plus';
+import { destroyApp } from 'wujie';
 // import { InterceptorTypeEnum } from 'common-utils';
 import type { ResultData /* InterceptorItem */ } from 'common-utils';
 import { ApiPath } from '@/utils/consts';
 import { router } from '@/router';
 import { axiosBaseInstance } from '@/utils/requestUtils';
+import { getLocalSubAppList } from '@/utils/subAppConfig';
 
 // const { bus } = Wujie;
 
@@ -96,6 +98,12 @@ export const useAuthStore = defineStore('auth', {
         if (this.token) {
           this.token = '';
           this.userInfo = {};
+        }
+        const list = getLocalSubAppList();
+        if (list && list.length > 0) {
+          list.forEach((subApp) => {
+            destroyApp(subApp.name);
+          });
         }
         if (router) {
           router.push({ name: 'login' });
