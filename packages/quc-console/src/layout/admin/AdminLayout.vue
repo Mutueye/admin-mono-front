@@ -4,7 +4,7 @@
     <div class="flex flex-col w-left-menu bg-bg-page flex-shrink relative">
       <div class="flex flex-1 relative w-full z-10 min-h-0">
         <el-scrollbar class="w-full">
-          <div class="w-full flex flex-col pt-spacing-xs">
+          <div class="w-full flex flex-col py-spacing-xs">
             <Menu :layout="layout" />
           </div>
         </el-scrollbar>

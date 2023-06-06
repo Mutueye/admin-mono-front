@@ -68,8 +68,8 @@ export default defineConfig(({ mode }) => {
     base: process.env.VITE_APP_BASE_PATH ? process.env.VITE_APP_BASE_PATH : '/',
     server: {
       open: true,
-      host: '0.0.0.0',
-      port: 5100,
+      host: process.env.VITE_DEV_HOST ? process.env.VITE_DEV_HOST : '0.0.0.0',
+      port: process.env.VITE_DEV_PORT_MAIN as unknown as number,
       proxy: {
         '/get_appconfig': {
           target: gateway,

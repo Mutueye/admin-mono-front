@@ -24,26 +24,26 @@ const localSubAppListKey = 'sub-app-list';
 export const appList: SubAppConfig[] = [
   {
     title: '用户中心控制台',
-    name: 'uc',
+    name: 'quc',
     iconClass: 'i-mdi-account-settings-outline',
-    devUrl: '//localhost:5300/',
-    url: '//localhost:5300/',
+    devUrl: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QUC}/`,
+    url: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QUC}/`,
     order: 1,
   },
   {
     title: '消息通知控制台',
     name: 'qmn',
     iconClass: 'i-mdi-alarm-light-outline',
-    devUrl: '//localhost:5400/',
-    url: '//localhost:5400/',
+    devUrl: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QMN}/`,
+    url: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QMN}/`,
     order: 2,
   },
   {
     title: '任务调度控制台',
     name: 'qts',
     iconClass: 'i-mdi-check-network-outline',
-    devUrl: '//localhost:5500/',
-    url: '//localhost:5500/',
+    devUrl: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QTS}/`,
+    url: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QTS}/`,
     order: 3,
   },
 ];

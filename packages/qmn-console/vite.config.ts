@@ -70,9 +70,15 @@ export default defineConfig(({ mode }) => {
     base: process.env.VITE_APP_BASE_PATH ? process.env.VITE_APP_BASE_PATH : '/',
     server: {
       open: false,
-      host: '0.0.0.0',
-      port: 5400,
-      cors: { origin: ['http://localhost:5100'], credentials: true },
+      host: process.env.VITE_DEV_HOST ? process.env.VITE_DEV_HOST : '0.0.0.0',
+      port: process.env.VITE_DEV_PORT_QMN as unknown as number,
+      // 子应用请求时需要设置withCredentials:ture，才能在请求时的request headers中携带基座应用接口在respon header中设置的的cookie
+      // 这样就要求vite的devServer配置跨域设置access-control-allow-origin不能为'*'，而是指定具体的domain，且access-control-allow-credentials需要设为true
+      // 关于withCredentials:(https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)
+      cors: {
+        origin: `http://${process.env.VITE_DEV_HOST}:${process.env.VITE_DEV_PORT_MAIN}`,
+        credentials: true,
+      },
       proxy: {
         '/get_appconfig': {
           target: gateway,

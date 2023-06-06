@@ -95,9 +95,11 @@ export const baseRoutes: RouteRecordRaw[] = [
 export let router: Router | null = null;
 
 export const initRouter = () => {
+  const routes = generateAllRoutes(baseRoutes);
+  console.log('routes::::', routes);
   router = createRouter({
     history: createWebHistory(basePath),
-    routes: generateAllRoutes(baseRoutes),
+    routes,
   });
 
   router.beforeEach((to, from, next) => {
