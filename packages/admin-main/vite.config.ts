@@ -60,12 +60,12 @@ export default defineConfig(({ mode }) => {
   // 要代理的地址
   const gateway = process.env.VITE_API_GATEWAY
     ? process.env.VITE_API_GATEWAY
-    : 'https://console.uc.qstcloud.com';
+    : 'https://console.uc.eduplus.net';
 
   return {
     build: { outDir: `../../dist/${process.env.npm_package_name}` },
     ...baseConfig,
-    base: process.env.VITE_APP_BASE_PATH ? process.env.VITE_APP_BASE_PATH : '/',
+    base: process.env.VITE_APP_PATH_MAIN ? process.env.VITE_APP_PATH_MAIN : '/',
     server: {
       open: true,
       host: process.env.VITE_DEV_HOST ? process.env.VITE_DEV_HOST : '0.0.0.0',

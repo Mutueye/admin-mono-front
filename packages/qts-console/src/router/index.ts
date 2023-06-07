@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 import type { RouteRecordData } from './types';
 import { layoutRoutes, LayoutEnum } from '@/layout/layoutRouteConfig';
-import { basePath } from '@/utils/pathUtils';
+import { BasePath } from '@/utils/consts';
 import { useAuthStore } from '@/modules/auth/store/auth';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
@@ -58,7 +58,7 @@ export const baseRoutes: RouteRecordRaw[] = [
 ];
 
 export const router = createRouter({
-  history: createWebHistory(basePath),
+  history: createWebHistory(BasePath),
   routes: generateAllRoutes(baseRoutes),
 });
 

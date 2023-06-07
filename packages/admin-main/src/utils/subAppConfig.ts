@@ -21,6 +21,7 @@ export interface SubAppConfig {
 
 const localSubAppListKey = 'sub-app-list';
 
+/** app列表mock */
 export const appList: SubAppConfig[] = [
   {
     title: '用户中心控制台',
