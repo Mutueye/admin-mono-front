@@ -1,7 +1,10 @@
 import { AxiosController } from 'common-utils';
 // import { useAuthStore } from '@/modules/auth/store/auth';
 
-export const axiosBaseController = new AxiosController();
+export const axiosBaseController = new AxiosController({
+  // 开发模式下端口不同，需要设置withCredentials为true，才能在请求接口时request headers拿到基座的cookie
+  withCredentials: import.meta.env.DEV,
+});
 export const axiosBaseInstance = axiosBaseController.instance;
 
 /**
