@@ -459,6 +459,12 @@ importers:
       unocss:
         specifier: ^0.52.7
         version: 0.52.7(postcss@8.4.24)(vite@4.3.9)
+      unplugin-auto-import:
+        specifier: ^0.16.4
+        version: 0.16.4(@vueuse/core@10.1.2)
+      unplugin-vue-components:
+        specifier: ^0.25.1
+        version: 0.25.1(vue@3.3.4)
       vite:
         specifier: ^4.3.9
         version: 4.3.9(@types/node@20.2.5)(sass@1.63.1)
