@@ -64,6 +64,9 @@
 <style lang="scss">
   .admin-menu {
     background-color: transparent;
+    .el-sub-menu__title {
+      @apply mr-1px;
+    }
     .el-menu-item.is-active {
       background-color: var(--el-bg-color);
     }

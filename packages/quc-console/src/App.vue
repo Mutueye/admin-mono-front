@@ -1,13 +1,18 @@
 <template>
-  <RouterView />
+  <el-config-provider :locale="locale">
+    <RouterView />
+  </el-config-provider>
 </template>
 
 <script setup lang="ts">
-  import { onMounted } from 'vue';
+  import { onMounted, ref } from 'vue';
   import { setThemeClassByIndex } from '@itshixun/qst-ui-system';
+  import { ElConfigProvider } from 'element-plus';
   import { useToggleDayNight } from '@/componsables/useToggleDayNight';
+  import zhCn from 'element-plus/es/locale/lang/zh-cn';
 
   const { toggleDayNight } = useToggleDayNight();
+  const locale = ref(zhCn);
 
   onMounted(() => {
     // 如果当前是是WUJIE微前端子应用
