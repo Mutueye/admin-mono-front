@@ -9,3 +9,5 @@ __snapshots__/
 pnpm-lock.yaml
 .DS_Store
 docs
+auto-imports.d.ts
+components.d.ts
