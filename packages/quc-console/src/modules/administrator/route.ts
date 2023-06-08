@@ -1,7 +1,8 @@
 import { RouteRecordData } from '@/router/types';
-import AccountMng from './views/AccountMng.vue';
-import RoleMng from './views/RoleMng.vue';
-import OperationLog from './views/OperationLog.vue';
+
+const AccountMng = () => import('./views/AccountMng.vue');
+const RoleMng = () => import('./views/RoleMng.vue');
+const OperationLog = () => import('./views/OperationLog.vue');
 
 const routeData: RouteRecordData = {
   admin: [

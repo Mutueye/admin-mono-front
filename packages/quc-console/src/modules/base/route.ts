@@ -1,6 +1,6 @@
 import { RouteRecordData } from '@/router/types';
-import Applets from './views/Applets.vue';
-import DataSyncMng from './views/DataSyncMng.vue';
+const Applets = () => import('./views/Applets.vue');
+const DataSyncMng = () => import('./views/DataSyncMng.vue');
 
 const routeData: RouteRecordData = {
   admin: [

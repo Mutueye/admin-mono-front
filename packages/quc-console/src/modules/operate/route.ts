@@ -1,6 +1,6 @@
 import { RouteRecordData } from '@/router/types';
-import UserMng from './views/UserMng.vue';
-import OrgMng from './views/OrgMng.vue';
+const UserMng = () => import('./views/UserMng.vue');
+const OrgMng = () => import('./views/OrgMng.vue');
 
 const routeData: RouteRecordData = {
   admin: [
