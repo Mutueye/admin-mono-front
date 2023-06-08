@@ -1,6 +1,9 @@
 import { defineConfig, loadEnv } from 'vite';
 import * as path from 'path';
 import vue from '@vitejs/plugin-vue';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Unocss from 'unocss/vite';
 import {
   presetAttributify,
@@ -16,6 +19,8 @@ const envDir = path.join(__dirname + '/../../env');
 const baseConfig = defineConfig({
   plugins: [
     vue(),
+    AutoImport({ resolvers: [ElementPlusResolver()] }),
+    Components({ resolvers: [ElementPlusResolver()] }),
     Unocss({
       presets: [
         presetUno(),
@@ -65,6 +70,23 @@ export default defineConfig(({ mode }) => {
   return {
     build: {
       outDir: `../../dist/${process.env.npm_package_name}`,
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            // 第三方模块按包名进行拆分打包
+            if (id.includes('node_modules')) {
+              let name = 'vendor';
+              const idArray = id.split('/node_modules/');
+              const endStr = idArray[idArray.length - 1];
+              const finalStr = endStr.split('/')[0];
+              if (finalStr && !finalStr.startsWith('.')) {
+                name = `vendor-${finalStr}`;
+              }
+              return name;
+            }
+          },
+        },
+      },
     },
     ...baseConfig,
     base: process.env.VITE_APP_PATH_QMN ? process.env.VITE_APP_PATH_QMN : '/',

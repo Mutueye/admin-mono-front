@@ -1,5 +1,5 @@
 import { RouteRecordData } from '@/router/types';
-import Dashboard from './views/Dashboard.vue';
+const Dashboard = () => import('./views/Dashboard.vue');
 
 const routeData: RouteRecordData = {
   admin: [
