@@ -20,7 +20,9 @@ module.exports = {
   rules: {
     // '@typescript-eslint/explicit-function-return-type': 'warn',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
     'vue/multi-word-component-names': 'off',
+    'vue/no-dupe-keys': 'off',
   },
   globals: {
     defineEmits: 'readonly',
