@@ -1,5 +1,5 @@
 import { RouteRecordData } from '@/router/types';
-import Home from './views/Home.vue';
+const Home = () => import('./views/Home.vue');
 
 const routeData: RouteRecordData = {
   wrapper: [

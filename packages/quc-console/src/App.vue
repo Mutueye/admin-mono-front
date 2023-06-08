@@ -7,9 +7,8 @@
 <script setup lang="ts">
   import { onMounted, ref } from 'vue';
   import { setThemeClassByIndex } from '@itshixun/qst-ui-system';
-  import { ElConfigProvider } from 'element-plus';
-  import { useToggleDayNight } from '@/componsables/useToggleDayNight';
   import zhCn from 'element-plus/es/locale/lang/zh-cn';
+  import { useToggleDayNight } from '@/componsables/useToggleDayNight';
 
   const { toggleDayNight } = useToggleDayNight();
   const locale = ref(zhCn);
