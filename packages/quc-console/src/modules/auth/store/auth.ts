@@ -48,7 +48,10 @@ export const useAuthStore = defineStore('auth', {
     getLoginKey() {
       return axiosBaseInstance
         .get<ResultData<{ publicKey: string }>>(`${ApiPath}/console/login_key`)
-        .then((res) => res.data.data.publicKey)
+        .then((res) => {
+          console.log('getPublicKey res::::', res);
+          return res.data.data.publicKey;
+        })
         .catch(() => ElMessage.error('获取登录密钥出错'));
     },
 
@@ -82,15 +85,20 @@ export const useAuthStore = defineStore('auth', {
     },
 
     logout() {
-      return axiosBaseInstance.post(`${ApiPath}/console/logout`).then(() => {
-        if (this.token) {
-          this.token = '';
-          this.userInfo = {};
-        }
-        if (router) {
-          router.push({ name: 'login' });
-        }
-      });
+      if (window.__POWERED_BY_WUJIE__) {
+        // 全局事件总线触发“退出”
+        window.$wujie?.bus.$emit('logout');
+      } else {
+        return axiosBaseInstance.post(`${ApiPath}/console/logout`).then(() => {
+          if (this.token) {
+            this.token = '';
+            this.userInfo = {};
+          }
+          if (router) {
+            router.push({ name: 'login' });
+          }
+        });
+      }
     },
   },
 });

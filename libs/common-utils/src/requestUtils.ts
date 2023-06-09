@@ -1,13 +1,14 @@
 import axios from 'axios';
-import type {
+import {
   AxiosInstance,
+  AxiosError,
   AxiosHeaderValue,
   InternalAxiosRequestConfig,
   AxiosResponse,
   CreateAxiosDefaults,
 } from 'axios';
 
-/** 约定的常规数据结构体 */
+/** 约定的常规接口返回数据结构体 */
 export interface ResultData<T> {
   code: number;
   status: number;
@@ -20,7 +21,7 @@ export interface ResultData<T> {
 }
 
 /** 约定的分页数据结构 */
-export interface PaginationResult<T> {
+export interface Pagination<T> {
   total: number;
   offset: number;
   limit: number;
@@ -83,8 +84,7 @@ export interface InterceptorItem<T extends InterceptorTypeEnum> {
  * 1. 创建一个axios拦截器；
  * 2. 通过setHeaders方法随时设置config.headers配置；
  * 3. 通过addInterceptor和deleteInterceptor在项目执行过程总热插拔拦截器的逻辑块；
- * 4. TODO: 通用的errorHandler和getResult方法；
- * 5. TODO: 支持文件上传的相关配置
+ * 4. TODO: 支持文件上传的相关配置
  */
 export class AxiosController {
   /** 当前AxiosController控制的axios实例 */
@@ -95,7 +95,19 @@ export class AxiosController {
   constructor(config?: CreateAxiosDefaults<any>) {
     this.instance = axios.create(config);
     this.setHeaders({ 'Content-Type': ContentTypeEnum.JSON });
-    this.interceptorList = [];
+    this.interceptorList = [
+      {
+        name: 'baseResponseRejected',
+        type: InterceptorTypeEnum.ResponseRejected,
+        method: (res: AxiosError<any>) => {
+          if (res.response) {
+            return res.response;
+          } else {
+            throw new Error('axios response empty');
+          }
+        },
+      },
+    ];
     this.setAxiosInterceptors();
   }
 
@@ -174,3 +186,58 @@ export class AxiosController {
     );
   };
 }
+
+/**
+ * 请求返回的数据格式化
+ */
+export const getResult = <T>({
+  res,
+  message,
+  fallbackMessage = '接口请求错误',
+}: {
+  res: AxiosResponse<ResultData<T>>;
+  message?: string;
+  fallbackMessage?: string;
+}) => {
+  const status = res.status;
+  const code = res.data.code;
+  if (res.data.success || (status === 200 && code === 200)) {
+    return res.data;
+  } else if (
+    status === 200 &&
+    res.statusText === 'OK' &&
+    res.config.url.indexOf('myhuaweicloud') >= 0
+  ) {
+    // 华为云
+    return res.data;
+  } else {
+    const msg = res.data && res.data.message ? res.data.message : res.statusText;
+    const code = res.data && res.data.code ? res.data.code.toString() : '';
+    throw handleAxiosError({
+      err: new AxiosError(msg, code, res.config, res),
+      message,
+      fallbackMessage,
+    });
+  }
+};
+
+export const handleAxiosError = ({
+  err,
+  message,
+  fallbackMessage = '接口请求错误',
+}: {
+  err: AxiosError<unknown>;
+  fallbackMessage?: string;
+  message?: string;
+}) => {
+  err.message = message ? message : err.message ? err.message : fallbackMessage;
+  err.toJSON = () => {
+    return {
+      code: err.code,
+      message: err.message,
+      request: err.request,
+      data: err.response ? err.response.data : null,
+    };
+  };
+  return err;
+};

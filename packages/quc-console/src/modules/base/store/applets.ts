@@ -1,13 +1,8 @@
 import { defineStore } from 'pinia';
-import { ElMessage } from 'element-plus';
-import type { PaginationResult } from 'common-utils';
+import { Pagination, ResultData, getResult } from 'common-utils';
+import { Applet } from '../types';
 import { ApiPath } from '@/utils/consts';
 import { axiosBaseInstance } from '@/utils/requestUtils';
-
-export interface Applet {
-  name: string;
-  id: string;
-}
 
 interface AppletsState {
   applets: Applet[];
@@ -20,11 +15,17 @@ export const useAppletsStore = defineStore('applets', {
   actions: {
     async getApplets() {
       return axiosBaseInstance
-        .get<PaginationResult<Applet>>(`${ApiPath}/console/applets`)
+        .get<ResultData<Pagination<Applet>>>(`${ApiPath}/console/applets`)
         .then((res) => {
-          return res.data.rows;
+          return getResult({ res, message: '请求应用列表失败' });
         })
-        .catch(() => ElMessage.error('获取应用列表错误'));
+        .then((res) => {
+          this.applets = res.data.rows ? res.data.rows : [];
+          return this.applets;
+        })
+        .catch((err) => {
+          console.error(err.message);
+        });
     },
   },
 });
