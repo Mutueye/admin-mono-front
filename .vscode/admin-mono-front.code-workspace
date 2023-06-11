@@ -43,6 +43,7 @@
       "packages/quc-console",
       "packages/qmn-console",
       "packages/qts-console"
-    ]
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib"
   }
 }
