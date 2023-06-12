@@ -1,10 +1,10 @@
-import { AxiosResponse } from 'axios';
+import { AxiosResponse, AxiosError } from 'axios';
 import { ElMessage } from 'element-plus';
-import { AxiosController, InterceptorTypeEnum, ResultData } from 'common-utils';
+import { AxiosController, InterceptorTypeEnum, ResultData, getAxiosResult } from 'common-utils';
 import { useAuthStore } from '@/modules/auth/store/auth';
 
 export const axiosBaseController = new AxiosController({
-  // 开发模式下端口不同，需要设置withCredentials为true，才能在请求接口时request headers拿到基座的cookie
+  // 开发模式下多个子项目使用不同端口，需要设置withCredentials为true，才能在请求接口时request headers拿到基座的cookie
   withCredentials: import.meta.env.DEV,
 });
 export const axiosBaseInstance = axiosBaseController.instance;
@@ -44,6 +44,28 @@ axiosBaseController.addInterceptor({
     return config;
   },
 });
+
+/** 接口返回数据的通用处理，默认通过ElMessage报错提示 */
+export const getResult = <T>(
+  res: AxiosResponse<ResultData<T>>,
+  {
+    showError = true,
+    errorMessage,
+    defaultErrorMessage,
+  }: {
+    showError?: boolean;
+    errorMessage?: string;
+    defaultErrorMessage?: string;
+  },
+) => {
+  return getAxiosResult<T>(res, {
+    errorMessage,
+    defaultErrorMessage,
+    errorHandler: (err: AxiosError<unknown>) => {
+      if (showError) ElMessage.error(err.message ? err.message : '接口返回错误');
+    },
+  });
+};
 
 /**
  * 根据store里存储的token设置axiosBaseInstance实例的headers['X-Access-Token'],

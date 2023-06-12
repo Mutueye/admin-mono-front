@@ -187,18 +187,27 @@ export class AxiosController {
   };
 }
 
+/** getResult方法的选项 */
+export type ResultOptions = {
+  /** 指定错误信息，覆盖接口返回的错误信息 */
+  errorMessage?: string;
+  /** 如果没有指定错误信息，且接口没有返回错误信息，则显示此默认错误信息 */
+  defaultErrorMessage?: string;
+  /** 额外的处理错误的方法，比如显示错误提示信息 */
+  errorHandler?: (err: AxiosError<unknown>) => void;
+};
+
 /**
- * 请求返回的数据格式化
+ * 预处理axios请求返回的数据
+ * @param res { AxiosResponse } axios请求返回的数据
+ * @param options { ResultOptions } 选项 { errorMessage, defaultErrorMessage }：
+ * 1. errorMessage: 指定返回错误后的信息，覆盖接口返回的message;
+ * 2. defaultErrorMessage: 如果没有从接口取到错误信息，则显示此默认错误信息
  */
-export const getResult = <T>({
-  res,
-  message,
-  fallbackMessage = '接口请求错误',
-}: {
-  res: AxiosResponse<ResultData<T>>;
-  message?: string;
-  fallbackMessage?: string;
-}) => {
+export const getAxiosResult = <T>(
+  res: AxiosResponse<ResultData<T>>,
+  options: ResultOptions = { defaultErrorMessage: '接口请求错误' },
+) => {
   const status = res.status;
   const code = res.data.code;
   if (res.data.success || (status === 200 && code === 200)) {
@@ -212,25 +221,19 @@ export const getResult = <T>({
     return res.data;
   } else {
     const msg = res.data && res.data.message ? res.data.message : res.statusText;
+    const errorMessage = options.errorMessage
+      ? options.errorMessage
+      : msg
+      ? msg
+      : options.defaultErrorMessage;
     const code = res.data && res.data.code ? res.data.code.toString() : '';
-    throw handleAxiosError({
-      err: new AxiosError(msg, code, res.config, res),
-      message,
-      fallbackMessage,
-    });
+    const err = new AxiosError(errorMessage, code, res.config, res);
+    if (typeof options.errorHandler === 'function') options.errorHandler(err);
+    throw handleAxiosError(err);
   }
 };
 
-export const handleAxiosError = ({
-  err,
-  message,
-  fallbackMessage = '接口请求错误',
-}: {
-  err: AxiosError<unknown>;
-  fallbackMessage?: string;
-  message?: string;
-}) => {
-  err.message = message ? message : err.message ? err.message : fallbackMessage;
+export const handleAxiosError = (err: AxiosError<unknown>) => {
   err.toJSON = () => {
     return {
       code: err.code,
