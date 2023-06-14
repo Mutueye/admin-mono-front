@@ -46,7 +46,6 @@
     return sortBy(result, (item) => get(item, 'meta.menuConfig.order', 1000));
   };
 
-  // TODO 子页面菜单高亮
   const getActiveMenuName = (route: RouteLocationNormalizedLoaded | RouteRecordRaw): string => {
     if (route && route.meta) {
       if (route.meta.menuConfig) {

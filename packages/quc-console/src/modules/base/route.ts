@@ -34,6 +34,7 @@ const routeData: RouteRecordData = {
           meta: {
             title: '应用详情',
             menuConfig: {
+              hidden: true,
               activeRouteName: 'applets',
             },
           },
