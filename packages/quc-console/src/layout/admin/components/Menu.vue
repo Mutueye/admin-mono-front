@@ -36,7 +36,7 @@
   const getMenuRoutes = (routes: RouteRecordRaw[]) => {
     const result: RouteRecordRaw[] = [];
     routes.forEach((route) => {
-      if (route.meta && route.meta.menuConfig) {
+      if (route.meta && route.meta.menuConfig && !route.meta.menuConfig.hidden) {
         if (route.children && route.children.length > 0) {
           route.children = getMenuRoutes(route.children);
         }
@@ -46,10 +46,15 @@
     return sortBy(result, (item) => get(item, 'meta.menuConfig.order', 1000));
   };
 
+  // TODO 子页面菜单高亮
   const getActiveMenuName = (route: RouteLocationNormalizedLoaded | RouteRecordRaw): string => {
     if (route && route.meta) {
       if (route.meta.menuConfig) {
-        return route.name as string;
+        if (route.meta.menuConfig.activeRouteName) {
+          return route.meta.menuConfig.activeRouteName;
+        } else {
+          return route.name as string;
+        }
       } else if (route.meta.parentRouteData) {
         return getActiveMenuName(route.meta.parentRouteData.parentRoute);
       } else {

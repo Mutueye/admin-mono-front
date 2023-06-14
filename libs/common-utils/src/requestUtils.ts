@@ -210,7 +210,7 @@ export const getAxiosResult = <T>(
 ) => {
   const status = res.status;
   const code = res.data.code;
-  if (res.data.success || (status === 200 && code === 200)) {
+  if (res.data.success || (status === 200 && (code === 200 || code === 2000000))) {
     return res.data;
   } else if (
     status === 200 &&

@@ -28,6 +28,17 @@ const routeData: RouteRecordData = {
           component: Applets,
         },
         {
+          path: 'applets/detail',
+          name: 'appletDetail',
+          component: Applets,
+          meta: {
+            title: '应用详情',
+            menuConfig: {
+              activeRouteName: 'applets',
+            },
+          },
+        },
+        {
           path: 'events',
           name: 'events',
           meta: {
