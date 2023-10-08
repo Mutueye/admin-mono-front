@@ -1,5 +1,5 @@
 {
-  "name": "@qst-athena/vite-config",
+  "name": "@qst-admin/vite-config",
   "version": "1.0.0",
   "description": "vite env defination file for vite ts projects",
   "private": true,

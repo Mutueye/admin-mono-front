@@ -52,7 +52,7 @@ importers:
         version: 1.5.0(postcss-html@1.5.0)(stylelint@15.10.3)
       stylelint-config-standard-scss:
         specifier: ^10.0.0
-        version: 10.0.0(postcss@8.4.24)(stylelint@15.10.3)
+        version: 10.0.0(postcss@8.4.31)(stylelint@15.10.3)
       stylelint-scss:
         specifier: ^5.1.0
         version: 5.2.1(stylelint@15.10.3)
@@ -165,6 +165,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.52
         version: 1.1.52
+      '@qst-admin/vite-config':
+        specifier: workspace:^
+        version: link:../../configs/vite-config
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
@@ -304,6 +307,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.52
         version: 1.1.52
+      '@qst-admin/vite-config':
+        specifier: workspace:^
+        version: link:../../configs/vite-config
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
@@ -443,6 +449,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.52
         version: 1.1.52
+      '@qst-admin/vite-config':
+        specifier: workspace:^
+        version: link:../../configs/vite-config
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
@@ -585,6 +594,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.52
         version: 1.1.52
+      '@qst-admin/vite-config':
+        specifier: workspace:^
+        version: link:../../configs/vite-config
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
@@ -4441,6 +4453,15 @@ packages:
       postcss: 8.4.24
     dev: true
 
+  /postcss-scss@4.0.6(postcss@8.4.31):
+    resolution: {integrity: sha512-rLDPhJY4z/i4nVFZ27j9GqLxj1pwxE80eAzUNRMXtcpipFYIeowerzBgG3yJhMtObGEXidtIgbUpQ3eLDsf5OQ==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.4.19
+    dependencies:
+      postcss: 8.4.31
+    dev: true
+
   /postcss-selector-parser@6.0.13:
     resolution: {integrity: sha512-EaV1Gl4mUEV4ddhDnv/xtj7sxwrwxdetHdWUGnT4VJQf+4d05v6lHYZr8N573k5Z0BViss7BDhfWtKS3+sfAqQ==}
     engines: {node: '>=4'}
@@ -5024,7 +5045,7 @@ packages:
       stylelint-scss: 4.7.0(stylelint@15.7.0)
     dev: true
 
-  /stylelint-config-recommended-scss@12.0.0(postcss@8.4.24)(stylelint@15.10.3):
+  /stylelint-config-recommended-scss@12.0.0(postcss@8.4.31)(stylelint@15.10.3):
     resolution: {integrity: sha512-5Bb2mlGy6WLa30oNeKpZvavv2lowJUsUJO25+OA68GFTemlwd1zbFsL7q0bReKipOSU3sG47hKneZ6Nd+ctrFA==}
     peerDependencies:
       postcss: ^8.3.3
@@ -5033,8 +5054,8 @@ packages:
       postcss:
         optional: true
     dependencies:
-      postcss: 8.4.24
-      postcss-scss: 4.0.6(postcss@8.4.24)
+      postcss: 8.4.31
+      postcss-scss: 4.0.6(postcss@8.4.31)
       stylelint: 15.10.3
       stylelint-config-recommended: 12.0.0(stylelint@15.10.3)
       stylelint-scss: 5.2.1(stylelint@15.10.3)
@@ -5084,7 +5105,7 @@ packages:
       stylelint: 15.7.0
     dev: true
 
-  /stylelint-config-standard-scss@10.0.0(postcss@8.4.24)(stylelint@15.10.3):
+  /stylelint-config-standard-scss@10.0.0(postcss@8.4.31)(stylelint@15.10.3):
     resolution: {integrity: sha512-bChBEo1p3xUVWh/wenJI+josoMk21f2yuLDGzGjmKYcALfl2u3DFltY+n4UHswYiXghqXaA8mRh+bFy/q1hQlg==}
     peerDependencies:
       postcss: ^8.3.3
@@ -5093,9 +5114,9 @@ packages:
       postcss:
         optional: true
     dependencies:
-      postcss: 8.4.24
+      postcss: 8.4.31
       stylelint: 15.10.3
-      stylelint-config-recommended-scss: 12.0.0(postcss@8.4.24)(stylelint@15.10.3)
+      stylelint-config-recommended-scss: 12.0.0(postcss@8.4.31)(stylelint@15.10.3)
       stylelint-config-standard: 33.0.0(stylelint@15.10.3)
     dev: true
 

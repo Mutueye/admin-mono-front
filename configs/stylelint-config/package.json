@@ -1,5 +1,5 @@
 {
-  "name": "@qst-athena/stylelint-config",
+  "name": "@qst-admin/stylelint-config",
   "version": "1.0.0",
   "description": "custom stylelint config for scss and vue",
   "private": true,

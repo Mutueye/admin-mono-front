@@ -1,5 +1,5 @@
 {
-  "name": "@qst-athena/prettier-config",
+  "name": "@qst-admin/prettier-config",
   "version": "1.0.0",
   "main": "./prettier-config.json",
   "peerDependencies": {
