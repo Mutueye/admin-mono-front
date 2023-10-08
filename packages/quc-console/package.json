@@ -19,6 +19,7 @@
     "lint:style:check": "stylelint ./src/**/*.{vue,css,scss}"
   },
   "dependencies": {
+    "@itshixun/qst-request-lib": "^1.0.1",
     "@itshixun/qst-ui-system": "^0.1.1",
     "@vueuse/core": "^10.1.2",
     "@vueuse/head": "^1.1.26",

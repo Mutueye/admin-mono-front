@@ -1,0 +1,14 @@
+{
+  "name": "@qst-athena/prettier-config",
+  "version": "1.0.0",
+  "main": "./prettier-config.json",
+  "peerDependencies": {
+    "prettier": "3.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "publish": "npm publish"
+  }
+}

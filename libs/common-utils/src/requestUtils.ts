@@ -41,7 +41,7 @@ export enum ContentTypeEnum {
 }
 
 /**
- * @name 拦截器类型枚举
+ * @name InterceptorTypeEnum 拦截器类型枚举
  * @description 分为四种类型：RequestFulfilled - 请求完成，RequestRejected - 请求失败，
  * ResponseFulfilled - 响应成功，ResponseRejected - 响应失败。
  */

@@ -1,7 +1,20 @@
-import { AxiosResponse, AxiosError } from 'axios';
+import Axios, { AxiosResponse, AxiosError } from 'axios';
 import { ElMessage } from 'element-plus';
 import { AxiosController, InterceptorTypeEnum, ResultData, getAxiosResult } from 'common-utils';
 import { useAuthStore } from '@/modules/auth/store/auth';
+import { setDefaultRequestWrapperOption } from '@itshixun/qst-request-lib';
+
+export const axiosMainInstance = Axios.create({
+  withCredentials: import.meta.env.DEV,
+});
+
+setDefaultRequestWrapperOption({
+  handle401: () => {
+    ElMessage.error('登录已失效或无权限');
+    useAuthStore().logout();
+  },
+  handleMessage: (msg: string) => ElMessage.error(msg),
+});
 
 export const axiosBaseController = new AxiosController({
   // 开发模式下多个子项目使用不同端口，需要设置withCredentials为true，才能在请求接口时request headers拿到基座的cookie

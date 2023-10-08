@@ -1,11 +1,9 @@
 import { defineStore } from 'pinia';
 import { ElMessage } from 'element-plus';
-import type { ResultData } from 'common-utils';
+import { requestWrapper, QstResult } from '@itshixun/qst-request-lib';
 import { ApiPath } from '@/utils/consts';
-import { axiosBaseInstance } from '@/utils/requestUtils';
+import { axiosMainInstance } from '@/utils/requestUtils';
 import { router } from '@/router';
-
-// const { bus } = Wujie;
 
 export interface UserInfo {
   /** token */
@@ -46,38 +44,35 @@ export const useAuthStore = defineStore('auth', {
     },
 
     getLoginKey() {
-      return axiosBaseInstance
-        .get<ResultData<{ publicKey: string }>>(`${ApiPath}/console/login_key`)
-        .then((res) => {
-          console.log('getPublicKey res::::', res);
-          return res.data.data.publicKey;
-        })
-        .catch(() => ElMessage.error('获取登录密钥出错'));
+      return requestWrapper<QstResult<{ publicKey: string }>>(() =>
+        axiosMainInstance.get(`${ApiPath}/console/login_key`),
+      ).then((res) => {
+        if (res.data) return res.data.publicKey;
+      });
     },
 
     login(params: { cryptogram: string; key: string }) {
-      return axiosBaseInstance
-        .post<ResultData<{ accessToken: string }>>(`${ApiPath}/console/login`, params)
-        .then((res) => {
-          const token = res.data.data.accessToken;
-          if (token) {
-            this.setToken(token);
-            return token;
-          } else {
-            return '';
-          }
-        })
-        .catch(() => {
-          ElMessage.error('登录出错了');
-        });
+      return requestWrapper<QstResult<{ accessToken: string }>>(() =>
+        axiosMainInstance.post(`${ApiPath}/console/login`, params),
+      ).then((res) => {
+        if (res.data && res.data.accessToken) {
+          const token = res.data.accessToken;
+          this.setToken(token);
+          return token;
+        } else {
+          ElMessage.error('登录成功但未返回token');
+          return '';
+        }
+      });
     },
 
     getUserInfo() {
-      return axiosBaseInstance.get<ResultData<UserInfo>>(`${ApiPath}/console/token`).then((res) => {
-        const userInfo = res.data.data;
-        if (userInfo) {
-          this.userInfo = userInfo;
-          return userInfo;
+      return requestWrapper<QstResult<UserInfo>>(() =>
+        axiosMainInstance.get(`${ApiPath}/console/token`),
+      ).then((res) => {
+        if (res.data) {
+          this.userInfo = res.data;
+          return res.data;
         } else {
           return null;
         }
@@ -89,15 +84,17 @@ export const useAuthStore = defineStore('auth', {
         // 全局事件总线触发“退出”
         window.$wujie?.bus.$emit('logout');
       } else {
-        return axiosBaseInstance.post(`${ApiPath}/console/logout`).then(() => {
-          if (this.token) {
-            this.token = '';
-            this.userInfo = {};
-          }
-          if (router) {
-            router.push({ name: 'login' });
-          }
-        });
+        return requestWrapper(() => axiosMainInstance.post(`${ApiPath}/console/logout`)).then(
+          () => {
+            if (this.token) {
+              this.token = '';
+              this.userInfo = {};
+            }
+            if (router) {
+              router.push({ name: 'login' });
+            }
+          },
+        );
       }
     },
   },

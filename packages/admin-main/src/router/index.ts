@@ -96,7 +96,7 @@ export let router: Router | null = null;
 
 export const initRouter = () => {
   const routes = generateAllRoutes(baseRoutes);
-  console.log('routes::::', routes);
+  // console.log('routes::::', routes);
   router = createRouter({
     history: createWebHistory(BasePath),
     routes,

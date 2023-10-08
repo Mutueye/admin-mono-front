@@ -1,0 +1,16 @@
+{
+  "name": "@qst-athena/stylelint-config",
+  "version": "1.0.0",
+  "description": "custom stylelint config for scss and vue",
+  "private": true,
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "stylelint": "^15.10.3",
+    "stylelint-config-css-modules": "^4.3.0",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-scss": "^5.1.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@qst-athena/vite-config",
+  "version": "1.0.0",
+  "description": "vite env defination file for vite ts projects",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "vite": "^4.4.9",
+    "vue": "^3.3.4"
+  }
+}
