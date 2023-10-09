@@ -15,13 +15,14 @@
     "lint": "npx lint-staged",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint:es": "eslint --ext .js,.ts --ignore-path .eslintignore --fix src",
-    "lint:es:check": "eslint --ext .js,.ts --ignore-path .eslintignore src"
+    "lint:es": "eslint --ext .js,.ts --fix src",
+    "lint:es:check": "eslint --ext .js,.ts src"
   },
   "keywords": [],
   "author": "Mutueye",
   "license": "MIT",
   "devDependencies": {
+    "@qst-admin/eslint-config": "workspace:^",
     "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^11.1.1",
     "eslint": "^8.42.0",
@@ -38,7 +39,7 @@
     "axios": "^1.4.0"
   },
   "lint-staged": {
-    "./**/*.{vue,js,ts,jsx,tsx,json}": "eslint --ignore-path .eslintignore --fix",
-    "./**/*.{vue,js,ts,jsx,tsx,md,json,scss,css,html}": "prettier . --write"
+    "./**/*.{vue,js,ts,jsx,tsx,json}": "eslint --fix",
+    "./**/*.{vue,js,ts,jsx,tsx,md,json,scss,css,html}": "prettier --write"
   }
 }

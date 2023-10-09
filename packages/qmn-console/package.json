@@ -13,8 +13,8 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "lint": "npx lint-staged",
-    "lint:es": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore --fix src/",
-    "lint:es:check": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore src/",
+    "lint:es": "eslint --ext .js,.ts,.vue --fix src/",
+    "lint:es:check": "eslint --ext .js,.ts,.vue src/",
     "lint:style": "stylelint ./src/**/*.{vue,css,scss} --fix",
     "lint:style:check": "stylelint ./src/**/*.{vue,css,scss}"
   },
@@ -37,6 +37,7 @@
   "devDependencies": {
     "@iconify-json/line-md": "^1.1.25",
     "@iconify-json/mdi": "^1.1.52",
+    "@qst-admin/eslint-config": "workspace:^",
     "@qst-admin/vite-config": "workspace:^",
     "@types/lodash-es": "^4.17.7",
     "@types/node": "^20.3.1",
@@ -69,8 +70,8 @@
     "vue-tsc": "^1.6.5"
   },
   "lint-staged": {
-    "./**/*.{vue,js,ts,jsx,tsx}": "eslint --ignore-path .eslintignore --fix",
-    "./**/*.{vue,js,ts,jsx,tsx,md,json,scss,css,html}": "prettier . --write",
+    "./**/*.{vue,js,ts,jsx,tsx}": "eslint --fix",
+    "./**/*.{vue,js,ts,jsx,tsx,md,json,scss,css,html}": "prettier --write",
     "./**/*.{scss,css,vue}": "stylelint --fix"
   }
 }

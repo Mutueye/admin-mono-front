@@ -46,6 +46,8 @@ module.exports = {
     '*.local',
     '*.css',
     'public/*',
-    'docs'
+    'docs',
+    'auto-imports.d.ts',
+    'components.d.ts'
   ]
 }

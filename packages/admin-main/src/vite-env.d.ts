@@ -1,1 +1,1 @@
-/// <reference types="@qst-athena/vite-config/env" />
+/// <reference types="@qst-admin/vite-config/env" />

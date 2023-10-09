@@ -74,6 +74,9 @@ importers:
         specifier: ^1.4.0
         version: 1.4.0
     devDependencies:
+      '@qst-admin/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
       '@rollup/plugin-terser':
         specifier: ^0.4.3
         version: 0.4.3(rollup@3.25.1)
@@ -165,6 +168,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.52
         version: 1.1.52
+      '@qst-admin/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
       '@qst-admin/vite-config':
         specifier: workspace:^
         version: link:../../configs/vite-config
@@ -307,6 +313,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.52
         version: 1.1.52
+      '@qst-admin/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
       '@qst-admin/vite-config':
         specifier: workspace:^
         version: link:../../configs/vite-config
@@ -449,6 +458,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.52
         version: 1.1.52
+      '@qst-admin/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
       '@qst-admin/vite-config':
         specifier: workspace:^
         version: link:../../configs/vite-config
@@ -594,6 +606,9 @@ importers:
       '@iconify-json/mdi':
         specifier: ^1.1.52
         version: 1.1.52
+      '@qst-admin/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
       '@qst-admin/vite-config':
         specifier: workspace:^
         version: link:../../configs/vite-config

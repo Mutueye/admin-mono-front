@@ -1,0 +1,4 @@
+{
+  "root": true,
+  "extends": ["@qst-admin/eslint-config/eslint-vue-ts"]
+}
