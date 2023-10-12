@@ -90,7 +90,7 @@ export const byteLengthValidator = ({
 export const nameLengthValidator = (
   rule: unknown,
   value: string,
-  callback: (err?: string | Error | undefined) => void,
+  callback: (err?: string | Error | undefined) => void
 ) => {
   byteLengthValidator({
     value,
@@ -111,7 +111,7 @@ export const nameLengthValidator = (
 export const usernameValidator = (
   rule: unknown,
   value: string,
-  callback: (err?: string | Error | undefined) => void,
+  callback: (err?: string | Error | undefined) => void
 ) => {
   if (!value) {
     callback();
@@ -153,7 +153,7 @@ export const usernameValidator = (
 export const emailValidator = (
   rule: unknown,
   value: string,
-  callback: (err?: string | Error | undefined) => void,
+  callback: (err?: string | Error | undefined) => void
 ) => {
   if (value === '') {
     callback();
@@ -182,7 +182,7 @@ export const emailValidator = (
 export const idCodeValidator = (
   rule: unknown,
   value: string,
-  callback: (err?: string | Error | undefined) => void,
+  callback: (err?: string | Error | undefined) => void
 ) => {
   if (value === '') {
     callback();
@@ -292,7 +292,7 @@ export const globalFormRules = {
       validator: (
         rule: unknown,
         value: string,
-        callback: (err?: string | Error | undefined) => void,
+        callback: (err?: string | Error | undefined) => void
       ) => {
         byteLengthValidator({
           value,

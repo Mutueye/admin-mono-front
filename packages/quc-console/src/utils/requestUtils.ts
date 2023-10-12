@@ -69,7 +69,7 @@ export const getResult = <T>(
     showError?: boolean;
     errorMessage?: string;
     defaultErrorMessage?: string;
-  },
+  }
 ) => {
   return getAxiosResult<T>(res, {
     errorMessage,

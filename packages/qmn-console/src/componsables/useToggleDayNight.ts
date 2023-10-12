@@ -13,7 +13,7 @@ export const useToggleDayNight = () => {
   };
 
   const dayNightMode = computed(() =>
-    isDark.value ? DayNightModeEnum.dark : DayNightModeEnum.light,
+    isDark.value ? DayNightModeEnum.dark : DayNightModeEnum.light
   );
 
   return { isDark, toggleDayNight, dayNightMode };

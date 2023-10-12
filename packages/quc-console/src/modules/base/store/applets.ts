@@ -15,7 +15,7 @@ export const useAppletsStore = defineStore('applets', {
   actions: {
     getApplets() {
       return requestWrapper<QstResult<QstPagination<Applet>>>(() =>
-        axiosMainInstance.get(`${ApiPath}/console/applets`),
+        axiosMainInstance.get(`${ApiPath}/console/applets`)
       ).then((res) => {
         if (res.data) {
           this.applets = res.data.rows ? res.data.rows : [];

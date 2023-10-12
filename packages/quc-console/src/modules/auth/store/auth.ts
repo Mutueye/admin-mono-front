@@ -45,7 +45,7 @@ export const useAuthStore = defineStore('auth', {
 
     getLoginKey() {
       return requestWrapper<QstResult<{ publicKey: string }>>(() =>
-        axiosMainInstance.get(`${ApiPath}/console/login_key`),
+        axiosMainInstance.get(`${ApiPath}/console/login_key`)
       ).then((res) => {
         if (res.data) return res.data.publicKey;
       });
@@ -53,7 +53,7 @@ export const useAuthStore = defineStore('auth', {
 
     login(params: { cryptogram: string; key: string }) {
       return requestWrapper<QstResult<{ accessToken: string }>>(() =>
-        axiosMainInstance.post(`${ApiPath}/console/login`, params),
+        axiosMainInstance.post(`${ApiPath}/console/login`, params)
       ).then((res) => {
         if (res.data && res.data.accessToken) {
           const token = res.data.accessToken;
@@ -68,7 +68,7 @@ export const useAuthStore = defineStore('auth', {
 
     getUserInfo() {
       return requestWrapper<QstResult<UserInfo>>(() =>
-        axiosMainInstance.get(`${ApiPath}/console/token`),
+        axiosMainInstance.get(`${ApiPath}/console/token`)
       ).then((res) => {
         if (res.data) {
           this.userInfo = res.data;
@@ -93,7 +93,7 @@ export const useAuthStore = defineStore('auth', {
             if (router) {
               router.push({ name: 'login' });
             }
-          },
+          }
         );
       }
     },
