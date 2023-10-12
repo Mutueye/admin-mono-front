@@ -68,7 +68,7 @@ const addSubAppRoutes = (parentRoute?: RouteRecordRaw) => {
 const addRouteParentMeta = (
   routes: RouteRecordRaw[],
   parentRoute: RouteRecordRaw | null,
-  baseRoute: RouteRecordRaw | null,
+  baseRoute: RouteRecordRaw | null
 ) => {
   routes.forEach((route) => {
     if (parentRoute && baseRoute) {
