@@ -40,6 +40,7 @@
     "@iconify-json/line-md": "^1.1.25",
     "@iconify-json/mdi": "^1.1.52",
     "@qst-admin/eslint-config": "workspace:^",
+    "@qst-admin/prettier-config": "workspace:^",
     "@qst-admin/vite-config": "workspace:^",
     "@types/lodash-es": "^4.17.7",
     "@types/node": "^20.3.1",

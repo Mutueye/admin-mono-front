@@ -171,6 +171,9 @@ importers:
       '@qst-admin/eslint-config':
         specifier: workspace:^
         version: link:../../configs/eslint-config
+      '@qst-admin/prettier-config':
+        specifier: workspace:^
+        version: link:../../configs/prettier-config
       '@qst-admin/vite-config':
         specifier: workspace:^
         version: link:../../configs/vite-config

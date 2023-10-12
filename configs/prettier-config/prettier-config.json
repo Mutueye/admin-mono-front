@@ -4,9 +4,10 @@
   "bracketSpacing": true,
   "bracketSameLine": true,
   "singleQuote": true,
-  "trailingComma": "none",
+  "trailingComma": "es5",
   "arrowParens": "always",
-  "printWidth": 1000,
+  "printWidth": 100,
   "htmlWhitespaceSensitivity": "ignore",
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "vueIndentScriptAndStyle": true
 }
