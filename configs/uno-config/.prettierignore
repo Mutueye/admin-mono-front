@@ -1,0 +1,11 @@
+*.md
+docs
+public
+dist
+node_modules
+.next
+build
+.DS_Store
+pnpm-lock.yaml
+auto-imports.d.ts
+components.d.ts
