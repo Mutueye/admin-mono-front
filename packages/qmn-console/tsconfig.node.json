@@ -1,11 +1,4 @@
 {
-  "compilerOptions": {
-    "composite": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
-  },
-  "include": ["vite.config.ts", "unocss.theme.ts", "../../mono-config.json"]
+  "extends": "@qst-admin/ts-config/tsconfig.vite.json",
+  "include": ["vite.config.ts"]
 }

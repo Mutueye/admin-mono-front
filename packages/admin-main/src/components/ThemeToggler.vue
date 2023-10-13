@@ -6,20 +6,10 @@
       class="theme-btn mr-spacing color-white"
       :style="{ backgroundColor: theme.config[dayNightMode].color.primary }"
       @click="themeStore.setCurrentThemeIndex(index)">
-      <i
-        v-if="currentThemeIndex === index"
-        inline-block
-        align-middle
-        text-size-large
-        class="i-mdi-check-circle-outline" />
+      <i v-if="currentThemeIndex === index" class="i-mdi-check-circle-outline inline-block align-middle text-size-large" />
     </button>
     <button class="theme-btn" @click="toggleDayNight">
-      <i
-        inline-block
-        align-middle
-        text-size-large
-        dark="i-line-md-moon-filled"
-        class="i-line-md-moon-filled-to-sunny-filled-loop-transition color-text-regular" />
+      <i class="i-line-md-moon-filled-to-sunny-filled-loop-transition dark:i-line-md-moon-filled inline-block align-middle text-size-large color-text-regular" />
     </button>
   </div>
 </template>

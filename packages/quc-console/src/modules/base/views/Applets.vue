@@ -1,7 +1,7 @@
 <template>
   <ContentWrapper>
     <DashboardContent>
-      <div class="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-spacing-md">
+      <div class="grid grid-cols-2 xl:grid-cols-3 xxl:grid-cols-4 gap-spacing-md">
         <AppletItem v-for="app in applets" :key="app.id" :data="app" />
       </div>
     </DashboardContent>

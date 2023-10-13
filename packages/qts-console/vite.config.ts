@@ -5,41 +5,11 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Unocss from 'unocss/vite';
-import {
-  presetAttributify,
-  presetIcons,
-  presetUno,
-  transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss';
-import { theme, uplusIconCollection, safelist } from './unocss.theme';
 
 const envDir = path.join(__dirname + '/../../env');
 
 const baseConfig = defineConfig({
-  plugins: [
-    vue(),
-    AutoImport({ resolvers: [ElementPlusResolver()] }),
-    Components({ resolvers: [ElementPlusResolver()] }),
-    Unocss({
-      presets: [
-        presetUno(),
-        presetAttributify(),
-        presetIcons({
-          scale: 1,
-          warn: true,
-          collections: {
-            uplus: uplusIconCollection,
-          },
-        }),
-      ],
-      // unocss can't render icon class dynamically. When adding menu icon class name
-      // into route.meta.menuConfig, you must also add into this safelist.
-      safelist,
-      transformers: [transformerDirectives(), transformerVariantGroup()],
-      theme,
-    }),
-  ],
+  plugins: [vue(), AutoImport({ resolvers: [ElementPlusResolver()] }), Components({ resolvers: [ElementPlusResolver()] }), Unocss()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -63,9 +33,7 @@ export default defineConfig(({ mode }) => {
   // api前缀
   const proxyApiPrepend = process.env.VITE_API_BASE_PATH ? process.env.VITE_API_BASE_PATH : '/spi';
   // 要代理的地址
-  const gateway = process.env.VITE_API_GATEWAY
-    ? process.env.VITE_API_GATEWAY
-    : 'https://console.uc.eduplus.net';
+  const gateway = process.env.VITE_API_GATEWAY ? process.env.VITE_API_GATEWAY : 'https://console.uc.eduplus.net';
 
   return {
     build: {

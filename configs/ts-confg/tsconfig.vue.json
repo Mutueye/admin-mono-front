@@ -7,9 +7,9 @@
     "jsx": "preserve",
     "jsxImportSource": "vue",
     "resolveJsonModule": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node10",
     "lib": ["DOM", "ESNext"],
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "noEmit": true
   }
 }
