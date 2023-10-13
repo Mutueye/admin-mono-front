@@ -1,6 +1,5 @@
 <template>
-  <div
-    class="flex flex-col h-full w-64px bg-bg-secondary flex-shrink-0 border-r border-border-light min-h-0">
+  <div class="flex flex-col h-full w-64px bg-bg-secondary flex-shrink-0 border-r border-border-light min-h-0">
     <!-- <i
       class="i-uplus:logo inline-block align-middle w-36px h-36px m-14px cursor-pointer"
       @click="
@@ -11,11 +10,7 @@
     <div class="w-full flex flex-col flex-1 min-h-0">
       <el-scrollbar>
         <!-- apps menu -->
-        <WrapperSidebarItem
-          v-for="item in menus"
-          :key="item.name"
-          :route-data="item"
-          :active="route.name === item.name" />
+        <WrapperSidebarItem v-for="item in menus" :key="item.name" :route-data="item" :active="route.name === item.name" />
       </el-scrollbar>
     </div>
   </div>

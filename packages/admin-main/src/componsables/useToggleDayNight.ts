@@ -15,9 +15,7 @@ export const useToggleDayNight = () => {
     bus.$emit('toggle-dark');
   };
 
-  const dayNightMode = computed(() =>
-    isDark.value ? DayNightModeEnum.dark : DayNightModeEnum.light
-  );
+  const dayNightMode = computed(() => (isDark.value ? DayNightModeEnum.dark : DayNightModeEnum.light));
 
   return { isDark, toggleDayNight, dayNightMode };
 };

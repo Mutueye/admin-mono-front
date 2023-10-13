@@ -4,9 +4,7 @@
       class="w-36px h-36px mx-14px mt-14px flex flex-row items-center justify-center hover:bg-bg rounded-base"
       :class="active ? 'bg-white' : 'bg-transparent cursor-pointer'"
       @click="clickItem">
-      <i
-        class="inline-block w-22px h-22px"
-        :class="[iconClass, active ? 'color-primary' : 'color-text-regular']" />
+      <i class="inline-block w-22px h-22px" :class="[iconClass, active ? 'color-primary' : 'color-text-regular']" />
     </div>
   </el-tooltip>
 </template>

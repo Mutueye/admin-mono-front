@@ -1,8 +1,5 @@
 <template>
-  <el-menu
-    :collapse="false"
-    :default-active="activeMenuRouteName"
-    class="bg-transparent border-none admin-menu">
+  <el-menu :collapse="false" :default-active="activeMenuRouteName" class="bg-transparent border-none admin-menu">
     <menu-item v-for="item in menus" :key="item.name" :menu-data="item" />
   </el-menu>
 </template>
