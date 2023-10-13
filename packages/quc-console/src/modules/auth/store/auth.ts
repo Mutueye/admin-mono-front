@@ -44,17 +44,13 @@ export const useAuthStore = defineStore('auth', {
     },
 
     getLoginKey() {
-      return requestWrapper<QstResult<{ publicKey: string }>>(() =>
-        axiosMainInstance.get(`${ApiPath}/console/login_key`)
-      ).then((res) => {
+      return requestWrapper<QstResult<{ publicKey: string }>>(() => axiosMainInstance.get(`${ApiPath}/console/login_key`)).then((res) => {
         if (res.data) return res.data.publicKey;
       });
     },
 
     login(params: { cryptogram: string; key: string }) {
-      return requestWrapper<QstResult<{ accessToken: string }>>(() =>
-        axiosMainInstance.post(`${ApiPath}/console/login`, params)
-      ).then((res) => {
+      return requestWrapper<QstResult<{ accessToken: string }>>(() => axiosMainInstance.post(`${ApiPath}/console/login`, params)).then((res) => {
         if (res.data && res.data.accessToken) {
           const token = res.data.accessToken;
           this.setToken(token);
@@ -67,9 +63,7 @@ export const useAuthStore = defineStore('auth', {
     },
 
     getUserInfo() {
-      return requestWrapper<QstResult<UserInfo>>(() =>
-        axiosMainInstance.get(`${ApiPath}/console/token`)
-      ).then((res) => {
+      return requestWrapper<QstResult<UserInfo>>(() => axiosMainInstance.get(`${ApiPath}/console/token`)).then((res) => {
         if (res.data) {
           this.userInfo = res.data;
           return res.data;
@@ -84,17 +78,15 @@ export const useAuthStore = defineStore('auth', {
         // 全局事件总线触发“退出”
         window.$wujie?.bus.$emit('logout');
       } else {
-        return requestWrapper(() => axiosMainInstance.post(`${ApiPath}/console/logout`)).then(
-          () => {
-            if (this.token) {
-              this.token = '';
-              this.userInfo = {};
-            }
-            if (router) {
-              router.push({ name: 'login' });
-            }
+        return requestWrapper(() => axiosMainInstance.post(`${ApiPath}/console/logout`)).then(() => {
+          if (this.token) {
+            this.token = '';
+            this.userInfo = {};
           }
-        );
+          if (router) {
+            router.push({ name: 'login' });
+          }
+        });
       }
     },
   },

@@ -11,10 +11,7 @@ export enum LayoutEnum {
   admin = 'admin',
 }
 
-const generateLayoutRoute = (config: {
-  name: LayoutEnum;
-  component: Component;
-}): RouteRecordRaw => {
+const generateLayoutRoute = (config: { name: LayoutEnum; component: Component }): RouteRecordRaw => {
   return {
     path: `/${config.name}`,
     name: config.name,

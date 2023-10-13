@@ -12,8 +12,7 @@ export const regName = /^(?![ ,.·\-_])(?!.*?[ ,.·\-_]$)[a-zA-Z0-9 ,.·\-_\u4e0
  * ● 6-20 个字符，只能包含英文字母、数字、特殊字符（不含空格）
  * ● 字母、数字、标点符号至少包含 2 种
  */
-export const regPassword =
-  /^(?!^[A-Za-z]+$)(?!^\d+$)(?!^[.!@#$%\\\\^&\\*\\)(+={}[\]/",'<>~·`?:;|]+$)[a-z_A-Z0-9-.!@#$%\\\\^&*)(+={}[\]/",'<>~·`?:;|]{6,20}$/;
+export const regPassword = /^(?!^[A-Za-z]+$)(?!^\d+$)(?!^[.!@#$%\\\\^&\\*\\)(+={}[\]/",'<>~·`?:;|]+$)[a-z_A-Z0-9-.!@#$%\\\\^&*)(+={}[\]/",'<>~·`?:;|]{6,20}$/;
 
 /**
  * 手机号 正则
@@ -35,20 +34,17 @@ export const regCode = /^[a-zA-Z0-9]{0,50}$/;
 /**
  * 邮箱 正则
  */
-export const regEmail =
-  /^[a-zA-Z0-9-._\u4e00-\u9fa5]+@[a-zA-Z0-9-_\u4e00-\u9fa5]+(\.[a-zA-Z0-9-_\u4e00-\u9fa5]+){1,5}$/;
+export const regEmail = /^[a-zA-Z0-9-._\u4e00-\u9fa5]+@[a-zA-Z0-9-_\u4e00-\u9fa5]+(\.[a-zA-Z0-9-_\u4e00-\u9fa5]+){1,5}$/;
 
 /**
  * 身份证号 18位
  */
-export const regId18 =
-  /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+export const regId18 = /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
 
 /**
  * 身份证号 15位
  */
-export const regId15 =
-  /^([1-6][1-9]|50)\d{4}\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}$/;
+export const regId15 = /^([1-6][1-9]|50)\d{4}\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}$/;
 
 /**
  * 机构名称 正则
@@ -87,11 +83,7 @@ export const byteLengthValidator = ({
  * 姓名&昵称 验证字节长度
  * ● 中文 1-20 个字符，英文 3-60 个字符（字节长度3-60）；
  */
-export const nameLengthValidator = (
-  rule: unknown,
-  value: string,
-  callback: (err?: string | Error | undefined) => void
-) => {
+export const nameLengthValidator = (rule: unknown, value: string, callback: (err?: string | Error | undefined) => void) => {
   byteLengthValidator({
     value,
     callback,
@@ -108,11 +100,7 @@ export const nameLengthValidator = (
  * ● 不能以下划线开头或结尾；
  * ● 不能是纯数字。
  */
-export const usernameValidator = (
-  rule: unknown,
-  value: string,
-  callback: (err?: string | Error | undefined) => void
-) => {
+export const usernameValidator = (rule: unknown, value: string, callback: (err?: string | Error | undefined) => void) => {
   if (!value) {
     callback();
   } else {
@@ -150,11 +138,7 @@ export const usernameValidator = (
 /**
  * 验证邮箱
  */
-export const emailValidator = (
-  rule: unknown,
-  value: string,
-  callback: (err?: string | Error | undefined) => void
-) => {
+export const emailValidator = (rule: unknown, value: string, callback: (err?: string | Error | undefined) => void) => {
   if (value === '') {
     callback();
   } else {
@@ -179,11 +163,7 @@ export const emailValidator = (
 /**
  * 身份证号验证
  */
-export const idCodeValidator = (
-  rule: unknown,
-  value: string,
-  callback: (err?: string | Error | undefined) => void
-) => {
+export const idCodeValidator = (rule: unknown, value: string, callback: (err?: string | Error | undefined) => void) => {
   if (value === '') {
     callback();
   } else {
@@ -289,11 +269,7 @@ export const globalFormRules = {
     { required: true, message: '请输入机构名称', trigger: 'blur' },
     {
       // 限制字节长度
-      validator: (
-        rule: unknown,
-        value: string,
-        callback: (err?: string | Error | undefined) => void
-      ) => {
+      validator: (rule: unknown, value: string, callback: (err?: string | Error | undefined) => void) => {
         byteLengthValidator({
           value,
           callback,
