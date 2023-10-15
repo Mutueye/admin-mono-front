@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full min-h-full max-h-full overflow-hidden flex flex-row items-stretch min-w-1200px">
-    <div class="flex flex-col w-left-menu bg-bg-page flex-shrink-0 relative">
+  <div class="w-full min-h-full max-h-full overflow-hidden flex flex-row items-stretch">
+    <div class="flex flex-col w-300px bg-bg-page flex-shrink-0 relative">
       <div class="flex flex-1 relative w-full z-10 min-h-0">
         <el-scrollbar class="w-full">
           <div class="w-full flex flex-col py-spacing-xs">

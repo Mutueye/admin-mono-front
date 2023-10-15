@@ -3,7 +3,7 @@
     <WrapperHeader />
     <div class="flex flex-row flex-1 h-full min-h-0">
       <WrapperSidebar />
-      <div class="flex-1 w-full flex flex-col bg-bg min-h-0">
+      <div class="flex-1 w-full flex flex-col bg-bg min-h-0 min-w-0">
         <RouterView />
       </div>
     </div>

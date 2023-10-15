@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "lodash-es": "^4.17.21",
-    "pinia": "^2.1.6"
+    "pinia": "^2.1.7"
   },
   "devDependencies": {
     "@qst-admin/eslint-config": "workspace:^",
@@ -18,12 +18,12 @@
     "@qst-admin/ts-config": "workspace:^",
     "@qst-admin/vite-config": "workspace:^",
     "@types/lodash-es": "^4.17.9",
-    "@types/node": "^20.6.5",
-    "eslint": "^8.50.0",
+    "@types/node": "^20.8.5",
+    "eslint": "^8.51.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "typescript": "~5.2.2",
-    "vite": "^4.4.9"
+    "vite": "^4.4.11"
   },
   "lint-staged": {
     "*.{vue,js,cjs,ts,jsx,tsx}": "eslint --fix",
