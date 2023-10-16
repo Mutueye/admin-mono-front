@@ -1,16 +1,11 @@
 import { createApp } from 'vue';
-// import ElementPlus from 'element-plus';
-// import zhCn from 'element-plus/es/locale/lang/zh-cn';
 import { initQstTheme } from '@itshixun/qst-ui-system';
+import { useAuthStore } from '@qst-admin/auth';
+import { initRequestWrapper } from '@qst-admin/utils';
 import { getSubAppList } from './utils/subAppConfig';
-
 import App from '@/App.vue';
 import { router, initRouter } from '@/router/index';
 import pinia from '@/store';
-import { initRequestWrapper } from '@/utils/requestUtils';
-
-// 初始化aixos控制器及其实例
-import '@/utils/requestUtils';
 
 // element-plus css variables
 import 'element-plus/theme-chalk/index.css';
@@ -38,7 +33,11 @@ getSubAppList().then(() => {
     // app.use(ElementPlus, { locale: zhCn });
 
     app.mount('#app');
-    initRequestWrapper();
+
+    /** 初始化requestWrapper配置 */
+    initRequestWrapper(() => {
+      useAuthStore().logout(() => router?.push({ name: 'login' }));
+    });
   }
 });
 

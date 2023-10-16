@@ -366,6 +366,43 @@ importers:
         specifier: ^4.4.11
         version: 4.4.11(@types/node@20.8.5)(sass@1.69.3)
 
+  libs/utils:
+    dependencies:
+      '@itshixun/qst-request-lib':
+        specifier: ^1.0.1
+        version: 1.0.1
+    devDependencies:
+      '@qst-admin/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
+      '@qst-admin/prettier-config':
+        specifier: workspace:^
+        version: link:../../configs/prettier-config
+      '@qst-admin/ts-config':
+        specifier: workspace:^
+        version: link:../../configs/ts-confg
+      '@qst-admin/vite-config':
+        specifier: workspace:^
+        version: link:../../configs/vite-config
+      '@types/node':
+        specifier: ^20.8.5
+        version: 20.8.5
+      eslint:
+        specifier: ^8.51.0
+        version: 8.51.0
+      lint-staged:
+        specifier: ^14.0.1
+        version: 14.0.1
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
+      typescript:
+        specifier: ~5.2.2
+        version: 5.2.2
+      vite:
+        specifier: ^4.4.11
+        version: 4.4.11(@types/node@20.8.5)(sass@1.69.3)
+
   packages/admin-main:
     dependencies:
       '@itshixun/qst-request-lib':
@@ -380,6 +417,9 @@ importers:
       '@qst-admin/request':
         specifier: workspace:^
         version: link:../../libs/request
+      '@qst-admin/utils':
+        specifier: workspace:^
+        version: link:../../libs/utils
       '@vueuse/core':
         specifier: ^10.5.0
         version: 10.5.0(vue@3.3.4)
@@ -869,6 +909,9 @@ importers:
       '@qst-admin/request':
         specifier: workspace:^
         version: link:../../libs/request
+      '@qst-admin/utils':
+        specifier: workspace:^
+        version: link:../../libs/utils
       '@vueuse/core':
         specifier: ^10.5.0
         version: 10.5.0(vue@3.3.4)

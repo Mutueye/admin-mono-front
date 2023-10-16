@@ -1,10 +1,11 @@
 import { createApp } from 'vue';
 import { initQstTheme } from '@itshixun/qst-ui-system';
+import { useAuthStore } from '@qst-admin/auth';
+import { initRequestWrapper } from '@qst-admin/utils';
 
 import App from '@/App.vue';
 import { router } from '@/router/index';
 import pinia from '@/store';
-import { initRequestWrapper } from './utils/requestUtils';
 
 // element-plus css variables
 import 'element-plus/theme-chalk/el-var.css';
@@ -25,4 +26,8 @@ app.use(router);
 app.mount('#app');
 
 initQstTheme();
-initRequestWrapper();
+
+/** 初始化requestWrapper配置 */
+initRequestWrapper(() => {
+  useAuthStore().logout(() => router?.push({ name: 'login' }));
+});
