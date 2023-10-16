@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia';
 import { ElMessage } from 'element-plus';
 import { requestWrapper, QstResult } from '@itshixun/qst-request-lib';
-import { ApiPath } from '@/utils/consts';
-import { axiosMainInstance } from '@/utils/requestUtils';
-import { router } from '@/router';
+import { Router } from 'vue-router';
+import { ApiPath, axiosInstance } from '@qst-admin/request';
 
 export interface UserInfo {
   /** token */
@@ -44,13 +43,13 @@ export const useAuthStore = defineStore('auth', {
     },
 
     getLoginKey() {
-      return requestWrapper<QstResult<{ publicKey: string }>>(() => axiosMainInstance.get(`${ApiPath}/console/login_key`)).then((res) => {
+      return requestWrapper<QstResult<{ publicKey: string }>>(() => axiosInstance.get(`${ApiPath}/console/login_key`)).then((res) => {
         if (res.data) return res.data.publicKey;
       });
     },
 
     login(params: { cryptogram: string; key: string }) {
-      return requestWrapper<QstResult<{ accessToken: string }>>(() => axiosMainInstance.post(`${ApiPath}/console/login`, params)).then((res) => {
+      return requestWrapper<QstResult<{ accessToken: string }>>(() => axiosInstance.post(`${ApiPath}/console/login`, params)).then((res) => {
         if (res.data && res.data.accessToken) {
           const token = res.data.accessToken;
           this.setToken(token);
@@ -63,7 +62,7 @@ export const useAuthStore = defineStore('auth', {
     },
 
     getUserInfo() {
-      return requestWrapper<QstResult<UserInfo>>(() => axiosMainInstance.get(`${ApiPath}/console/token`)).then((res) => {
+      return requestWrapper<QstResult<UserInfo>>(() => axiosInstance.get(`${ApiPath}/console/token`)).then((res) => {
         if (res.data) {
           this.userInfo = res.data;
           return res.data;
@@ -73,18 +72,20 @@ export const useAuthStore = defineStore('auth', {
       });
     },
 
-    logout() {
+    logout(onLogout?: () => void) {
       if (window.__POWERED_BY_WUJIE__) {
         // 全局事件总线触发“退出”
         window.$wujie?.bus.$emit('logout');
       } else {
-        return requestWrapper(() => axiosMainInstance.post(`${ApiPath}/console/logout`)).then(() => {
+        return requestWrapper(() => axiosInstance.post(`${ApiPath}/console/logout`)).then(() => {
           if (this.token) {
             this.token = '';
             this.userInfo = {};
           }
-          if (router) {
-            router.push({ name: 'login' });
+          if (typeof onLogout === 'function') {
+            onLogout();
+          } else {
+            console.error('"@qst-admin/auth"的 logout 方法未传入登出回调函数');
           }
         });
       }

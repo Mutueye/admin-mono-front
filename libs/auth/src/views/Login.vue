@@ -22,7 +22,7 @@
   import type { FormInstance, FormRules } from 'element-plus';
   import { useRouter } from 'vue-router';
   import { useAuthStore } from '../store/auth';
-  import { encodeLoginParams } from '@/utils/authUtils';
+  import { encodeLoginParams } from '../utils';
 
   const authStore = useAuthStore();
   const router = useRouter();

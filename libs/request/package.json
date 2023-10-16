@@ -1,5 +1,5 @@
 {
-  "name": "@qst-admin/uno-config",
+  "name": "@qst-admin/request",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
@@ -10,17 +10,14 @@
     "lint:es:check": "eslint --ext .js,.jsx,.cjs.ts,.tsx,.vue"
   },
   "dependencies": {
-    "@itshixun/qst-ui-system": "^0.1.9",
-    "lodash-es": "^4.17.21",
-    "pinia": "^2.1.7",
-    "unocss": "^0.56.5"
+    "@itshixun/qst-request-lib": "^1.0.1",
+    "axios": "^1.5.1"
   },
   "devDependencies": {
     "@qst-admin/eslint-config": "workspace:^",
     "@qst-admin/prettier-config": "workspace:^",
     "@qst-admin/ts-config": "workspace:^",
     "@qst-admin/vite-config": "workspace:^",
-    "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.8.5",
     "eslint": "^8.51.0",
     "lint-staged": "^14.0.1",

@@ -19,7 +19,10 @@
     "lint:style:check": "stylelint ./src/**/*.{vue,css,scss}"
   },
   "dependencies": {
+    "@itshixun/qst-request-lib": "^1.0.1",
     "@itshixun/qst-ui-system": "^0.1.9",
+    "@qst-admin/auth": "workspace:^",
+    "@qst-admin/request": "workspace:^",
     "@vueuse/core": "^10.5.0",
     "@vueuse/head": "^2.0.0",
     "axios": "^1.5.1",

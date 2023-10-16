@@ -1,0 +1,7 @@
+{
+  "extends": "@qst-athena/ts-config/tsconfig.vue.json",
+  "compilerOptions": {
+    "types": ["vite/client", "pinia-plugin-persist"]
+  },
+  "include": ["env.d.ts", "index.ts", "uno.config.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+}

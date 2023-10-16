@@ -26,8 +26,9 @@
 <script setup lang="ts">
   import { storeToRefs } from 'pinia';
   import { ElMessageBox } from 'element-plus';
-  import { useAuthStore } from '@/modules/auth/store/auth';
+  import { useAuthStore } from '@qst-admin/auth';
   import ThemeToggler from '@/components/ThemeToggler.vue';
+  import { router } from '@/router';
 
   const authStore = useAuthStore();
   const { userInfo } = storeToRefs(authStore);
@@ -38,7 +39,7 @@
       cancelButtonText: '取消',
     })
       .then(() => {
-        authStore.logout();
+        authStore.logout(() => router?.push({ name: 'login' }));
       })
       .catch(() => null);
   };

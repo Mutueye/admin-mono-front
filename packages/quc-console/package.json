@@ -21,6 +21,8 @@
   "dependencies": {
     "@itshixun/qst-request-lib": "^1.0.1",
     "@itshixun/qst-ui-system": "^0.1.9",
+    "@qst-admin/auth": "workspace:^",
+    "@qst-admin/request": "workspace:^",
     "@vueuse/core": "^10.5.0",
     "@vueuse/head": "^2.0.0",
     "axios": "^1.5.1",
@@ -41,6 +43,7 @@
     "@qst-admin/eslint-config": "workspace:^",
     "@qst-admin/prettier-config": "workspace:^",
     "@qst-admin/ts-config": "workspace:^",
+    "@qst-admin/uno-config": "workspace:^",
     "@qst-admin/vite-config": "workspace:^",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.8.5",

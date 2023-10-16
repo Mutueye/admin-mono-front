@@ -1,18 +1,13 @@
 {
-  "name": "qts-console",
+  "name": "@qst-admin/auth",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "packageManager": "pnpm@7.18.1",
   "scripts": {
-    "dev": "vite --mode dev",
-    "dev:prod": "vite --mode prod",
-    "dev:local": "vite --mode local",
-    "build": "vue-tsc && vite build --emptyOutDir --mode prod",
-    "preview": "vite preview",
+    "lint": "npx lint-staged",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint": "npx lint-staged",
     "lint:es": "eslint --ext .js,.ts,.vue --fix src/",
     "lint:es:check": "eslint --ext .js,.ts,.vue src/",
     "lint:style": "stylelint ./src/**/*.{vue,css,scss} --fix",
@@ -21,7 +16,6 @@
   "dependencies": {
     "@itshixun/qst-request-lib": "^1.0.1",
     "@itshixun/qst-ui-system": "^0.1.9",
-    "@qst-admin/auth": "workspace:^",
     "@qst-admin/request": "workspace:^",
     "@vueuse/core": "^10.5.0",
     "@vueuse/head": "^2.0.0",
@@ -35,7 +29,9 @@
     "pinia-plugin-persist": "^1.0.0",
     "vanilla-colorful": "^0.7.2",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "wujie": "^1.0.18",
+    "wujie-vue3": "^1.0.18"
   },
   "devDependencies": {
     "@iconify-json/line-md": "^1.1.32",
@@ -43,6 +39,7 @@
     "@qst-admin/eslint-config": "workspace:^",
     "@qst-admin/prettier-config": "workspace:^",
     "@qst-admin/ts-config": "workspace:^",
+    "@qst-admin/uno-config": "workspace:^",
     "@qst-admin/vite-config": "workspace:^",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.8.5",

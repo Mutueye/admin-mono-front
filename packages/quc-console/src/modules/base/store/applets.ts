@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { Applet } from '../types';
-import { ApiPath } from '@/utils/consts';
-import { axiosMainInstance } from '@/utils/requestUtils';
+import { ApiPath, axiosInstance } from '@qst-admin/request';
 import { requestWrapper, QstResult, QstPagination } from '@itshixun/qst-request-lib';
 
 interface AppletsState {
@@ -14,7 +13,7 @@ export const useAppletsStore = defineStore('applets', {
   }),
   actions: {
     getApplets() {
-      return requestWrapper<QstResult<QstPagination<Applet>>>(() => axiosMainInstance.get(`${ApiPath}/console/applets`)).then((res) => {
+      return requestWrapper<QstResult<QstPagination<Applet>>>(() => axiosInstance.get(`${ApiPath}/console/applets`)).then((res) => {
         if (res.data) {
           this.applets = res.data.rows ? res.data.rows : [];
           return this.applets;

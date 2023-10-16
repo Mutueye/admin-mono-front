@@ -4,6 +4,7 @@ import { initQstTheme } from '@itshixun/qst-ui-system';
 import App from '@/App.vue';
 import { router } from '@/router/index';
 import pinia from '@/store';
+import { initRequestWrapper } from './utils/requestUtils';
 
 // element-plus css variables
 import 'element-plus/theme-chalk/el-var.css';
@@ -24,3 +25,4 @@ app.use(router);
 app.mount('#app');
 
 initQstTheme();
+initRequestWrapper();

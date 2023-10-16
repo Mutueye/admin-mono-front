@@ -1,22 +1,14 @@
-import { AxiosController } from 'common-utils';
-// import { useAuthStore } from '@/modules/auth/store/auth';
+import { ElMessage } from 'element-plus';
+import { useAuthStore } from '@qst-admin/auth';
+import { setDefaultRequestWrapperOption } from '@itshixun/qst-request-lib';
+import { router } from '@/router';
 
-export const axiosBaseController = new AxiosController();
-export const axiosBaseInstance = axiosBaseController.instance;
-
-/**
- * 根据store里存储的token设置axiosBaseInstance实例的headers['X-Access-Token'],
- * 如果store里存储的token和headers['X-Access-Token']一致，则忽略
- */
-// export const axiosBaseInstanceAuthorize = () => {
-//   const token = useAuthStore().token;
-//   const headerToken = axiosBaseInstance.defaults.headers['X-Access-Token'];
-//   if (token && token !== headerToken) setHeaderAccessToken(token);
-// };
-
-/** 设置headers的X-Accesss-Token，不传则为清空 */
-// export const setHeaderAccessToken = (token?: string) => {
-//   axiosBaseController.setHeaders({
-//     'X-Access-Token': token ? token : null,
-//   });
-// };
+export const initRequestWrapper = () => {
+  setDefaultRequestWrapperOption({
+    handle401: () => {
+      ElMessage.error('登录已失效或无权限');
+      useAuthStore().logout(() => router?.push({ name: 'login' }));
+    },
+    handleMessage: (msg: string) => ElMessage.error(msg),
+  });
+};

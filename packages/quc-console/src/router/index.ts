@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 import type { RouteRecordData } from './types';
 import { layoutRoutes, LayoutEnum } from '@/layout/layoutRouteConfig';
 import { BasePath } from '@/utils/consts';
-import { useAuthStore } from '@/modules/auth/store/auth';
+import { useAuthStore } from '@qst-admin/auth';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
   const allRoutes: RouteRecordRaw[] = [...staticRoutes];

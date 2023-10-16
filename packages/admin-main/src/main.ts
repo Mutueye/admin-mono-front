@@ -7,6 +7,7 @@ import { getSubAppList } from './utils/subAppConfig';
 import App from '@/App.vue';
 import { router, initRouter } from '@/router/index';
 import pinia from '@/store';
+import { initRequestWrapper } from '@/utils/requestUtils';
 
 // 初始化aixos控制器及其实例
 import '@/utils/requestUtils';
@@ -37,6 +38,7 @@ getSubAppList().then(() => {
     // app.use(ElementPlus, { locale: zhCn });
 
     app.mount('#app');
+    initRequestWrapper();
   }
 });
 

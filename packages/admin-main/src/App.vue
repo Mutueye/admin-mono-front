@@ -8,8 +8,9 @@
   import { toRefs, onMounted, ref } from 'vue';
   import zhCn from 'element-plus/es/locale/lang/zh-cn';
   import { useThemeStore } from '@/store/theme';
-  import { useAuthStore } from './modules/auth/store/auth';
+  import { useAuthStore } from '@qst-admin/auth';
   import { bus } from 'wujie';
+  import { router } from './router';
 
   const authStore = useAuthStore();
   const themeStore = useThemeStore();
@@ -22,7 +23,7 @@
     }
     // 监听子应用触发的退出事件
     bus.$on('logout', () => {
-      authStore.logout();
+      authStore.logout(() => router?.push({ name: 'login' }));
     });
   });
 </script>

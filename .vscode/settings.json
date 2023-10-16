@@ -12,6 +12,7 @@
   },
   "diffEditor.wordWrap": "off",
   "unocss.root": [
+    "libs/auth",
     "packages/admin-main",
     "packages/quc-console",
     "packages/qmn-console",

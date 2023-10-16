@@ -74,7 +74,7 @@
   import { ElForm } from 'element-plus';
   import type { FormInstance, FormRules } from 'element-plus';
   import type { SubAppConfig } from '@/utils/subAppConfig';
-  import { iconList } from 'common-utils';
+  import { iconList } from '@qst-admin/uno-config/iconList';
   import { getLocalSubAppList, setLocalSubAppList } from '@/utils/subAppConfig';
 
   const initialFormData = {

@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 import type { RouteRecordData } from './types';
 import { layoutRoutes, LayoutEnum } from '@/layout/layoutRouteConfig';
 import { BasePath } from '@/utils/consts';
-import { useAuthStore } from '@/modules/auth/store/auth';
+import { useAuthStore } from '@qst-admin/auth';
 import { getLocalSubAppList } from '@/utils/subAppConfig';
 import AppWrapper from '@/modules/appWrapper/views/AppWrapper.vue';
 
