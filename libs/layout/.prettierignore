@@ -1,0 +1,13 @@
+node_modules/
+public/
+dist/
+dist-ssr/
+__snapshots__/
+*.local
+*.css
+*.md
+pnpm-lock.yaml
+.DS_Store
+docs
+auto-imports.d.ts
+components.d.ts

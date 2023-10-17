@@ -8,7 +8,7 @@
   import { onMounted, ref } from 'vue';
   import { setThemeClassByIndex } from '@itshixun/qst-ui-system';
   import zhCn from 'element-plus/es/locale/lang/zh-cn';
-  import { useToggleDayNight } from '@/componsables/useToggleDayNight';
+  import { useToggleDayNight } from '@qst-admin/composables';
 
   const { toggleDayNight } = useToggleDayNight();
   const locale = ref(zhCn);

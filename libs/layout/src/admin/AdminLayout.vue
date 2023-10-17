@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { LayoutEnum } from '@/layout/layoutRouteConfig';
+  import { LayoutEnum } from '../../';
   import Menu from './components/Menu.vue';
 
   defineProps<{ layout: LayoutEnum }>();

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
-import type { RouteRecordData } from './types';
-import { layoutRoutes, LayoutEnum } from '@/layout/layoutRouteConfig';
+import { layoutRoutes, LayoutEnum } from '@qst-admin/layout';
+import type { RouteRecordData } from '@qst-admin/layout';
 import { BasePath } from '@/utils/consts';
 import { useAuthStore } from '@qst-admin/auth';
 

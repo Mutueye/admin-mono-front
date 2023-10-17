@@ -1,0 +1,8 @@
+{
+  "extends": "@qst-admin/ts-config/tsconfig.rollup.json",
+  "compilerOptions": {
+    "types": ["vite/client", "element-plus/global", "pinia-plugin-persist"],
+    "lib": ["DOM", "ES2015", "ESNext"]
+  },
+  "include": ["/**/*.ts", "/**/*.d.ts"]
+}

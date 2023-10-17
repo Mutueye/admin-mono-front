@@ -10,8 +10,7 @@
 
 <script lang="ts" setup>
   import { onMounted } from 'vue';
-  import ContentWrapper from '@/layout/common/ContentWrapper.vue';
-  import DashboardContent from '@/layout/common/DashboardContent.vue';
+  import { ContentWrapper, DashboardContent } from '@qst-admin/layout';
   import AppletItem from './components/AppletItem.vue';
   import { useAppletsStore } from '../store/applets';
   import { storeToRefs } from 'pinia';

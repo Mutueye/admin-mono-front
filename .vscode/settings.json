@@ -13,6 +13,7 @@
   "diffEditor.wordWrap": "off",
   "unocss.root": [
     "libs/auth",
+    "libs/layout",
     "packages/admin-main",
     "packages/quc-console",
     "packages/qmn-console",

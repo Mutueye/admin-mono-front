@@ -13,7 +13,7 @@
 <script lang="ts" setup>
   import WrapperHeader from './components/WrapperHeader.vue';
   import WrapperSidebar from './components/WrapperSidebar.vue';
-  import { useClientSize } from '@/componsables/useClientSize';
+  import { useClientSize } from '@qst-admin/composables';
 
   const { height } = useClientSize();
 </script>

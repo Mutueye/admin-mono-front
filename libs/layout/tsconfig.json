@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["vite/client", "pinia-plugin-persist", "@qst-admin/types"]
   },
-  "include": ["env.d.ts", "index.ts", "uno.config.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["/**/*.ts", "/**/*.d.ts", "/**/*.tsx", "/**/*.vue"]
 }

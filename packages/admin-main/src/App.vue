@@ -6,12 +6,13 @@
 
 <script setup lang="ts">
   import { toRefs, onMounted, ref } from 'vue';
+  import { useRouter } from 'vue-router';
   import zhCn from 'element-plus/es/locale/lang/zh-cn';
   import { useThemeStore } from '@/store/theme';
   import { useAuthStore } from '@qst-admin/auth';
   import { bus } from 'wujie';
-  import { router } from './router';
 
+  const router = useRouter();
   const authStore = useAuthStore();
   const themeStore = useThemeStore();
   const { currentThemeIndex } = toRefs(themeStore);
@@ -23,7 +24,7 @@
     }
     // 监听子应用触发的退出事件
     bus.$on('logout', () => {
-      authStore.logout(() => router?.push({ name: 'login' }));
+      authStore.logout(() => router.push({ name: 'login' }));
     });
   });
 </script>

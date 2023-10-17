@@ -8,8 +8,8 @@
   import { toRefs, computed } from 'vue';
   import { sortBy, get } from 'lodash-es';
 
-  import { LayoutEnum } from '@/layout/layoutRouteConfig';
-  import { useRouteInfo } from '@/componsables/useRouteInfo';
+  import { LayoutEnum } from '../../../';
+  import { useRouteInfo } from '@qst-admin/composables';
   import type { RouteLocationNormalizedLoaded, RouteRecordRaw } from 'vue-router';
   import MenuItem from './MenuItem.vue';
 

@@ -1,14 +1,13 @@
 // https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation
-import { MenuConfig, ParentRouteData } from './router/types';
-
-export {};
+import { MenuConfig, ParentRouteData } from './';
 
 /** augment RoutMeta interface. */
 declare module 'vue-router' {
+  /** 路由meta数据 */
   interface RouteMeta {
-    /** one title for each route page */
+    /** 页面标题 */
     title: string;
-    /** layout menu will traverse route tree and generate menu items according to this config */
+    /** layout菜单通过遍历路由树的menuConfig来生成菜单树 */
     menuConfig?: MenuConfig;
     /** stores parent route data 引用父路由和根路由信息 */
     parentRouteData?: ParentRouteData;
@@ -18,3 +17,5 @@ declare module 'vue-router' {
     authCode?: number | string;
   }
 }
+
+export {};

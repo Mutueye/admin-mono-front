@@ -1,4 +1,4 @@
-import { RouteRecordData } from '@/router/types';
+import { RouteRecordData } from '@qst-admin/layout';
 
 const AccountMng = () => import('./views/AccountMng.vue');
 const RoleMng = () => import('./views/RoleMng.vue');

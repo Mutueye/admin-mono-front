@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
-  import { useToggleDayNight } from '@/componsables/useToggleDayNight';
+  import { useToggleDayNight } from '@qst-admin/composables';
   import { useThemeStore } from '@/store/theme';
   import { currentThemeList } from '@itshixun/qst-ui-system';
 

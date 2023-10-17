@@ -1,4 +1,4 @@
-import { RouteRecordData } from '@/router/types';
+import { RouteRecordData } from '@qst-admin/layout';
 const Applets = () => import('./views/Applets.vue');
 const DataSyncMng = () => import('./views/DataSyncMng.vue');
 

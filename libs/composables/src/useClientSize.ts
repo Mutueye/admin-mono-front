@@ -1,6 +1,10 @@
 import { ref } from 'vue';
 import { useEventListener, useDebounceFn } from '@vueuse/core';
-/** 取得窗口的宽度/高度(不含滚动条) */
+
+/**
+ * @name useClientSize
+ * @desc 取得页面宽度&高度
+ */
 export const useClientSize = (debounceTime = 100) => {
   const width = ref(document.documentElement.clientWidth);
   const height = ref(document.documentElement.clientHeight);

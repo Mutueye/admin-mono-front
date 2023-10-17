@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-sub-menu v-if="menuData.children && menuData.children.length > 0" :index="menuData.name as string">
+    <el-sub-menu v-if="menuData.children && menuData.children.length > 0" :index="menuIndex">
       <template #title>
         <menu-icon :icon-class="get(menuData, 'meta.menuConfig.iconClass', '')" />
         <span class="font-semibold">{{ menuData.meta?.title }}</span>
@@ -22,9 +22,9 @@
 </template>
 
 <script lang="ts" setup>
-  import { toRefs } from 'vue';
+  import { toRefs, computed } from 'vue';
   import type { RouteRecordRaw } from 'vue-router';
-  import { useRouteInfo } from '@/componsables/useRouteInfo';
+  import { useRouteInfo } from '@qst-admin/composables';
   import MenuIcon from './MenuIcon.vue';
   import { get } from 'lodash-es';
 
@@ -32,6 +32,8 @@
 
   const props = defineProps<{ menuData: RouteRecordRaw }>();
   const { menuData } = toRefs(props);
+
+  const menuIndex = computed(() => menuData.value.name as string);
 </script>
 
 <style lang="scss" scoped>

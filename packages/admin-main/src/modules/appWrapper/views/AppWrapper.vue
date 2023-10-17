@@ -14,8 +14,7 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
   import WuJie from 'wujie-vue3';
-  import { useClientSize } from '@/componsables/useClientSize';
-  import { useRouteInfo } from '@/componsables/useRouteInfo';
+  import { useClientSize, useRouteInfo } from '@qst-admin/composables';
 
   const { route } = useRouteInfo();
   const { height } = useClientSize();
