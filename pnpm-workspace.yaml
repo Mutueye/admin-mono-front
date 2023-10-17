@@ -1,4 +1,4 @@
 packages:
   - 'packages/*'
-  - 'libs/*'
-  - 'configs/*'
+  - 'shared-libs/*'
+  - 'shared-configs/*'
