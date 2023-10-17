@@ -26,6 +26,7 @@
     "@qst-admin/composables": "workspace:^",
     "@qst-admin/layout": "workspace:^",
     "@qst-admin/request": "workspace:^",
+    "@qst-admin/theme": "workspace:^",
     "@qst-admin/utils": "workspace:^",
     "@vueuse/core": "^10.5.0",
     "@vueuse/head": "^2.0.0",

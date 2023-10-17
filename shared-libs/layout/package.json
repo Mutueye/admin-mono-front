@@ -17,6 +17,7 @@
     "@itshixun/qst-ui-system": "^0.1.9",
     "@qst-admin/auth": "workspace:^",
     "@qst-admin/composables": "workspace:^",
+    "@qst-admin/theme": "workspace:^",
     "@vueuse/core": "^10.5.0",
     "element-plus": "^2.4.0",
     "lodash-es": "^4.17.21",

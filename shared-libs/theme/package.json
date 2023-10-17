@@ -1,18 +1,13 @@
 {
-  "name": "qts-console",
+  "name": "@qst-admin/theme",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "packageManager": "pnpm@7.18.1",
   "scripts": {
-    "dev": "vite --mode dev",
-    "dev:prod": "vite --mode prod",
-    "dev:local": "vite --mode local",
-    "build": "vue-tsc && vite build --emptyOutDir --mode prod",
-    "preview": "vite preview",
+    "lint": "npx lint-staged",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint": "npx lint-staged",
     "lint:es": "eslint --ext .js,.ts,.vue --fix src/",
     "lint:es:check": "eslint --ext .js,.ts,.vue src/",
     "lint:style": "stylelint ./src/**/*.{vue,css,scss} --fix",
@@ -21,16 +16,10 @@
   "dependencies": {
     "@itshixun/qst-request-lib": "^1.0.1",
     "@itshixun/qst-ui-system": "^0.1.9",
-    "@qst-admin/auth": "workspace:^",
-    "@qst-admin/components": "workspace:^",
     "@qst-admin/composables": "workspace:^",
-    "@qst-admin/layout": "workspace:^",
-    "@qst-admin/request": "workspace:^",
-    "@qst-admin/theme": "workspace:^",
     "@vueuse/core": "^10.5.0",
     "@vueuse/head": "^2.0.0",
     "axios": "^1.5.1",
-    "common-utils": "workspace:^",
     "element-plus": "^2.4.0",
     "js-base64": "^3.7.5",
     "jsencrypt": "^3.3.2",
@@ -39,7 +28,9 @@
     "pinia-plugin-persist": "^1.0.0",
     "vanilla-colorful": "^0.7.2",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "wujie": "^1.0.18",
+    "wujie-vue3": "^1.0.18"
   },
   "devDependencies": {
     "@iconify-json/line-md": "^1.1.32",
@@ -47,6 +38,8 @@
     "@qst-admin/eslint-config": "workspace:^",
     "@qst-admin/prettier-config": "workspace:^",
     "@qst-admin/ts-config": "workspace:^",
+    "@qst-admin/types": "workspace:^",
+    "@qst-admin/uno-config": "workspace:^",
     "@qst-admin/vite-config": "workspace:^",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.8.5",
@@ -75,7 +68,6 @@
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.11",
-    "vue-eslint-parser": "^9.3.2",
     "vue-tsc": "^1.8.19"
   },
   "lint-staged": {

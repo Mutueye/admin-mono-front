@@ -16,7 +16,7 @@
           <div class="w-full mb-spacing-sm">
             <el-button text bg class="w-full" @click="logout">退出登录</el-button>
           </div>
-          <!-- <ThemeToggler /> -->
+          <ThemeToggler />
         </div>
       </template>
     </el-dropdown>
@@ -27,7 +27,7 @@
   import { storeToRefs } from 'pinia';
   import { ElMessageBox } from 'element-plus';
   import { useAuthStore } from '@qst-admin/auth';
-  // import ThemeToggler from '@/components/ThemeToggler.vue';
+  import { ThemeToggler } from '@qst-admin/theme';
   // import { router } from '@/router';
   import { useRouter } from 'vue-router';
 

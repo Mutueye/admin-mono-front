@@ -10,9 +10,9 @@ export const useToggleDayNight = () => {
   const { bus } = WujieVue;
 
   // 切换日间/夜间模式
-  const toggleDayNight = () => {
+  const toggleDayNight = (isEmitter = false) => {
     toggleDark(!isDark.value);
-    bus.$emit('toggle-dark');
+    if (isEmitter) bus.$emit('toggle-dark');
   };
 
   const dayNightMode = computed(() => (isDark.value ? DayNightModeEnum.dark : DayNightModeEnum.light));

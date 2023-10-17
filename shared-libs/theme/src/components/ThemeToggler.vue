@@ -8,7 +8,7 @@
       @click="themeStore.setCurrentThemeIndex(index)">
       <i v-if="currentThemeIndex === index" class="i-mdi-check-circle-outline inline-block align-middle text-size-large" />
     </button>
-    <button class="theme-btn" @click="toggleDayNight">
+    <button class="theme-btn" @click="() => toggleDayNight(true)">
       <i class="i-line-md-moon-filled-to-sunny-filled-loop-transition dark:i-line-md-moon-filled inline-block align-middle text-size-large color-text-regular" />
     </button>
   </div>
@@ -17,8 +17,8 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
   import { useToggleDayNight } from '@qst-admin/composables';
-  import { useThemeStore } from '@/store/theme';
   import { currentThemeList } from '@itshixun/qst-ui-system';
+  import { useThemeStore } from '../store/theme';
 
   const themeStore = useThemeStore();
   const { currentThemeIndex } = storeToRefs(themeStore);
