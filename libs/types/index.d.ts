@@ -1,6 +1,7 @@
-// https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation
-
-export {};
+/**
+ * 多项目共用的常见类型定义，添加到 tsconfig 的 compilerOptions.types 字段
+ * common types shared between muliple projects. add this package to tsconfig's compilerOptions.types
+ */
 
 declare global {
   interface Window {
@@ -20,8 +21,9 @@ declare global {
     __WUJIE_MOUNT: () => void;
     /** 子应用unmount函数 */
     __WUJIE_UNMOUNT: () => void;
-    /** 注入对象 */
+    /** 无界注入windows的全局对象 */
     $wujie: {
+      /** 事件总线 */
       bus: EventBus;
       shadowRoot?: ShadowRoot;
       props?: { [key: string]: any };
@@ -29,3 +31,5 @@ declare global {
     };
   }
 }
+
+export {};
