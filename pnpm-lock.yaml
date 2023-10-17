@@ -96,6 +96,9 @@ importers:
       '@qst-admin/prettier-config':
         specifier: workspace:^
         version: link:../../shared-configs/prettier-config
+      '@qst-admin/stylelint-config':
+        specifier: workspace:^
+        version: link:../../shared-configs/stylelint-config
       '@qst-admin/ts-config':
         specifier: workspace:^
         version: link:../../shared-configs/ts-confg
@@ -274,6 +277,9 @@ importers:
       '@qst-admin/prettier-config':
         specifier: workspace:^
         version: link:../../shared-configs/prettier-config
+      '@qst-admin/stylelint-config':
+        specifier: workspace:^
+        version: link:../../shared-configs/stylelint-config
       '@qst-admin/ts-config':
         specifier: workspace:^
         version: link:../../shared-configs/ts-confg
@@ -446,6 +452,9 @@ importers:
       '@qst-admin/prettier-config':
         specifier: workspace:^
         version: link:../../shared-configs/prettier-config
+      '@qst-admin/stylelint-config':
+        specifier: workspace:^
+        version: link:../../shared-configs/stylelint-config
       '@qst-admin/ts-config':
         specifier: workspace:^
         version: link:../../shared-configs/ts-confg
@@ -618,6 +627,9 @@ importers:
       '@qst-admin/prettier-config':
         specifier: workspace:^
         version: link:../../shared-configs/prettier-config
+      '@qst-admin/stylelint-config':
+        specifier: workspace:^
+        version: link:../../shared-configs/stylelint-config
       '@qst-admin/ts-config':
         specifier: workspace:^
         version: link:../../shared-configs/ts-confg
@@ -889,6 +901,9 @@ importers:
       '@qst-admin/prettier-config':
         specifier: workspace:^
         version: link:../../shared-configs/prettier-config
+      '@qst-admin/stylelint-config':
+        specifier: workspace:^
+        version: link:../../shared-configs/stylelint-config
       '@qst-admin/ts-config':
         specifier: workspace:^
         version: link:../../shared-configs/ts-confg
@@ -1390,6 +1405,9 @@ importers:
       '@qst-admin/prettier-config':
         specifier: workspace:^
         version: link:../../shared-configs/prettier-config
+      '@qst-admin/stylelint-config':
+        specifier: workspace:^
+        version: link:../../shared-configs/stylelint-config
       '@qst-admin/ts-config':
         specifier: workspace:^
         version: link:../../shared-configs/ts-confg

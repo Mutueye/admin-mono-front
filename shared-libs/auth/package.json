@@ -37,6 +37,7 @@
     "@iconify-json/mdi": "^1.1.54",
     "@qst-admin/eslint-config": "workspace:^",
     "@qst-admin/prettier-config": "workspace:^",
+    "@qst-admin/stylelint-config": "workspace:^",
     "@qst-admin/ts-config": "workspace:^",
     "@qst-admin/types": "workspace:^",
     "@qst-admin/uno-config": "workspace:^",
