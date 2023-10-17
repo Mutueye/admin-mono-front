@@ -22,7 +22,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css';
 // // 引入el-menu的样式，保证子应用的el-menu可以获取到:root内定义的el-menu相关css变量
 // import 'element-plus/theme-chalk/el-menu.css';
 // unocss styles
-import 'uno.css';
+import 'virtual:uno.css';
 
 getSubAppList().then(() => {
   initRouter();

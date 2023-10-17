@@ -15,7 +15,7 @@ import 'element-plus/theme-chalk/el-message.css';
 import 'element-plus/theme-chalk/el-message-box.css';
 import 'element-plus/theme-chalk/el-loading.css';
 // unocss styles
-import 'uno.css';
+import 'virtual:uno.css';
 
 const app = createApp(App);
 app.use(pinia);
