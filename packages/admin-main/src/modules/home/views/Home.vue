@@ -15,7 +15,7 @@
   import { SubAppConfig, setLocalSubAppList } from '@/utils/subAppConfig';
   import { getLocalSubAppList } from '@/utils/subAppConfig';
 
-  import ScrollableContent from '@/components/ScrollableContent.vue';
+  import { ScrollableContent } from '@qst-admin/components';
   import AppBtn from './components/AppBtn.vue';
   import AddAppBtn from './components/AddAppBtn.vue';
   import AppConfigDialog from './components/AppConfigDialog.vue';

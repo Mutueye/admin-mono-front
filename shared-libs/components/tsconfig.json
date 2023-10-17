@@ -1,7 +1,7 @@
 {
   "extends": "@qst-admin/ts-config/tsconfig.vue.json",
   "compilerOptions": {
-    "types": ["vite/client", "element-plus/global", "pinia-plugin-persist", "@qst-admin/types"]
+    "types": ["vite/client", "element-plus/global", "@qst-admin/types"]
   },
   "include": ["/**/*.ts", "/**/*.d.ts", "/**/*.tsx", "/**/*.vue"]
 }

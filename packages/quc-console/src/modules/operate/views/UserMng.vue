@@ -5,5 +5,5 @@
 </template>
 
 <script lang="ts" setup>
-  import ScrollableContent from '@/components/ScrollableContent.vue';
+  import { ScrollableContent } from '@qst-admin/components';
 </script>

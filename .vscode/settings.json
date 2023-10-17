@@ -12,8 +12,9 @@
   },
   "diffEditor.wordWrap": "off",
   "unocss.root": [
-    "libs/auth",
-    "libs/layout",
+    "shared-libs/auth",
+    "shared-libs/layout",
+    "shared-libs/components",
     "packages/admin-main",
     "packages/quc-console",
     "packages/qmn-console",

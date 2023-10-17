@@ -18,6 +18,5 @@ declare module 'vue' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ScrollableContent: typeof import('./src/components/ScrollableContent.vue')['default']
   }
 }

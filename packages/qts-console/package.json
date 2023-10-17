@@ -22,6 +22,7 @@
     "@itshixun/qst-request-lib": "^1.0.1",
     "@itshixun/qst-ui-system": "^0.1.9",
     "@qst-admin/auth": "workspace:^",
+    "@qst-admin/components": "workspace:^",
     "@qst-admin/composables": "workspace:^",
     "@qst-admin/layout": "workspace:^",
     "@qst-admin/request": "workspace:^",

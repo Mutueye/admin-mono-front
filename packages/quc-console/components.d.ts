@@ -20,6 +20,5 @@ declare module 'vue' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ScrollableContent: typeof import('./src/components/ScrollableContent.vue')['default']
   }
 }
