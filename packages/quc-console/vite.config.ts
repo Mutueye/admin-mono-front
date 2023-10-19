@@ -57,7 +57,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     ...baseConfig,
-    base: process.env.VITE_API_PATH_QUC ? process.env.VITE_API_PATH_QUC : '/',
+    base: process.env.VITE_APP_PATH_QUC ? process.env.VITE_APP_PATH_QUC : '/',
     server: {
       open: false,
       host: process.env.VITE_DEV_HOST ? process.env.VITE_DEV_HOST : '0.0.0.0',

@@ -4,9 +4,8 @@
   "description": "",
   "scripts": {
     "prepare": "simple-git-hooks",
-    "build:lib": "pnpm -r --if-present build:lib",
-    "dev": "pnpm build:lib && pnpm -r --workspace-concurrency=0 --if-present dev",
-    "build": "pnpm build:lib && pnpm -r --workspace-concurrency=0 --if-present build",
+    "dev": "pnpm -r --workspace-concurrency=0 --if-present dev",
+    "build": "pnpm -r --workspace-concurrency=0 --if-present build",
     "lint": "pnpm -r --workspace-concurrency=1 lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

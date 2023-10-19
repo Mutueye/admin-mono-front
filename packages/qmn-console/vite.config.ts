@@ -78,7 +78,6 @@ export default defineConfig(({ mode }) => {
         [proxyApiPrepend]: {
           target: gateway,
           changeOrigin: true,
-          // rewrite: (path) => path.replace(proxyApiPrepend, ''),
         },
       },
     },
