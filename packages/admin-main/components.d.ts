@@ -23,6 +23,5 @@ declare module 'vue' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ThemeToggler: typeof import('./src/components/ThemeToggler.vue')['default']
   }
 }

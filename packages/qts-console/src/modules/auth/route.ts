@@ -1,5 +1,5 @@
-import { RouteRecordData } from '@/router/types';
-import Login from './views/Login.vue';
+import { RouteRecordData } from '@qst-admin/layout';
+import { Login } from '@qst-admin/auth';
 
 const routeData: RouteRecordData = {
   route: [

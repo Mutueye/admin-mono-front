@@ -234,9 +234,6 @@ importers:
       axios:
         specifier: ^1.5.1
         version: 1.5.1
-      common-utils:
-        specifier: workspace:^
-        version: link:../../shared-libs/common-utils
       element-plus:
         specifier: ^2.4.0
         version: 2.4.0(vue@3.3.4)
@@ -283,6 +280,12 @@ importers:
       '@qst-admin/ts-config':
         specifier: workspace:^
         version: link:../../shared-configs/ts-confg
+      '@qst-admin/types':
+        specifier: workspace:^
+        version: link:../../shared-libs/types
+      '@qst-admin/uno-config':
+        specifier: workspace:^
+        version: link:../../shared-configs/uno-config
       '@qst-admin/vite-config':
         specifier: workspace:^
         version: link:../../shared-configs/vite-config
@@ -409,9 +412,6 @@ importers:
       axios:
         specifier: ^1.5.1
         version: 1.5.1
-      common-utils:
-        specifier: workspace:^
-        version: link:../../shared-libs/common-utils
       element-plus:
         specifier: ^2.4.0
         version: 2.4.0(vue@3.3.4)
@@ -458,6 +458,12 @@ importers:
       '@qst-admin/ts-config':
         specifier: workspace:^
         version: link:../../shared-configs/ts-confg
+      '@qst-admin/types':
+        specifier: workspace:^
+        version: link:../../shared-libs/types
+      '@qst-admin/uno-config':
+        specifier: workspace:^
+        version: link:../../shared-configs/uno-config
       '@qst-admin/vite-config':
         specifier: workspace:^
         version: link:../../shared-configs/vite-config

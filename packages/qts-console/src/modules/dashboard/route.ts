@@ -1,4 +1,4 @@
-import { RouteRecordData } from '@/router/types';
+import { RouteRecordData } from '@qst-admin/layout';
 import Dashboard from './views/Dashboard.vue';
 
 const routeData: RouteRecordData = {

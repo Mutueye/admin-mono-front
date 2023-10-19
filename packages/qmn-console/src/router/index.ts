@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
-import type { RouteRecordData } from './types';
-import { layoutRoutes, LayoutEnum } from '@/layout/layoutRouteConfig';
+import { layoutRoutes, LayoutEnum, RouteRecordData } from '@qst-admin/layout';
 import { BasePath } from '@/utils/consts';
-import { useAuthStore } from '@/modules/auth/store/auth';
+import { useAuthStore } from '@qst-admin/auth';
 
 const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
   const allRoutes: RouteRecordRaw[] = [...staticRoutes];
