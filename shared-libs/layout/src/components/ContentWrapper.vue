@@ -3,6 +3,7 @@
     <div class="flex flex-row items-center justify-between px-spacing-xl py-spacing">
       <!-- TODO header slots -->
       <div class="text-size-large font-semibold color-text-primary">{{ route.meta.title }}</div>
+      <slot name="header" />
     </div>
     <slot />
   </div>

@@ -10,7 +10,7 @@
     "lint:es:check": "eslint --ext .js,.jsx,.cjs.ts,.tsx,.vue"
   },
   "dependencies": {
-    "@itshixun/qst-ui-system": "^0.1.9",
+    "@itshixun/qst-ui-system": "^0.1.10",
     "lodash-es": "^4.17.21",
     "pinia": "^2.1.7",
     "unocss": "^0.56.5"

@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@itshixun/qst-request-lib": "^1.0.1",
-    "@itshixun/qst-ui-system": "^0.1.9",
+    "@itshixun/qst-ui-system": "^0.1.10",
     "@vueuse/core": "^10.5.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5",

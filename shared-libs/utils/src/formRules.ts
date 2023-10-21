@@ -52,6 +52,11 @@ export const regId15 = /^([1-6][1-9]|50)\d{4}\d{2}((0[1-9])|10|11|12)(([0-2][1-9
 export const regOrgan = /^(?![()（）. ,])(?!.*?[()（）. ,]$)[a-zA-Z0-9()（）. ,\u4e00-\u9fa5]+$/;
 
 /**
+ * host地址 正则
+ */
+export const regHosts = /^[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/;
+
+/**
  * 通用的字节长度验证方法
  */
 export const byteLengthValidator = ({
@@ -202,9 +207,9 @@ export const globalFormRules = {
       trigger: 'blur',
     },
   ],
-  // 性别 必填项
+  /** 性别 必填项 */
   sex: [{ required: true, message: '请选择性别', trigger: 'blur' }],
-  // 昵称 非必填 规则同姓名
+  /** 昵称 非必填 规则同姓名 */
   nickname: [
     {
       validator: nameLengthValidator,
@@ -229,42 +234,43 @@ export const globalFormRules = {
       trigger: 'blur',
     },
   ],
-  // 手机号
+  /** 手机号 */
   mobile: [
     { required: true, message: '请输入手机号', trigger: 'blur' },
     { pattern: regMobile, message: '请输入正确手机号', trigger: 'blur' },
   ],
-  // 验证码 ● 6位数字
+  /** 验证码 6位数字 */
   captcha: [
     { required: true, message: '请输入验证码', trigger: 'blur' },
     { pattern: regCaptcha, message: '请输入正确验证码', trigger: 'blur' },
   ],
-  // 学校 搜索下拉选择 trigger: 'change'
+  /** 学校 用于搜索下拉选择 因此 trigger: 'change' */
   school: [{ required: true, message: '请输入学校', trigger: 'change' }],
-  // 专业 搜索下拉选择 trigger: 'change'
+  /** 专业 用于搜索下拉选择 因此：trigger: 'change' */
   major: [{ required: true, message: '请输入专业', trigger: 'change' }],
-  // 院系
+  /** 院系名称 */
   college: [{ required: true, message: '请输入院系', trigger: 'blur' }],
-  // 学号/工号 必填 数字/字母 50字符以内
+  /** 学号/工号 必填 数字/字母 50字符以内 */
   code: [
     { required: true, message: '请输入学号/工号', trigger: 'blur' },
     { pattern: regCode, message: '学号/工号格式不正确', trigger: 'blur' },
   ],
-  // 用户名（账号名）
+  /** 用户名（账号名）*/
   username: [
     { required: true, message: '请输入账号名', trigger: 'blur' },
     { validator: usernameValidator, trigger: 'blur' },
   ],
-  // 邮箱
+  /** 邮箱 */
   email: [
     { required: true, message: '请输入邮箱', trigger: 'blur' },
     { validator: emailValidator, trigger: 'blur' },
   ],
-  // 身份证号
+  /** 身份证号 */
   idCode: [
     { required: true, message: '请输入身份证号', trigger: 'blur' },
     { validator: idCodeValidator, trigger: 'blur' },
   ],
+  /** 机构名称 */
   organ: [
     { required: true, message: '请输入机构名称', trigger: 'blur' },
     {
@@ -285,5 +291,27 @@ export const globalFormRules = {
       message: '机构名称格式不正确',
       trigger: 'blur',
     },
+  ],
+  /** applet应用名称 长度6~240字节 */
+  appletName: [
+    { required: true, message: '请输入应用名称', trigger: 'blur' },
+    {
+      // 限制字节长度240
+      validator: (rule: unknown, value: string, callback: (err?: string | Error | undefined) => void) => {
+        byteLengthValidator({
+          value,
+          callback,
+          minByteLength: 1,
+          maxByteLength: 240,
+          message: '应用名称长度限240个字节',
+        });
+      },
+      trigger: 'blur',
+    },
+  ],
+  /** hosts地址 */
+  hosts: [
+    { required: true, message: '请输入hosts地址', trigger: 'blur' },
+    { pattern: regHosts, message: 'hosts地址格式不正确', trigger: 'blur' },
   ],
 };

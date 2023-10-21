@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@itshixun/qst-request-lib": "^1.0.1",
-    "@itshixun/qst-ui-system": "^0.1.9",
+    "@itshixun/qst-ui-system": "^0.1.10",
     "@qst-admin/request": "workspace:^",
     "@vueuse/core": "^10.5.0",
     "@vueuse/head": "^2.0.0",

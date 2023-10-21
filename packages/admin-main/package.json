@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@itshixun/qst-request-lib": "^1.0.1",
-    "@itshixun/qst-ui-system": "^0.1.9",
+    "@itshixun/qst-ui-system": "^0.1.10",
     "@qst-admin/auth": "workspace:^",
     "@qst-admin/components": "workspace:^",
     "@qst-admin/composables": "workspace:^",

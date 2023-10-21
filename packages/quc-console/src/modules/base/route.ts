@@ -28,7 +28,7 @@ const routeData: RouteRecordData = {
           component: Applets,
         },
         {
-          path: 'applets/detail',
+          path: 'applets/detail/:id',
           name: 'appletDetail',
           component: Applets,
           meta: {

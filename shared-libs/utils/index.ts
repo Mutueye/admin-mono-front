@@ -1,4 +1,5 @@
 import { initRequestWrapper } from './src/request';
-import * as formRules from './src/formRules';
+import getByteLength from './src/getByteLength';
 
-export { initRequestWrapper, formRules };
+export * from './src/formRules';
+export { initRequestWrapper, getByteLength };
