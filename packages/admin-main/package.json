@@ -41,6 +41,7 @@
     "vue": "^3.3.4",
     "vue-router": "^4.2.5",
     "wujie": "^1.0.18",
+    "wujie-polyfill": "^1.0.7",
     "wujie-vue3": "^1.0.18"
   },
   "devDependencies": {

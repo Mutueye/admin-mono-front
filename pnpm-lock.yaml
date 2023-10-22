@@ -80,6 +80,9 @@ importers:
       wujie:
         specifier: ^1.0.18
         version: 1.0.18
+      wujie-polyfill:
+        specifier: ^1.0.7
+        version: 1.0.7
       wujie-vue3:
         specifier: ^1.0.18
         version: 1.0.18(vue@3.3.4)
@@ -5524,6 +5527,10 @@ packages:
       utf-8-validate:
         optional: true
     dev: true
+
+  /wujie-polyfill@1.0.7:
+    resolution: {integrity: sha512-tGXlGT1MlHWvzYM1zL3Ol1AZAD3b/FGhzTdbcZt6oR9HxQLoJqYDtElJ3PMrD4aCmyerAxErgj84Mu5N+f7pQQ==}
+    dev: false
 
   /wujie-vue3@1.0.18(vue@3.3.4):
     resolution: {integrity: sha512-sSPkkUFGVbA9V/DKekyp4sJSd8O3dNsStROFRolcL9txmgEUpf4C/cSe7a1WgK7Yvrg/yA3C47qZ9194NncRqQ==}

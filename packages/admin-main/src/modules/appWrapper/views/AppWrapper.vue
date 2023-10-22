@@ -8,12 +8,14 @@
     :name="route.name"
     :url="route.meta.subAppUrl"
     :sync="true"
-    :alive="true" />
+    :alive="true"
+    :plugins="[InstanceofPlugin()]" />
 </template>
 
 <script lang="ts" setup>
   import { computed } from 'vue';
   import WuJie from 'wujie-vue3';
+  import { InstanceofPlugin } from 'wujie-polyfill';
   import { useClientSize, useRouteInfo } from '@qst-admin/composables';
 
   const { route } = useRouteInfo();

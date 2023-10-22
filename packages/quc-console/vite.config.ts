@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from 'vite';
+import { type Plugin, defineConfig, loadEnv } from 'vite';
 import * as path from 'path';
 import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
@@ -7,6 +7,33 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Unocss from 'unocss/vite';
 
 const envDir = path.join(__dirname + '/../../env');
+
+// function patchRawWindow(): Plugin {
+//   return {
+//     name: 'patchRawWindow',
+//     transform(code, id) {
+//       if (id.includes('/.vite/deps/chunk')) {
+//         let isFind = false;
+//         const _code = code.replace(/instanceof (([A-Z]{1}[a-zA-Z]+)?Event)/g, (_, $1) => {
+//           isFind = true;
+//           console.log('id:::::', id);
+//           console.log(':::::::::::', `instanceof (patchRawWindow('${$1}') || ${$1})`);
+//           return `instanceof (patchRawWindow('${$1}') || ${$1})`;
+//         });
+//         const fn = `function patchRawWindow(key) {
+//           console.log('key::::', key)
+//           if (window.__POWERED_BY_WUJIE__ && window[key]) {
+//             return window.__WUJIE_RAW_WINDOW__[key]
+//           } else {
+//             return false
+//           }
+//         }\n`;
+//         return isFind ? fn + _code : _code;
+//       }
+//       return code;
+//     },
+//   };
+// }
 
 const baseConfig = defineConfig({
   plugins: [vue(), AutoImport({ resolvers: [ElementPlusResolver()] }), Components({ resolvers: [ElementPlusResolver()] }), Unocss()],
