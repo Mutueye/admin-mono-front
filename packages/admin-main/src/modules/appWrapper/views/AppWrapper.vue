@@ -9,7 +9,7 @@
     :url="route.meta.subAppUrl"
     :sync="true"
     :alive="true"
-    :plugins="[InstanceofPlugin()]" />
+    :plugins="[InstanceofPlugin(), windowClipboardPlugin()]" />
 </template>
 
 <script lang="ts" setup>
@@ -28,4 +28,18 @@
       return false;
     }
   });
+
+  /** 自定义wujie插件，避免子应用使用clipboard时报document not focused错误 */
+  const windowClipboardPlugin = () => {
+    return {
+      windowPropertyOverride: (subWindow: Window) => {
+        // return Object.defineProperty(subWindow.Navigator.prototype, 'clipboard', {
+        return Object.defineProperty(subWindow.navigator, 'clipboard', {
+          get: () => {
+            return subWindow.__POWERED_BY_WUJIE__ ? subWindow.parent.navigator.clipboard : subWindow.navigator;
+          },
+        });
+      },
+    };
+  };
 </script>

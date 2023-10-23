@@ -3,7 +3,7 @@
     <template #header>
       <el-button type="primary" @click="createNewApplet">创建应用</el-button>
     </template>
-    <DashboardContent>
+    <DashboardContent v-loading="loading">
       <div class="grid grid-cols-2 xl:grid-cols-3 xxl:grid-cols-4 gap-spacing-md">
         <AppletItem v-for="app in applets" :key="app.id" :data="app" />
       </div>
@@ -24,9 +24,13 @@
   const { applets } = storeToRefs(appletsStore);
 
   const newAppletDialogRef = ref<InstanceType<typeof NewAppletDialog>>();
+  const loading = ref(false);
 
   onMounted(() => {
-    appletsStore.getApplets();
+    loading.value = true;
+    appletsStore.getApplets().finally(() => {
+      loading.value = false;
+    });
   });
 
   const createNewApplet = () => {

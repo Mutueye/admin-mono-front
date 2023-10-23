@@ -6,6 +6,8 @@ export const initRequestWrapper = (handleLogout?: () => void) => {
     handle401: () => {
       if (typeof handleLogout === 'function') handleLogout();
     },
-    handleMessage: (msg: string) => ElMessage.error(msg),
+    handleMessage: (msg: string) => {
+      ElMessage.error(msg);
+    },
   });
 };

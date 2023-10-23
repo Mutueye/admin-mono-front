@@ -8,7 +8,7 @@ import { router } from '@/router/index';
 import pinia from '@/store';
 
 // element-plus css variables
-import 'element-plus/theme-chalk/dark/css-vars.css';
+import 'element-plus/theme-chalk/index.css';
 // import 'element-plus/theme-chalk/el-var.css';
 // element-plus darkmode css variables
 import 'element-plus/theme-chalk/dark/css-vars.css';

@@ -10,7 +10,8 @@
     "lint:es:check": "eslint --ext .js,.jsx,.cjs.ts,.tsx,.vue"
   },
   "dependencies": {
-    "@itshixun/qst-request-lib": "^1.0.1"
+    "@itshixun/qst-request-lib": "^1.0.3",
+    "element-plus": "^2.4.0"
   },
   "devDependencies": {
     "@qst-admin/eslint-config": "workspace:^",

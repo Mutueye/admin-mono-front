@@ -1,6 +1,13 @@
 <!-- 创建密钥弹窗 -->
 <template>
-  <el-dialog v-model="dialogShow" :width="dialogWidth" :close-on-press-escape="false" :close-on-click-modal="false" :show-close="false" :before-close="beforeClose">
+  <el-dialog
+    v-model="dialogShow"
+    :width="dialogWidth"
+    :append-to-body="true"
+    :close-on-press-escape="false"
+    :close-on-click-modal="false"
+    :show-close="false"
+    :before-close="beforeClose">
     <template #header="{ close, titleId }">
       <DialogHeader :title="title" :sub-title="subTitle" :title-id="titleId" :show-close-btn="showClose" :sub-title-danger="false" @close="close" />
     </template>
