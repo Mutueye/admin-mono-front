@@ -9,7 +9,12 @@ import Unocss from 'unocss/vite';
 const envDir = path.join(__dirname + '/../../env');
 
 const baseConfig = defineConfig({
-  plugins: [vue(), AutoImport({ resolvers: [ElementPlusResolver()] }), Components({ resolvers: [ElementPlusResolver()] }), Unocss()],
+  plugins: [
+    vue(),
+    AutoImport({ resolvers: [ElementPlusResolver()] }),
+    Components({ resolvers: [ElementPlusResolver()] }),
+    Unocss(),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

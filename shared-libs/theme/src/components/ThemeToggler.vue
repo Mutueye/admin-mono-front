@@ -6,10 +6,13 @@
       class="theme-btn mr-spacing color-white"
       :style="{ backgroundColor: theme.config[dayNightMode].color.primary }"
       @click="themeStore.setCurrentThemeIndex(index)">
-      <i v-if="currentThemeIndex === index" class="i-mdi-check-circle-outline inline-block align-middle text-size-large" />
+      <i
+        v-if="currentThemeIndex === index"
+        class="i-mdi-check-circle-outline inline-block align-middle text-size-large" />
     </button>
     <button class="theme-btn" @click="() => toggleDayNight(true)">
-      <i class="i-line-md-moon-filled-to-sunny-filled-loop-transition dark:i-line-md-moon-filled inline-block align-middle text-size-large color-text-regular" />
+      <i
+        class="i-line-md-moon-filled-to-sunny-filled-loop-transition dark:i-line-md-moon-filled inline-block align-middle text-size-large color-text-regular" />
     </button>
   </div>
 </template>
@@ -29,6 +32,7 @@
   $btn-size: 28px;
   .theme-btn {
     @apply rounded-full bg-bg-secondary border-none cursor-pointer flex flex-col items-center justify-center;
+
     width: $btn-size;
     height: $btn-size;
     outline-offset: 1px;

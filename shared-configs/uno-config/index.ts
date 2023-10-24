@@ -1,4 +1,12 @@
-import { defineConfig, presetIcons, presetAttributify, presetUno, transformerDirectives, transformerVariantGroup, UserConfig } from 'unocss';
+import {
+  defineConfig,
+  presetIcons,
+  presetAttributify,
+  presetUno,
+  transformerDirectives,
+  transformerVariantGroup,
+  UserConfig,
+} from 'unocss';
 import { Theme } from 'unocss/preset-mini';
 import { generateUnocssTheme } from '@itshixun/qst-ui-system';
 import { iconList } from './iconList';

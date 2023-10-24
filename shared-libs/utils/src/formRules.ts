@@ -12,7 +12,8 @@ export const regName = /^(?![ ,.·\-_])(?!.*?[ ,.·\-_]$)[a-zA-Z0-9 ,.·\-_\u4e0
  * ● 6-20 个字符，只能包含英文字母、数字、特殊字符（不含空格）
  * ● 字母、数字、标点符号至少包含 2 种
  */
-export const regPassword = /^(?!^[A-Za-z]+$)(?!^\d+$)(?!^[.!@#$%\\\\^&\\*\\)(+={}[\]/",'<>~·`?:;|]+$)[a-z_A-Z0-9-.!@#$%\\\\^&*)(+={}[\]/",'<>~·`?:;|]{6,20}$/;
+export const regPassword =
+  /^(?!^[A-Za-z]+$)(?!^\d+$)(?!^[.!@#$%\\\\^&\\*\\)(+={}[\]/",'<>~·`?:;|]+$)[a-z_A-Z0-9-.!@#$%\\\\^&*)(+={}[\]/",'<>~·`?:;|]{6,20}$/;
 
 /**
  * 手机号 正则
@@ -34,7 +35,8 @@ export const regCode = /^[a-zA-Z0-9]{0,50}$/;
 /**
  * 邮箱 正则
  */
-export const regEmail = /^[a-zA-Z0-9-._\u4e00-\u9fa5]+@[a-zA-Z0-9-_\u4e00-\u9fa5]+(\.[a-zA-Z0-9-_\u4e00-\u9fa5]+){1,5}$/;
+export const regEmail =
+  /^[a-zA-Z0-9-._\u4e00-\u9fa5]+@[a-zA-Z0-9-_\u4e00-\u9fa5]+(\.[a-zA-Z0-9-_\u4e00-\u9fa5]+){1,5}$/;
 
 /**
  * 身份证号 18位
@@ -88,7 +90,11 @@ export const byteLengthValidator = ({
  * 姓名&昵称 验证字节长度
  * ● 中文 1-20 个字符，英文 3-60 个字符（字节长度3-60）；
  */
-export const nameLengthValidator = (rule: unknown, value: string, callback: (err?: string | Error | undefined) => void) => {
+export const nameLengthValidator = (
+  rule: unknown,
+  value: string,
+  callback: (err?: string | Error | undefined) => void
+) => {
   byteLengthValidator({
     value,
     callback,
@@ -105,7 +111,11 @@ export const nameLengthValidator = (rule: unknown, value: string, callback: (err
  * ● 不能以下划线开头或结尾；
  * ● 不能是纯数字。
  */
-export const usernameValidator = (rule: unknown, value: string, callback: (err?: string | Error | undefined) => void) => {
+export const usernameValidator = (
+  rule: unknown,
+  value: string,
+  callback: (err?: string | Error | undefined) => void
+) => {
   if (!value) {
     callback();
   } else {

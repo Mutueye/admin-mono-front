@@ -43,13 +43,17 @@ export const useAuthStore = defineStore('auth', {
     },
 
     getLoginKey() {
-      return requestWrapper<QstResult<{ publicKey: string }>>(() => axiosInstance.get(`${ApiPath}/console/login_key`)).then((res) => {
+      return requestWrapper<QstResult<{ publicKey: string }>>(() =>
+        axiosInstance.get(`${ApiPath}/console/login_key`)
+      ).then((res) => {
         if (res.data) return res.data.publicKey;
       });
     },
 
     login(params: { cryptogram: string; key: string }) {
-      return requestWrapper<QstResult<{ accessToken: string }>>(() => axiosInstance.post(`${ApiPath}/console/login`, params)).then((res) => {
+      return requestWrapper<QstResult<{ accessToken: string }>>(() =>
+        axiosInstance.post(`${ApiPath}/console/login`, params)
+      ).then((res) => {
         if (res.data && res.data.accessToken) {
           const token = res.data.accessToken;
           this.setToken(token);

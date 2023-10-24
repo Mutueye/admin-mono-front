@@ -64,7 +64,11 @@ const addSubAppRoutes = (parentRoute?: RouteRecordRaw) => {
 };
 
 // 给每个路由的meta增加parentRouteData信息
-const addRouteParentMeta = (routes: RouteRecordRaw[], parentRoute: RouteRecordRaw | null, baseRoute: RouteRecordRaw | null) => {
+const addRouteParentMeta = (
+  routes: RouteRecordRaw[],
+  parentRoute: RouteRecordRaw | null,
+  baseRoute: RouteRecordRaw | null
+) => {
   routes.forEach((route) => {
     if (parentRoute && baseRoute) {
       const parentRouteData = { parentRoute, baseRoute };

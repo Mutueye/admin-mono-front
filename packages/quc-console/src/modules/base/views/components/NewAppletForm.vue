@@ -14,7 +14,12 @@
       :rules="formRules.hosts">
       <div class="flex flex-row w-full items-center justify-between">
         <el-input v-model="item.host" class="flex-1" />
-        <el-button v-if="formData.hostList.length > 1" text bg class="w-component-size ml-spacing-xxs" @click.prevent="removeHost(index)">
+        <el-button
+          v-if="formData.hostList.length > 1"
+          text
+          bg
+          class="w-component-size ml-spacing-xxs"
+          @click.prevent="removeHost(index)">
           <i class="i-mdi-close text-size-16px" />
         </el-button>
       </div>

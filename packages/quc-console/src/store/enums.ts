@@ -28,12 +28,14 @@ export const useEnumsStore = defineStore('enums', {
   actions: {
     /** 获取枚举数据 */
     getEnums(type: EnumType) {
-      return requestWrapper<QstResult<EnumList>>(() => axiosInstance.get(`${ApiPath}/console/enums/${type}`)).then((res) => {
-        if (res.data) {
-          console.log('res.data:::', res.data);
-          return res;
+      return requestWrapper<QstResult<EnumList>>(() => axiosInstance.get(`${ApiPath}/console/enums/${type}`)).then(
+        (res) => {
+          if (res.data) {
+            console.log('res.data:::', res.data);
+            return res;
+          }
         }
-      });
+      );
     },
   },
 });

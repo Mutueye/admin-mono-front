@@ -9,7 +9,13 @@
     :show-close="false"
     :before-close="beforeClose">
     <template #header="{ close, titleId }">
-      <DialogHeader :title="title" :sub-title="subTitle" :title-id="titleId" :show-close-btn="showClose" :sub-title-danger="false" @close="close" />
+      <DialogHeader
+        :title="title"
+        :sub-title="subTitle"
+        :title-id="titleId"
+        :show-close-btn="showClose"
+        :sub-title-danger="false"
+        @close="close" />
     </template>
     <slot />
   </el-dialog>

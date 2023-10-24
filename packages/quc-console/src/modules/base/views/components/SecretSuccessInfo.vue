@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col">
-    <div class="color-text-primary font-semibold leading-24px">SecretKey: {{ showKey ? secret : '********************************************' }}</div>
+    <div class="color-text-primary font-semibold leading-24px">
+      SecretKey: {{ showKey ? secret : '********************************************' }}
+    </div>
     <div class="flex flex-row mt-spacing-xxs">
       <el-button size="small" @click="toggleShowKey">{{ showKey ? '隐藏' : '显示' }}</el-button>
       <el-button size="small" class="ml-spacing-xxs" @click="handleCopy">复制</el-button>

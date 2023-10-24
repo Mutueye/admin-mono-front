@@ -6,7 +6,13 @@
     :close-on-press-escape="false"
     :close-on-click-modal="false"
     :before-close="handleClose">
-    <el-form ref="formRef" label-position="left" :model="formData" :rules="formRules" class="-mb-20px" @submit.enter.prevent>
+    <el-form
+      ref="formRef"
+      label-position="left"
+      :model="formData"
+      :rules="formRules"
+      class="-mb-20px"
+      @submit.enter.prevent>
       <el-form-item prop="title" label="应用标题">
         <el-input v-model.trim="formData.title" placeholder="请输入应用标题" />
       </el-form-item>
@@ -62,7 +68,14 @@
       <el-form-item>
         <div class="w-full flex flex-row justify-end mt-10px">
           <el-button class="flex-1" @click="handleClose">取消</el-button>
-          <el-button type="primary" class="flex-1" :disabled="state.submitDisabled" :loading="state.isSubmitting" @click="submit">保存</el-button>
+          <el-button
+            type="primary"
+            class="flex-1"
+            :disabled="state.submitDisabled"
+            :loading="state.isSubmitting"
+            @click="submit">
+            保存
+          </el-button>
         </div>
       </el-form-item>
     </el-form>

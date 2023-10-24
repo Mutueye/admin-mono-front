@@ -7,7 +7,11 @@
       </template>
       <menu-item v-for="subItem in menuData.children" :key="subItem.name" :menu-data="subItem" />
     </el-sub-menu>
-    <el-menu-item v-else class="admin-menu-item" :index="menuData.name as string" @click="router.push({ name: menuData.name })">
+    <el-menu-item
+      v-else
+      class="admin-menu-item"
+      :index="menuData.name as string"
+      @click="router.push({ name: menuData.name })">
       <menu-icon :icon-class="get(menuData, 'meta.menuConfig.iconClass', '')" />
       <span class="font-semibold">{{ menuData.meta?.title }}</span>
       <!-- active动效 -->

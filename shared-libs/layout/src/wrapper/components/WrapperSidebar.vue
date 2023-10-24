@@ -10,7 +10,11 @@
     <div class="w-full flex flex-col flex-1 min-h-0">
       <el-scrollbar>
         <!-- apps menu -->
-        <WrapperSidebarItem v-for="item in menus" :key="item.name" :route-data="item" :active="route.name === item.name" />
+        <WrapperSidebarItem
+          v-for="item in menus"
+          :key="item.name"
+          :route-data="item"
+          :active="route.name === item.name" />
       </el-scrollbar>
     </div>
   </div>

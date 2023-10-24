@@ -19,7 +19,9 @@ export const useAppletsStore = defineStore('applets', {
      * @returns {Promise<AppletCardData[]>} 应用列表
      */
     getApplets() {
-      return requestWrapper<QstResult<QstPagination<AppletCardData>>>(() => axiosInstance.get(`${ApiPath}/console/applets`)).then((res) => {
+      return requestWrapper<QstResult<QstPagination<AppletCardData>>>(() =>
+        axiosInstance.get(`${ApiPath}/console/applets`)
+      ).then((res) => {
         if (res.data) {
           this.applets = res.data.rows ? res.data.rows : [];
           return this.applets;
@@ -33,7 +35,9 @@ export const useAppletsStore = defineStore('applets', {
      * @returns {Promise<QstResult<CreateAppletResponse>>} 返回{ name: string; hosts: string[]; id: string; secret: string }
      */
     createApplet(payload: CreateAppletPayload) {
-      return requestWrapper<QstResult<CreateAppletResponse>>(() => axiosInstance.post(`${ApiPath}/console/applets`, payload));
+      return requestWrapper<QstResult<CreateAppletResponse>>(() =>
+        axiosInstance.post(`${ApiPath}/console/applets`, payload)
+      );
     },
 
     /**
@@ -42,12 +46,14 @@ export const useAppletsStore = defineStore('applets', {
      * @returns {Promise<AppletData | undefined>}
      */
     getAppletDetail(id: string) {
-      return requestWrapper<QstResult<AppletData>>(() => axiosInstance.get(`${ApiPath}/console/applets/${id}`)).then((res) => {
-        if (res.data) {
-          this.currentApplet = res.data;
+      return requestWrapper<QstResult<AppletData>>(() => axiosInstance.get(`${ApiPath}/console/applets/${id}`)).then(
+        (res) => {
+          if (res.data) {
+            this.currentApplet = res.data;
+          }
+          return res.data;
         }
-        return res.data;
-      });
+      );
     },
   },
 });

@@ -1,5 +1,6 @@
 <template>
-  <div class="w-full bg-bg h-48px border-b border-border-light flex flex-row items-center justify-between relative pl-spacing-sm">
+  <div
+    class="w-full bg-bg h-48px border-b border-border-light flex flex-row items-center justify-between relative pl-spacing-sm">
     <div class="flex flex-row items-center">
       <i
         class="i-uplus:logo inline-block align-middle w-spacing h-spacing mr-spacing-xxs cursor-pointer"
