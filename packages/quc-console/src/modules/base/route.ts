@@ -1,5 +1,7 @@
 import { RouteRecordData } from '@qst-admin/layout';
+
 const Applets = () => import('./views/Applets.vue');
+const AppletDetail = () => import('./views/AppletDetail.vue');
 const DataSyncMng = () => import('./views/DataSyncMng.vue');
 
 const routeData: RouteRecordData = {
@@ -30,7 +32,7 @@ const routeData: RouteRecordData = {
         {
           path: 'applets/detail/:id',
           name: 'appletDetail',
-          component: Applets,
+          component: AppletDetail,
           meta: {
             title: '应用详情',
             menuConfig: {

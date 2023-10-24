@@ -10,7 +10,7 @@
       </div>
       <div class="absolute w-1px top-0 bottom-0 right-0 bg-border-light" />
     </div>
-    <div class="w-full flex flex-col bg-bg">
+    <div class="flex flex-col flex-1 bg-bg min-w-0 min-h-0">
       <RouterView />
     </div>
   </div>

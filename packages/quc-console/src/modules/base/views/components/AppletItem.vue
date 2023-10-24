@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { Applet } from '../../types';
+  import { AppletCardData } from '../../types';
 
-  defineProps<{ data: Applet }>();
+  defineProps<{ data: AppletCardData }>();
 </script>
