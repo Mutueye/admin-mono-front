@@ -1,10 +1,10 @@
-<!-- 创建应用弹窗 -->
+<!-- 重新生成secretKey弹窗 -->
 <template>
   <DialogWrapper :title="stepTitle[state.step]" :show="state.show" :z-index="1999" :before-close="closeDialog">
     <PasswordValidateForm
       v-if="state.step === 'hint'"
       ref="formRef"
-      info="即将重新生成secret key！"
+      info="即将重新生成 Secret Key！"
       @cancel="closeDialog"
       @submit="submit" />
     <SecretSuccessInfo v-if="state.step === 'success'" :secret="state.secret" @close="closeDialog" />
@@ -15,7 +15,6 @@
   import { reactive, ref } from 'vue';
   import { storeToRefs } from 'pinia';
   import { DialogWrapper } from '@qst-admin/components';
-  // import NewAppletForm from './NewAppletForm.vue';
   import PasswordValidateForm from './PasswordValidateForm.vue';
   import SecretSuccessInfo from './SecretSuccessInfo.vue';
   import { useAppletsStore } from '../../store/applets';
@@ -27,7 +26,7 @@
 
   type Step = 'hint' | 'success';
   const stepTitle: Record<Step, string> = {
-    hint: '提示信息',
+    hint: '操作提示',
     success: 'Secret Key 生成成功',
   };
 
@@ -37,9 +36,7 @@
     secret: '',
   });
 
-  const open = () => {
-    state.show = true;
-  };
+  const open = () => (state.show = true);
 
   const submit = (pwd: string) => {
     if (currentApplet.value && pwd) {

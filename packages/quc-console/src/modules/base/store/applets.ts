@@ -107,11 +107,11 @@ export const useAppletsStore = defineStore('applets', {
     /**
      * 重新生成signingKey
      * @param {{id: string; password: string}} payload
-     * @returns {Promise<QstResult<{ id: string; signing: string }>>}
+     * @returns {Promise<QstResult<{ id: string; signingKey: string }>>}
      * @TODO 后端接口调整：密码加密提交
      */
     regenerateSigningKey(payload: { id: string; password: string }) {
-      return requestWrapper<QstResult<{ id: string; signing: string }>>(() =>
+      return requestWrapper<QstResult<{ id: string; signingKey: string }>>(() =>
         axiosInstance.post(`${ApiPath}/console/applets/signing/key`, payload)
       );
     },
