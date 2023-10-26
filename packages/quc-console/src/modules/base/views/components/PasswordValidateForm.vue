@@ -1,4 +1,4 @@
-<!-- 殊权限操作验证登录密码表单 -->
+<!-- 殊权限操作验证登录密码表单 -  用于：1.删除应用 2.重新生成secretKey 3.重新生成signingKey -->
 <template>
   <div v-if="info" class="mb-spacing-xxs text-size-lg color-text-primary font-semibold">{{ info }}</div>
   <div class="mb-spacing-xxs">特殊权限操作，须验证登录密码：</div>

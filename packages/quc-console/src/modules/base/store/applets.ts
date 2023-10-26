@@ -72,11 +72,23 @@ export const useAppletsStore = defineStore('applets', {
      * @param {string} id 应用id
      * @param {string} password 当前账号的密码
      * @returns {Promise<QstResult<unknown>>}
+     * @TODO 后端接口调整：密码加密提交
      */
     deleteApplet(payload: { id: string; password: string }) {
-      // TODO 密码加密
       return requestWrapper<QstResult<unknown>>(() =>
         axiosInstance.delete(`${ApiPath}/console/applets/${payload.id}`, { data: { password: payload.password } })
+      );
+    },
+
+    /**
+     * 编辑应用权限
+     * @param {object} payload 修改信息：{ id: 应用id; apicList: 权限name列表}
+     * @returns {Promise<QstResult<unknown>>}
+     * @TODO 后端接口调整：需要默认选中DEFAULT权限，且保证勾选DEFAULT权限起作用
+     */
+    editApic(payload: { id: string; apicList: string[] }) {
+      return requestWrapper<QstResult<unknown>>(() =>
+        axiosInstance.patch(`${ApiPath}/console/applets/${payload.id}/apic`, payload.apicList)
       );
     },
   },

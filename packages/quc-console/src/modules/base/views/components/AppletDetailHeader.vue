@@ -17,7 +17,7 @@
           </button>
         </el-tooltip>
         <el-tooltip content="配置权限" placement="top">
-          <button class="tool-btn">
+          <button class="tool-btn" @click="editApic">
             <i class="tool-btn-icon i-mdi-cog" />
           </button>
         </el-tooltip>
@@ -50,6 +50,7 @@
     </div>
   </div>
   <DeleteAppletDialog ref="deleteAppletDialogRef" />
+  <EditApicDialog ref="editApicDialogRef" />
 </template>
 
 <script setup lang="ts">
@@ -58,6 +59,7 @@
   import { useAppletsStore } from '../../store/applets';
   import EditAppletNameForm from './EditAppletNameForm.vue';
   import DeleteAppletDialog from './DeleteAppletDialog.vue';
+  import EditApicDialog from './EditApicDialog.vue';
 
   const appletsStore = useAppletsStore();
   const { currentApplet } = storeToRefs(appletsStore);
@@ -65,6 +67,7 @@
   const editName = ref(false);
   const showSigningKey = ref(false);
   const deleteAppletDialogRef = ref<InstanceType<typeof DeleteAppletDialog>>();
+  const editApicDialogRef = ref<InstanceType<typeof EditApicDialog>>();
 
   const toggleEditName = () => {
     editName.value = !editName.value;
@@ -78,14 +81,12 @@
     if (deleteAppletDialogRef.value && currentApplet.value) {
       deleteAppletDialogRef.value.open(currentApplet.value.id);
     }
-    // ElMessageBox.confirm('您确定要删除应用吗？', '删除应用', {
-    //   confirmButtonText: '确定',
-    //   cancelButtonText: '取消',
-    // })
-    //   .then(() => {
-    //     // TODO 删除
-    //   })
-    //   .catch(() => null);
+  };
+
+  const editApic = () => {
+    if (editApicDialogRef.value) {
+      editApicDialogRef.value.open();
+    }
   };
 </script>
 
