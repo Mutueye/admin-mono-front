@@ -55,5 +55,29 @@ export const useAppletsStore = defineStore('applets', {
         }
       );
     },
+
+    /**
+     * 修改应用名称
+     * @param {object} payload 修改信息：id和name
+     * @returns {Promise<QstResult<unknown>>}
+     */
+    editAppletName(payload: { id: string; name: string }) {
+      return requestWrapper<QstResult<unknown>>(() =>
+        axiosInstance.patch(`${ApiPath}/console/applets/${payload.id}/name`, payload)
+      );
+    },
+
+    /**
+     * 删除应用
+     * @param {string} id 应用id
+     * @param {string} password 当前账号的密码
+     * @returns {Promise<QstResult<unknown>>}
+     */
+    deleteApplet(payload: { id: string; password: string }) {
+      // TODO 密码加密
+      return requestWrapper<QstResult<unknown>>(() =>
+        axiosInstance.delete(`${ApiPath}/console/applets/${payload.id}`, { data: { password: payload.password } })
+      );
+    },
   },
 });

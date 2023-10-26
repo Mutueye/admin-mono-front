@@ -54,6 +54,12 @@ const config: UserConfig = defineConfig({
   safelist: [...getUplusIconList(), ...iconList],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   theme,
+  shortcuts: [
+    {
+      'admin-btn':
+        'flex flex-row items-center justify-center outline-none border-none p-0 cursor-pointer focus-visible:outline-primary-light-6',
+    },
+  ],
 });
 
 export default config;

@@ -41,9 +41,6 @@
 
   const closeDialog = () => {
     state.show = false;
-    if (newAppletFormRef.value) {
-      newAppletFormRef.value.resetForm();
-    }
   };
 
   defineExpose({ open });

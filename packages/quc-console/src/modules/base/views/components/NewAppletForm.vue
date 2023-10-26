@@ -102,6 +102,7 @@
   };
 
   const cancel = () => {
+    resetForm();
     emit('cancel');
   };
 

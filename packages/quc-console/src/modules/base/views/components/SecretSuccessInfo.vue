@@ -13,7 +13,7 @@
     <div class="color-danger">如需再次查看，只能创建新的SK</div>
   </div>
   <div class="w-full flex flex-row justify-end">
-    <el-button type="primary" @click="close">关闭</el-button>
+    <el-button type="primary" @click="close">确定</el-button>
   </div>
 </template>
 
@@ -25,7 +25,6 @@
   const { copy } = useClipboard();
 
   const props = defineProps<{
-    /** 应用SK */
     secret: string;
   }>();
 
