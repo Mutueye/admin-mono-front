@@ -1,3 +1,4 @@
+<!-- secret key 生成成功提示信息 -->
 <template>
   <div class="flex flex-col">
     <div class="color-text-primary font-semibold leading-24px">

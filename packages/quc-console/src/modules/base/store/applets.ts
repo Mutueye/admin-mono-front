@@ -91,5 +91,29 @@ export const useAppletsStore = defineStore('applets', {
         axiosInstance.patch(`${ApiPath}/console/applets/${payload.id}/apic`, payload.apicList)
       );
     },
+
+    /**
+     * 重新生成secretKey
+     * @param {{id: string; password: string}} payload
+     * @returns {Promise<QstResult<{ id: string; secret: string }>>}
+     * @TODO 后端接口调整：密码加密提交
+     */
+    regenerateSecretKey(payload: { id: string; password: string }) {
+      return requestWrapper<QstResult<{ id: string; secret: string }>>(() =>
+        axiosInstance.post(`${ApiPath}/console/applets/secret/key`, payload)
+      );
+    },
+
+    /**
+     * 重新生成signingKey
+     * @param {{id: string; password: string}} payload
+     * @returns {Promise<QstResult<{ id: string; signing: string }>>}
+     * @TODO 后端接口调整：密码加密提交
+     */
+    regenerateSigningKey(payload: { id: string; password: string }) {
+      return requestWrapper<QstResult<{ id: string; signing: string }>>(() =>
+        axiosInstance.post(`${ApiPath}/console/applets/signing/key`, payload)
+      );
+    },
   },
 });

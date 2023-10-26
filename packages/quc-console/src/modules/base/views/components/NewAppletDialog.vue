@@ -41,6 +41,8 @@
 
   const closeDialog = () => {
     state.show = false;
+    state.secret = '';
+    state.step = 'create';
   };
 
   defineExpose({ open });

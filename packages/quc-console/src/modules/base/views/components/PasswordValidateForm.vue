@@ -49,7 +49,7 @@
       /** 特殊权限操作的标题，比如删除应用时显示“应用删除后不可恢复！” */
       info: string;
       /** 提交按钮的文字，默认“确定” */
-      submitLabel: string;
+      submitLabel?: string;
       /** 提交按钮是否使用danger色 */
       submitDanger?: boolean;
     }>(),

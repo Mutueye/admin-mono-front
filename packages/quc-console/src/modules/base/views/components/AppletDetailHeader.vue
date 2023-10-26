@@ -36,7 +36,7 @@
         <div class="flex flex-row items-center mt-spacing-xxxs">
           <div class="w-90px">secret key:</div>
           <div>************************</div>
-          <el-button size="small" class="ml-spacing-xxs">重新生成</el-button>
+          <el-button size="small" class="ml-spacing-xxs" @click="regenerateSecretKey">重新生成</el-button>
         </div>
         <div class="flex flex-row items-center mt-spacing-xxxs">
           <div class="w-90px">signing key:</div>
@@ -51,6 +51,7 @@
   </div>
   <DeleteAppletDialog ref="deleteAppletDialogRef" />
   <EditApicDialog ref="editApicDialogRef" />
+  <RegenerateSecretKeyDialog ref="regenerateSecretKeyDialogRef" />
 </template>
 
 <script setup lang="ts">
@@ -60,6 +61,7 @@
   import EditAppletNameForm from './EditAppletNameForm.vue';
   import DeleteAppletDialog from './DeleteAppletDialog.vue';
   import EditApicDialog from './EditApicDialog.vue';
+  import RegenerateSecretKeyDialog from './RegenerateSecretKeyDialog.vue';
 
   const appletsStore = useAppletsStore();
   const { currentApplet } = storeToRefs(appletsStore);
@@ -68,6 +70,7 @@
   const showSigningKey = ref(false);
   const deleteAppletDialogRef = ref<InstanceType<typeof DeleteAppletDialog>>();
   const editApicDialogRef = ref<InstanceType<typeof EditApicDialog>>();
+  const regenerateSecretKeyDialogRef = ref<InstanceType<typeof RegenerateSecretKeyDialog>>();
 
   const toggleEditName = () => {
     editName.value = !editName.value;
@@ -86,6 +89,12 @@
   const editApic = () => {
     if (editApicDialogRef.value) {
       editApicDialogRef.value.open();
+    }
+  };
+
+  const regenerateSecretKey = () => {
+    if (regenerateSecretKeyDialogRef.value) {
+      regenerateSecretKeyDialogRef.value.open();
     }
   };
 </script>
