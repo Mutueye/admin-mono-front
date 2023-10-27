@@ -18,6 +18,32 @@ export interface AppletCardData {
   enabled: boolean;
 }
 
+/** 数据同步 meta data */
+export interface BulletinMetaData {
+  /** 数据加密是否开启 */
+  encryptEnabled: boolean;
+  /** 数据加密算法 enum key: bulletin_encrypt_algorithm */
+  encryptAlgorithm: string;
+  /** 数据加密密钥 */
+  encryptKey: string;
+  /** 数据签名是否开启 */
+  signatureEnabled: boolean;
+  /** 数据签名算法 enum key: bulletin_signature_algorithm */
+  signatureAlgorithm: string;
+  /** 数据签名key */
+  signatureKey: string;
+  /** 数据签名启用随机数 */
+  signingNonce: boolean;
+  /** 数据签名启用时间戳 */
+  signingTimestamp: boolean;
+  /** URI */
+  uri: string;
+  /** 订阅事件 enum key: event_type*/
+  events: string[];
+  /** TOKEN */
+  token: string;
+}
+
 /** 应用详细数据 */
 export interface AppletData {
   /** 应用id clientId */
@@ -28,37 +54,28 @@ export interface AppletData {
   name: string;
   /** hosts */
   hosts: string[];
-  /** 访问令牌超时时间 */
-  accessTokenTimeout: 7200;
-  /** 刷新令牌超时时间 */
-  refreshTokenTimeout: 14400;
+  /** 访问令牌超时时间 单位s 没有表示永久有效 */
+  accessTokenTimeout?: number;
+  /** 刷新令牌超时时间 单位s 没有表示永久有 */
+  refreshTokenTimeout?: number;
   /** 应用权限码 */
-  apic: 122;
+  apic?: number;
   /** 应用权限列表 */
-  apicList: EnumList;
+  apicList?: EnumList;
   /** 启用/禁用 状态 */
   enabled: boolean;
   /** remark */
-  remark: string;
+  remark?: string;
+  /** 有效期 13位标准时间戳 没有值表示永久有效 */
+  expireAt?: number;
   /**数据同步是否开启 */
   bulletinEnabled: boolean;
   /** 数据同步模式 EventCallback*/
-  bulletinMode: string;
+  bulletinMode?: string;
   /** 数据同步模式名称 */
-  bulletinModeTitle: string;
+  bulletinModeTitle?: string;
   /** 数据同步信息 */
-  bulletinMetadata: {
-    /** 数据加密是否开启 */
-    encryptEnabled: boolean;
-    /** 数据签名是否开启 */
-    signatureEnabled: boolean;
-    /** URI */
-    uri: 'https://tev.qstcloud.net/api/auth/quc_event';
-    /** 订阅事件 TODO */
-    events: string[];
-    /** TOKEN */
-    token: '117e1d61ec1911e9a16cfa163ef5ba8a';
-  };
+  bulletinMetadata?: BulletinMetaData;
 }
 
 /** 创建应用 - 提交的数据结构 */

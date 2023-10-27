@@ -33,6 +33,7 @@ export const useAppletsStore = defineStore('applets', {
      * 创建应用
      * @param {CreateAppletPayload} payload 创建应用需要的payload: 应用名称和hosts
      * @returns {Promise<QstResult<CreateAppletResponse>>} 返回{ name: string; hosts: string[]; id: string; secret: string }
+     * @TODO 应用名称验证规则：前后端统一
      */
     createApplet(payload: CreateAppletPayload) {
       return requestWrapper<QstResult<CreateAppletResponse>>(() =>
@@ -113,6 +114,17 @@ export const useAppletsStore = defineStore('applets', {
     regenerateSigningKey(payload: { id: string; password: string }) {
       return requestWrapper<QstResult<{ id: string; signingKey: string }>>(() =>
         axiosInstance.post(`${ApiPath}/console/applets/signing/key`, payload)
+      );
+    },
+
+    /**
+     * 编辑应用信息
+     * @param {AppletData} payload 应用数据
+     * @returns {Promise<QstResult<AppletData>>}
+     */
+    reviseApplet(payload: AppletData) {
+      return requestWrapper<QstResult<AppletData>>(() =>
+        axiosInstance.patch(`${ApiPath}/console/applets/${payload.id}/applet`, payload)
       );
     },
   },

@@ -5,6 +5,7 @@
       v-if="state.step === 'hint'"
       ref="formRef"
       info="即将重新生成 Secret Key！"
+      submit-label="提交验证"
       @cancel="closeDialog"
       @submit="submit" />
     <SecretSuccessInfo v-if="state.step === 'success'" :secret="state.secret" @close="closeDialog" />

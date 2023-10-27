@@ -1,7 +1,12 @@
 <!-- 重新生成signingKey弹窗 -->
 <template>
   <DialogWrapper title="操作提示" :show="state.show" :z-index="1999" :before-close="closeDialog">
-    <PasswordValidateForm ref="formRef" info="即将重新生成 Signing Key！" @cancel="closeDialog" @submit="submit" />
+    <PasswordValidateForm
+      ref="formRef"
+      info="即将重新生成 Signing Key！"
+      submit-label="提交验证"
+      @cancel="closeDialog"
+      @submit="submit" />
   </DialogWrapper>
 </template>
 

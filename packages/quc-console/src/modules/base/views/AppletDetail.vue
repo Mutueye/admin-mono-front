@@ -5,6 +5,7 @@
     </template> -->
     <DashboardContent v-loading="loading">
       <AppletDetailHeader />
+      <AppletDetailContent v-if="currentApplet" :applet-data="currentApplet" />
     </DashboardContent>
   </ContentWrapper>
 </template>
@@ -17,6 +18,7 @@
   import { useEnumsStore } from '@/store/enums';
   import { useAppletsStore } from '../store/applets';
   import AppletDetailHeader from './components/AppletDetailHeader.vue';
+  import AppletDetailContent from './components/AppletDetailContent.vue';
 
   const route = useRoute();
   const enumsStore = useEnumsStore();

@@ -38,7 +38,6 @@
   });
 
   const onClick = (app: AppletCardData) => {
-    console.log('app:::', app.id);
     router.push({ name: 'appletDetail', params: { id: app.id } });
   };
 
