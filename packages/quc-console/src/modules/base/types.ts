@@ -75,7 +75,7 @@ export interface AppletData {
   /** 数据同步模式名称 */
   bulletinModeTitle?: string;
   /** 数据同步信息 */
-  bulletinMetadata?: BulletinMetaData;
+  bulletinMetadata: BulletinMetaData;
 }
 
 /** 创建应用 - 提交的数据结构 */

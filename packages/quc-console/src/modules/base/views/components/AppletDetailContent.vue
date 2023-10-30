@@ -1,3 +1,4 @@
+<!-- 应用配置详情 -->
 <template>
   <div class="w-full flex flex-col mt-spacing">
     <table class="admin-flat-table">
@@ -5,7 +6,7 @@
         <td colspan="4" class="admin-flat-table__cell bg-bg-secondary">
           <div class="w-full flex flex-row justify-between items-center">
             <div class="text-size-medium font-semibold color-text-primary">应用配置</div>
-            <el-button size="small" type="primary">
+            <el-button size="small" type="primary" @click="edit">
               <div class="flex flex-row items-center">
                 <i class="i-mdi-edit mr-spacing-xxs" />
                 <span>修改应用配置</span>
@@ -124,6 +125,7 @@
         <td colspan="3" class="admin-flat-table__cell">已关闭</td>
       </tr>
     </table>
+    <AppletDetailContentDialog ref="appletDetailContentDialogRef" />
   </div>
 </template>
 
@@ -133,6 +135,9 @@
   import { AppletData } from '../../types';
   import { translateTime } from '../../utils';
   import { useEnumsStore, type EnumList } from '@/store/enums';
+  import AppletDetailContentDialog from './AppletDetailContentDialog.vue';
+
+  const appletDetailContentDialogRef = ref<InstanceType<typeof AppletDetailContentDialog>>();
 
   const props = defineProps<{ appletData: AppletData }>();
   const { appletData } = toRefs(props);
@@ -177,6 +182,12 @@
       return [];
     }
   });
+
+  const edit = () => {
+    if (appletDetailContentDialogRef.value && appletData.value) {
+      appletDetailContentDialogRef.value.open(appletData.value);
+    }
+  };
 </script>
 
 <style lang="scss">

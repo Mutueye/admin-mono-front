@@ -1,4 +1,4 @@
-<!-- 删除应用弹窗 -->
+<!-- 配置权限弹窗 -->
 <template>
   <DialogWrapper title="配置权限" width="500" :show="state.show" :z-index="1999" :before-close="closeDialog">
     <EditApicContent @cancel="closeDialog" @submit="closeDialog" />

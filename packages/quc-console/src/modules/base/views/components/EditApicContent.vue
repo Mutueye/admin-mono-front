@@ -1,3 +1,4 @@
+<!-- 配置权限表单 -->
 <template>
   <div class="w-full flex flex-col">
     <el-checkbox-group v-model="apicList" class="flex flex-col mb-spacing-xxs">
@@ -34,7 +35,6 @@
     enumsStore.getEnums('apic').then((res) => {
       if (res.success && res.data) {
         apicDataList.value = res.data;
-        console.log('apicDataList::::', apicDataList.value);
       }
     });
   });
@@ -57,14 +57,19 @@
     if (currentApplet.value) {
       if (apicList.value.length === 0) {
         ElMessage.warning('权限集合不能为空');
-        apicList.value = currentApplet.value.apicList.map((item) => item.name);
+        if (currentApplet.value && currentApplet.value.apicList) {
+          apicList.value = currentApplet.value.apicList.map((item) => item.name);
+        }
         return;
       }
+
       submitting.value = true;
+      const id = currentApplet.value.id;
       appletsStore
-        .editApic({ id: currentApplet.value.id, apicList: apicList.value })
+        .editApic({ id, apicList: apicList.value })
         .then((res) => {
           if (res.success) {
+            appletsStore.getAppletDetail(id);
             emit('submit');
           }
         })

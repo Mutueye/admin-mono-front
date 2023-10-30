@@ -59,6 +59,11 @@ export const regOrgan = /^(?![()（）. ,])(?!.*?[()（）. ,]$)[a-zA-Z0-9()（�
 export const regHosts = /^[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/;
 
 /**
+ * uri正则
+ */
+export const regURI = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'*+,;=.]+$/;
+
+/**
  * 通用的字节长度验证方法
  */
 export const byteLengthValidator = ({
@@ -323,5 +328,10 @@ export const globalFormRules = {
   hosts: [
     { required: true, message: '请输入hosts地址', trigger: 'blur' },
     { pattern: regHosts, message: 'hosts地址格式不正确', trigger: 'blur' },
+  ],
+  /** uri 表单验证规则 */
+  uri: [
+    { required: true, message: '请输入uri', trigger: 'blur' },
+    { pattern: regURI, message: 'uri格式不正确', trigger: 'blur' },
   ],
 };
