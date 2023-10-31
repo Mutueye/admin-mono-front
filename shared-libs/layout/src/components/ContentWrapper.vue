@@ -1,8 +1,7 @@
 <template>
   <div class="flex flex-col w-full flex-1 min-h-0 min-w-0">
     <div v-if="showHeader" class="flex flex-row items-center justify-between px-spacing-xl py-spacing">
-      <!-- TODO header slots -->
-      <div class="text-size-large font-semibold color-text-primary leading-component-size">{{ route.meta.title }}</div>
+      <HeaderTitle />
       <slot name="header" />
     </div>
     <slot />
@@ -10,8 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useRoute } from 'vue-router';
-  const route = useRoute();
+  import HeaderTitle from './HeaderTitle.vue';
 
   withDefaults(
     defineProps<{

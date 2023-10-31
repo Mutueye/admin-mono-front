@@ -17,6 +17,7 @@
   import { AppletData } from '../../types';
 
   const state = reactive<{ show: boolean }>({ show: false });
+  // TODO 使用store中的currentAppletData
   const appletData = ref<AppletData>();
 
   const appletDetailContentFormRef = ref<InstanceType<typeof AppletDetailContentForm>>();

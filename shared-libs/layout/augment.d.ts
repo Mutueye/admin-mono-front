@@ -9,7 +9,7 @@ declare module 'vue-router' {
     title: string;
     /** layout菜单通过遍历路由树的menuConfig来生成菜单树 */
     menuConfig?: MenuConfig;
-    /** stores parent route data 引用父路由和根路由信息 */
+    /** 父级路由的信息，用于页面后退按钮和面包屑 */
     parentRouteData?: ParentRouteData;
     /** sub app url 子应用地址 */
     subAppUrl?: string;
