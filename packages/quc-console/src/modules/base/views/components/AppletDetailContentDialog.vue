@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-  import { reactive, ref } from 'vue';
+  import { reactive, ref, nextTick } from 'vue';
   import { DialogWrapper } from '@qst-admin/components';
   import AppletDetailContentForm from './AppletDetailContentForm.vue';
   import { AppletData } from '../../types';
@@ -23,9 +23,11 @@
 
   const open = (data: AppletData) => {
     appletData.value = Object.assign({}, data);
+    // TODO ?
     if (appletDetailContentFormRef.value) {
       appletDetailContentFormRef.value.resetForm(data);
     }
+
     state.show = true;
   };
 

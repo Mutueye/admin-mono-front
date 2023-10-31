@@ -77,15 +77,13 @@
     </el-form-item>
 
     <!-- 数据同步 -->
-    <el-form-item prop="bulletinType" label="数据同步">
-      <el-radio-group v-model="formData.bulletinType">
-        <el-radio label="关闭数据同步" />
-        <el-radio label="事件回调模式" />
+    <el-form-item prop="bulletinEnabled" label="数据同步">
+      <el-radio-group v-model="formData.bulletinEnabled">
+        <el-radio :label="false">关闭数据同步</el-radio>
+        <el-radio :label="true">事件回调模式</el-radio>
       </el-radio-group>
     </el-form-item>
-    <div
-      v-if="formData.bulletinType === '事件回调模式'"
-      class="ml-130px px-18px pt-18px bg-bg-page -mt-12px mb-18px flex flex-col">
+    <div v-if="formData.bulletinEnabled" class="ml-130px px-18px pt-18px bg-bg-page -mt-12px mb-18px flex flex-col">
       <!-- URI -->
       <el-form-item prop="bulletinMetadata.uri" label="URI" :label-width="subLabelWidth" :rules="formRules.uri">
         <el-input v-model="formData.bulletinMetadata.uri" />
@@ -101,7 +99,9 @@
         :label-width="subLabelWidth"
         :rules="formRules.types">
         <el-checkbox-group v-model="formData.bulletinMetadata.events">
-          <el-checkbox v-for="item in eventTypeList" :key="item.name" :label="item.name">{{ item.title }}</el-checkbox>
+          <el-checkbox v-for="item in eventTypeList" :key="item.name" :label="item.name">
+            {{ item.title }}
+          </el-checkbox>
         </el-checkbox-group>
       </el-form-item>
       <!-- 数据签名：开启/关闭 -->
@@ -177,19 +177,19 @@
         </el-form-item>
       </div>
     </div>
-
-    <!-- 提交按钮 -->
-    <div class="w-full flex flex-row justify-end">
-      <el-button @click="cancel">取消</el-button>
-      <el-button type="primary" :loading="formState.submitting" @click="submit">保存</el-button>
-    </div>
   </el-form>
+  <!-- 提交按钮 -->
+  <div class="w-full flex flex-row justify-end">
+    <el-button @click="cancel">取消</el-button>
+    <el-button type="primary" :loading="formState.submitting" @click="submit">保存</el-button>
+  </div>
 </template>
 
 <script setup lang="ts">
   import { reactive, ref, toRefs, onMounted } from 'vue';
   import { ElMessage, FormInstance, FormRules } from 'element-plus';
   import { globalFormRules, byteLengthValidator } from '@qst-admin/utils';
+  import { useClientSize } from '@qst-admin/composables';
   import { AppletData } from '../../types';
   import { useAppletsStore } from '../../store/applets';
   import { useEnumsStore, type EnumList } from '@/store/enums';
@@ -197,6 +197,7 @@
 
   const enumsStore = useEnumsStore();
   const appletsStore = useAppletsStore();
+  const { height } = useClientSize();
 
   const subLabelWidth = '80px';
 
@@ -209,8 +210,6 @@
     refreshTokenTimeData: TimeWithUnit;
     /** 是否设置了有效期 */
     expireType: '永久有效' | '选择有效期';
-    /** 数据同步类型 */
-    bulletinType: '关闭数据同步' | '事件回调模式';
   }
 
   /** 转换host列表 */
@@ -241,12 +240,11 @@
   };
 
   const resolveAppletFormData = (data: AppletData): AppletFormData => ({
-    ...appletData.value,
+    ...data,
     hostList: resolveHostList(data.hosts),
     accessTokenTimeData: resolveTimeout(data.accessTokenTimeout),
     refreshTokenTimeData: resolveTimeout(data.refreshTokenTimeout),
     expireType: data.expireAt ? '选择有效期' : '永久有效',
-    bulletinType: data.bulletinEnabled ? '事件回调模式' : '关闭数据同步',
     bulletinMetadata: Object.assign({}, data.bulletinMetadata),
   });
 
@@ -334,7 +332,9 @@
 
   /** 重置表单数据 */
   const resetFormData = (data?: AppletData) => {
+    console.log('data:::::', data);
     Object.assign(formData, resolveAppletFormData(data ? data : appletData.value));
+    console.log('formData::::', formData);
   };
 
   const resetForm = (data?: AppletData) => {
