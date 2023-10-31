@@ -1,6 +1,11 @@
 <!-- 重新生成secretKey弹窗 -->
 <template>
-  <DialogWrapper :title="stepTitle[state.step]" :show="state.show" :z-index="1999" :before-close="closeDialog">
+  <DialogWrapper
+    width="500"
+    :title="stepTitle[state.step]"
+    :show="state.show"
+    :z-index="1999"
+    :before-close="closeDialog">
     <PasswordValidateForm
       v-if="state.step === 'hint'"
       ref="formRef"

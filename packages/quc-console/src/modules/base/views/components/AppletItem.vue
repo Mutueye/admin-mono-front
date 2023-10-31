@@ -1,3 +1,4 @@
+<!-- 应用卡片 -->
 <template>
   <div
     class="flex flex-row bg-bg-page p-spacing-md rounded-base group hover:bg-primary-light-9 cursor-pointer transition-colors relative">

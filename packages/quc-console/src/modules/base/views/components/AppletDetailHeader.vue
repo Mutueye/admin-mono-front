@@ -1,3 +1,4 @@
+<!-- 应用详情header -->
 <template>
   <div
     v-if="currentApplet"

@@ -1,8 +1,6 @@
+<!-- 应用详情 -->
 <template>
   <ContentWrapper>
-    <!-- <template #header>
-      <el-button type="primary" @click="createNewApplet">创建应用</el-button>
-    </template> -->
     <DashboardContent v-loading="loading">
       <AppletDetailHeader />
       <AppletDetailContent v-if="currentApplet" :applet-data="currentApplet" />
@@ -29,6 +27,7 @@
   const loading = ref(false);
 
   onMounted(() => {
+    console.log('route:::::', route);
     // 获取应用权限枚举
     enumsStore.getEnums('apic');
     // 取应用详情

@@ -332,9 +332,7 @@
 
   /** 重置表单数据 */
   const resetFormData = (data?: AppletData) => {
-    console.log('data:::::', data);
     Object.assign(formData, resolveAppletFormData(data ? data : appletData.value));
-    console.log('formData::::', formData);
   };
 
   const resetForm = (data?: AppletData) => {
@@ -349,10 +347,8 @@
 
   const submit = () => {
     if (!formRef.value) return;
-    console.log('formData::::', formData);
     formRef.value.validate((valid) => {
       if (valid) {
-        console.log('form valid::::::');
         formData.hosts = formData.hostList.map((item) => item.host);
         formData.accessTokenTimeout = translateTimeReverse(formData.accessTokenTimeData);
         formData.refreshTokenTimeout = translateTimeReverse(formData.refreshTokenTimeData);
