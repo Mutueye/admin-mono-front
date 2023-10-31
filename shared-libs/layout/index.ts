@@ -50,8 +50,15 @@ export interface MenuConfig {
   activeRouteName?: string;
 }
 
-/** 父级路由结构定义 */
+/**
+ * 父级路由结构定义
+ * - 约定：在定义路由时保持父页面和子页面的param和query字段名称一致，才可在面包屑等位置正确的生成对应路由的地址
+ */
 export interface ParentRouteData {
-  parentRoute: RouteRecordRaw;
-  baseRoute: RouteRecordRaw;
+  /** 路由名称 */
+  name: string;
+  /** 路由param参数的键值 */
+  paramKeys?: string[];
+  /** 路由query参数的键值 */
+  queryKeys?: string[];
 }

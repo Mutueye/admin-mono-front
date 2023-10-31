@@ -39,6 +39,9 @@ const routeData: RouteRecordData = {
               hidden: true,
               activeRouteName: 'applets',
             },
+            parentRouteData: {
+              name: 'applets',
+            },
           },
         },
         {

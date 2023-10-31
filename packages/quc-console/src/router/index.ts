@@ -24,31 +24,31 @@ const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => 
     });
   }
 
-  addRouteParentMeta(allRoutes, null, null);
+  // addRouteParentMeta(allRoutes, null, null);
 
   return allRoutes;
 };
 
 // 给每个路由的meta增加parentRouteData信息
-const addRouteParentMeta = (
-  routes: RouteRecordRaw[],
-  parentRoute: RouteRecordRaw | null,
-  baseRoute: RouteRecordRaw | null
-) => {
-  routes.forEach((route) => {
-    if (parentRoute && baseRoute) {
-      const parentRouteData = { parentRoute, baseRoute };
-      if (route.meta) {
-        route.meta.parentRouteData = parentRouteData;
-      } else {
-        route.meta = { title: '', parentRouteData };
-      }
-    }
-    if (route.children) {
-      addRouteParentMeta(route.children, route, baseRoute ? baseRoute : route);
-    }
-  });
-};
+// const addRouteParentMeta = (
+//   routes: RouteRecordRaw[],
+//   parentRoute: RouteRecordRaw | null,
+//   baseRoute: RouteRecordRaw | null
+// ) => {
+//   routes.forEach((route) => {
+//     if (parentRoute && baseRoute) {
+//       const parentRouteData = { parentRoute, baseRoute };
+//       if (route.meta) {
+//         route.meta.parentRouteData = parentRouteData;
+//       } else {
+//         route.meta = { title: '', parentRouteData };
+//       }
+//     }
+//     if (route.children) {
+//       addRouteParentMeta(route.children, route, baseRoute ? baseRoute : route);
+//     }
+//   });
+// };
 
 export const baseRoutes: RouteRecordRaw[] = [
   {
