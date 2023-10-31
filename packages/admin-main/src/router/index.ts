@@ -1,34 +1,19 @@
 import { Router, createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
-import { layoutRoutes, LayoutEnum, RouteRecordData } from '@qst-admin/layout';
+import { generateAllRoutes } from '@qst-admin/layout';
 import { BasePath } from '@/utils/consts';
 import { useAuthStore } from '@qst-admin/auth';
 import { getLocalSubAppList } from '@/utils/subAppConfig';
 import AppWrapper from '@/modules/appWrapper/views/AppWrapper.vue';
 
-const generateAllRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
-  const allRoutes: RouteRecordRaw[] = [...staticRoutes];
-  Object.keys(LayoutEnum).forEach((key) => {
-    allRoutes.push(layoutRoutes[key as LayoutEnum]);
+const generateRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
+  const allRoutes = generateAllRoutes({
+    staticRoutes,
+    moduleRoutes: import.meta.glob('@/modules/**/*/route.ts', { eager: true }),
   });
-  const moduleRoutes = import.meta.glob('@/modules/**/*/route.ts', {
-    eager: true,
-  }) as Record<string, { default: RouteRecordData }>;
-  for (const path in moduleRoutes) {
-    const route = moduleRoutes[path].default.route;
-    if (route) allRoutes.push(...route);
-    Object.keys(LayoutEnum).forEach((key) => {
-      const targetRoutes = moduleRoutes[path].default[key as LayoutEnum];
-      if (targetRoutes) {
-        layoutRoutes[key as LayoutEnum].children?.push(...targetRoutes);
-      }
-    });
-  }
 
   const wrapperRoutes = allRoutes.find((rout) => rout.name === 'wrapper');
   addSubAppRoutes(wrapperRoutes);
-
-  addRouteParentMeta(allRoutes, null, null);
 
   return allRoutes;
 };
@@ -64,25 +49,25 @@ const addSubAppRoutes = (parentRoute?: RouteRecordRaw) => {
 };
 
 // 给每个路由的meta增加parentRouteData信息
-const addRouteParentMeta = (
-  routes: RouteRecordRaw[],
-  parentRoute: RouteRecordRaw | null,
-  baseRoute: RouteRecordRaw | null
-) => {
-  routes.forEach((route) => {
-    if (parentRoute && baseRoute) {
-      const parentRouteData = { parentRoute, baseRoute };
-      if (route.meta) {
-        route.meta.parentRouteData = parentRouteData;
-      } else {
-        route.meta = { title: '', parentRouteData };
-      }
-    }
-    if (route.children) {
-      addRouteParentMeta(route.children, route, baseRoute ? baseRoute : route);
-    }
-  });
-};
+// const addRouteParentMeta = (
+//   routes: RouteRecordRaw[],
+//   parentRoute: RouteRecordRaw | null,
+//   baseRoute: RouteRecordRaw | null
+// ) => {
+//   routes.forEach((route) => {
+//     if (parentRoute && baseRoute) {
+//       const parentRouteData = { parentRoute, baseRoute };
+//       if (route.meta) {
+//         route.meta.parentRouteData = parentRouteData;
+//       } else {
+//         route.meta = { title: '', parentRouteData };
+//       }
+//     }
+//     if (route.children) {
+//       addRouteParentMeta(route.children, route, baseRoute ? baseRoute : route);
+//     }
+//   });
+// };
 
 export const baseRoutes: RouteRecordRaw[] = [
   {
@@ -94,8 +79,7 @@ export const baseRoutes: RouteRecordRaw[] = [
 export let router: Router | null = null;
 
 export const initRouter = () => {
-  const routes = generateAllRoutes(baseRoutes);
-  // console.log('routes::::', routes);
+  const routes = generateRoutes(baseRoutes);
   router = createRouter({
     history: createWebHistory(BasePath),
     routes,

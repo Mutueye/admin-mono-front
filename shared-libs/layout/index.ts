@@ -62,3 +62,29 @@ export interface ParentRouteData {
   /** 路由query参数的键值 */
   queryKeys?: string[];
 }
+
+export const generateAllRoutes = ({
+  staticRoutes,
+  moduleRoutes,
+}: {
+  staticRoutes: RouteRecordRaw[];
+  moduleRoutes: Record<string, { default: RouteRecordData }>;
+}): RouteRecordRaw[] => {
+  const allRoutes: RouteRecordRaw[] = [...staticRoutes];
+  Object.keys(LayoutEnum).forEach((key) => {
+    allRoutes.push(layoutRoutes[key as LayoutEnum]);
+  });
+
+  for (const path in moduleRoutes) {
+    const route = moduleRoutes[path].default.route;
+    if (route) allRoutes.push(...route);
+    Object.keys(LayoutEnum).forEach((key) => {
+      const targetRoutes = moduleRoutes[path].default[key as LayoutEnum];
+      if (targetRoutes) {
+        layoutRoutes[key as LayoutEnum].children?.push(...targetRoutes);
+      }
+    });
+  }
+
+  return allRoutes;
+};

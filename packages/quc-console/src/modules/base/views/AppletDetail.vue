@@ -27,7 +27,6 @@
   const loading = ref(false);
 
   onMounted(() => {
-    console.log('route:::::', route);
     // 获取应用权限枚举
     enumsStore.getEnums('apic');
     // 取应用详情
