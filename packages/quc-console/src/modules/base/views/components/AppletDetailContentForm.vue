@@ -303,13 +303,13 @@
 
   onMounted(() => {
     enumsStore.getEnums('event_type').then((res) => {
-      if (res.data) eventTypeList.value = res.data;
+      eventTypeList.value = res;
     });
     enumsStore.getEnums('bulletin_signature_algorithm').then((res) => {
-      if (res.data) signatureAlgorithmList.value = res.data;
+      signatureAlgorithmList.value = res;
     });
     enumsStore.getEnums('bulletin_encrypt_algorithm').then((res) => {
-      if (res.data) encryptAlgorithmList.value = res.data;
+      encryptAlgorithmList.value = res;
     });
   });
 

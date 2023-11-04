@@ -39,7 +39,8 @@ const baseConfig = defineConfig({
   plugins: [
     vue(),
     AutoImport({ resolvers: [ElementPlusResolver()] }),
-    Components({ resolvers: [ElementPlusResolver()] }),
+    // 使用qst-ui-system时，为保证样式覆盖有效，main.ts中引入全部css样式，此处importStyle设为false
+    Components({ resolvers: [ElementPlusResolver({ importStyle: false })] }),
     Unocss(),
   ],
   resolve: {

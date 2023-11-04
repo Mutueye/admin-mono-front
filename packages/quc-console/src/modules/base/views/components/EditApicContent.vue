@@ -33,9 +33,7 @@
 
   onMounted(() => {
     enumsStore.getEnums('apic').then((res) => {
-      if (res.success && res.data) {
-        apicDataList.value = res.data;
-      }
+      apicDataList.value = res;
     });
   });
 

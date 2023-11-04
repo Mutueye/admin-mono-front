@@ -2,7 +2,7 @@ import { RouteRecordData } from '@qst-admin/layout';
 
 const Applets = () => import('./views/Applets.vue');
 const AppletDetail = () => import('./views/AppletDetail.vue');
-const DataSyncMng = () => import('./views/DataSyncMng.vue');
+const Bulletins = () => import('./views/Bulletins.vue');
 
 const routeData: RouteRecordData = {
   admin: [
@@ -45,15 +45,15 @@ const routeData: RouteRecordData = {
           },
         },
         {
-          path: 'events',
-          name: 'events',
+          path: 'bulletins',
+          name: 'bulletins',
           meta: {
             title: '数据同步管理',
             menuConfig: {
               order: 1,
             },
           },
-          component: DataSyncMng,
+          component: Bulletins,
         },
       ],
     },

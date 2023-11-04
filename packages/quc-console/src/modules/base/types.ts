@@ -91,3 +91,54 @@ export interface CreateAppletResponse extends CreateAppletPayload {
   id: string;
   secret: string;
 }
+
+/** 查询数据同步列表的提交参数结构 */
+export interface BulletinsPayload {
+  /** 页码 */
+  pageNumber: number;
+  /** 每页数量 */
+  pageSize: number;
+  /** 开始时间 */
+  startTimestamp?: number;
+  /** 截止时间 */
+  endTimestamp?: number;
+  /** 事件id */
+  eventId?: string;
+  /** 事件类型 */
+  eventType?: string;
+  /** 事件源 */
+  eventSource?: string;
+  /** 全部成功 */
+  allSuccess: 0 | 1;
+  /** 部分成功 */
+  segmentSuccess: 0 | 1;
+  /** 全部失败 */
+  allFail: 0 | 1;
+}
+
+/** 查询数据同步列表成功状态数量的提交参数结构 */
+export type BulletinsCountPayload = Pick<
+  BulletinsPayload,
+  'startTimestamp' | 'endTimestamp' | 'eventId' | 'eventSource' | 'eventType'
+>;
+
+/** 数据同步列表 响应数据结构 */
+export interface BulletinsResponse {
+  count: number;
+  eventId: string;
+  eventSource: string;
+  eventType: string;
+  id: string;
+  mode: string;
+  modeTitle: string;
+  payloads: Record<string, any>;
+  status: '部分成功' | '全部成功' | '全部失败';
+  statusNum: number;
+  timestamp: number;
+}
+
+/** 快捷日期返回单选框的类型 */
+export type QuickDateRangeType = '今日' | '3日内' | '7日内' | '30日内';
+
+/** 成功状态类别 */
+export type SuccessStatusType = 'success' | 'segment' | 'fail';

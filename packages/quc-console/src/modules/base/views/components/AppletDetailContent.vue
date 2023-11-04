@@ -159,7 +159,7 @@
 
   onMounted(() => {
     enumsStore.getEnums('event_type').then((res) => {
-      if (res.data) eventTypeList.value = res.data;
+      eventTypeList.value = res;
     });
   });
 

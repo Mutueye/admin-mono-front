@@ -44,6 +44,7 @@
   "devDependencies": {
     "@iconify-json/line-md": "^1.1.32",
     "@iconify-json/mdi": "^1.1.54",
+    "@iconify-json/solar": "^1.1.5",
     "@qst-admin/eslint-config": "workspace:^",
     "@qst-admin/prettier-config": "workspace:^",
     "@qst-admin/stylelint-config": "workspace:^",

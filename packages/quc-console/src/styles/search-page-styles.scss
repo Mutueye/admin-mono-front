@@ -1,0 +1,33 @@
+$search-form-gap: 12px;
+.search-form {
+  margin-right: -1 * $search-form-gap;
+  margin-bottom: -1 * $search-form-gap;
+
+  @apply flex flex-row items-start justify-start flex-wrap;
+}
+.search-form-item {
+  margin-right: $search-form-gap;
+  margin-bottom: $search-form-gap;
+}
+.search-table {
+  --el-table-header-bg-color: var(--el-bg-color-page);
+  --el-table-header-text-color: var(--el-text-color-regular);
+}
+/* TODO qst-ui-system style override */
+.search-from-pagination {
+  --el-pagination-font-size: var(--el-font-size-base);
+  --el-pagination-bg-color: transparent;
+  --el-pagination-text-color: var(--el-text-color-primary);
+  --el-pagination-border-radius: var(--el-border-radius-small);
+  --el-pagination-button-color: var(--el-text-color-primary);
+  --el-pagination-button-width: var(--el-component-size);
+  --el-pagination-button-height: var(--el-component-size);
+  --el-pagination-button-disabled-color: var(--el-text-color-placeholder);
+  --el-pagination-button-disabled-bg-color: transparent;
+  --el-pagination-button-bg-color: var(--el-fill-color);
+  --el-pagination-hover-color: var(--el-color-primary);
+  --el-pagination-font-size-small: var(--el-font-size-small);
+  --el-pagination-button-width-small: var(--el-component-size-small);
+  --el-pagination-button-height-small: var(--el-component-size-small);
+  --el-pagination-item-gap: var(--el-spacing-sm);
+}

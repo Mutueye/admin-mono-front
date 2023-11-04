@@ -15,6 +15,12 @@ pnpm dev
 pnpm build
 ```
 
+# 开发信息
+
+## 登录账号
+
+tev环境(console.uc.qstcloud.net)登录账号：devAdmin/qst123456
+
 # 微前端适配问题记录
 
 - 子应用:root 下的样式无效，将:root 改为 html 即可
