@@ -43,6 +43,7 @@
     state.show = false;
     state.secret = '';
     state.step = 'create';
+    // TODO 重置内容
   };
 
   defineExpose({ open });

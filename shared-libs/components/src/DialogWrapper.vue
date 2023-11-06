@@ -4,6 +4,7 @@
     v-model="dialogShow"
     :width="dialogWidth"
     :append-to-body="true"
+    :z-index="zIndex"
     :close-on-press-escape="false"
     :close-on-click-modal="false"
     :show-close="false"
@@ -45,6 +46,8 @@
     closeOnClickModal?: boolean;
     /** 关闭弹窗时的操作 */
     beforeClose?: DialogBeforeCloseFn;
+    /** z-index */
+    zIndex?: number;
   }
 
   const props = withDefaults(defineProps<DialogWrapperProps>(), {
@@ -55,6 +58,7 @@
     closeOnPressEscape: false,
     closeOnClickModal: false,
     beforeClose: () => null,
+    zIndex: 1999,
   });
   const { show, width } = toRefs(props);
 

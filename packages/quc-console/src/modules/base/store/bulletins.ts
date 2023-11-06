@@ -1,5 +1,11 @@
 import { defineStore } from 'pinia';
-import { BulletinsResponse, BulletinsPayload, BulletinsCountPayload, SuccessStatusType } from '../types';
+import {
+  BulletinsResponse,
+  BulletinsPayload,
+  BulletinsCountPayload,
+  SuccessStatusType,
+  BulletinAppletStatement,
+} from '../types';
 import { ApiPath, axiosInstance } from '@qst-admin/request';
 import { requestWrapper, QstResult, QstPagination } from '@itshixun/qst-request-lib';
 
@@ -10,6 +16,7 @@ interface BulletinsState {
   list: BulletinsResponse[];
   listLoading: boolean;
   pagination: Pagination;
+  currentSearchPayload: BulletinsPayload | null;
   count: Record<SuccessStatusType, number>;
 }
 
@@ -23,6 +30,7 @@ export const useBulletinsStore = defineStore('bulletins', {
       segment: 0,
       fail: 0,
     },
+    currentSearchPayload: null,
   }),
   actions: {
     /**
@@ -52,12 +60,20 @@ export const useBulletinsStore = defineStore('bulletins', {
           if (res.data) {
             this.list = res.data.rows ? res.data.rows : [];
             this.updatePagination({ total: res.data.total });
+            this.setCurrentSearchPayload(params);
             return res.data;
           }
         })
         .finally(() => {
           this.listLoading = false;
         });
+    },
+
+    /**
+     * 设置当前数据同步列表数据的搜索条件
+     */
+    setCurrentSearchPayload(payloadData: Partial<BulletinsPayload>) {
+      this.currentSearchPayload = Object.assign({}, this.currentSearchPayload, payloadData);
     },
 
     /** 更新分页数据 */
@@ -78,6 +94,32 @@ export const useBulletinsStore = defineStore('bulletins', {
         if (res.data) this.count = res.data;
         return res.data;
       });
+    },
+
+    /**
+     * 事件明细
+     * @param {string} bulletinId bulletin id
+     */
+    getBulletinStatement(bulletinId: string) {
+      return requestWrapper<QstResult<BulletinAppletStatement[]>>(() =>
+        axiosInstance.get(`${ApiPath}/console/bulletins/feedback`, { params: { bulletinId } })
+      ).then((res) => {
+        if (res.data) {
+          return res.data;
+        } else {
+          return [];
+        }
+      });
+    },
+
+    /**
+     * 数据同步重发
+     * @param {string} id 应用同步明细id
+     */
+    resendBulletins(id: string) {
+      return requestWrapper<QstResult<unknown>>(() =>
+        axiosInstance.post(`${ApiPath}/console/bulletins/feedback/${id}/resend`)
+      );
     },
   },
 });

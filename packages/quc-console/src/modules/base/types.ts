@@ -142,3 +142,12 @@ export type QuickDateRangeType = '今日' | '3日内' | '7日内' | '30日内';
 
 /** 成功状态类别 */
 export type SuccessStatusType = 'success' | 'segment' | 'fail';
+
+export type BulletinAppletStatement = {
+  appletId: string;
+  appletName: string;
+  bulletinId: string;
+  id: string;
+  reply: string;
+  status: boolean;
+};
