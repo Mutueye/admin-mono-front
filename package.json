@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "prepare": "simple-git-hooks",
+    "prepare": "simple-git-hooks && pnpm -r build:lib",
     "dev": "pnpm -r --workspace-concurrency=0 --if-present dev",
     "build": "pnpm -r --workspace-concurrency=0 --if-present build",
+    "build:main": "pnpm -F admin-main build",
+    "build:quc": "pnpm -F quc-console build",
+    "build:qmn": "pnpm -F qmn-console build",
+    "build:qts": "pnpm -F qts-console build",
     "lint": "pnpm -r --workspace-concurrency=1 lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

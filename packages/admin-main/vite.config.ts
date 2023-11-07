@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     build: {
-      outDir: `../../dist/${process.env.npm_package_name}`,
+      // outDir: `../../dist/${process.env.npm_package_name}`,
       rollupOptions: {
         output: {
           manualChunks: (id) => {

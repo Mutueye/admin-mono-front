@@ -52,7 +52,7 @@
           return route.name as string;
         }
       } else if (route.meta.parentRouteData) {
-        return getActiveMenuName(route.meta.parentRouteData.parentRoute);
+        return route.meta.parentRouteData.name;
       } else {
         return '';
       }

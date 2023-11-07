@@ -1,0 +1,8 @@
+{
+  "extends": "@qst-admin/ts-config/tsconfig.rollup.json",
+  "compilerOptions": {
+    "declarationDir": "."
+  },
+  "include": ["/**/*.ts", "/**/*.d.ts"],
+  "exclude": ["dist"]
+}

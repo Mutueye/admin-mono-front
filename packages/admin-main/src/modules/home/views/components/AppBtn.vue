@@ -5,10 +5,10 @@
     </div>
     <div class="flex flex-col items-start flex-1 ml-spacing-xs min-w-0">
       <div class="app-btn-title">{{ appConfig.title }}</div>
-      <div class="app-btn-info">{{ appConfig.url }}</div>
+      <div class="app-btn-info">{{ appUrl }}</div>
     </div>
     <i class="deco-icon" :class="appConfig.iconClass" />
-    <div class="absolute top-10px right-10px flex flex-row items-center">
+    <div v-if="!appConfig.isFixed" class="absolute top-10px right-10px flex flex-row items-center">
       <el-tooltip content="应用配置" placement="top">
         <div class="config-btn" @click.stop="configClick">
           <i class="color-white text-size-16px i-mdi-cog" />
@@ -24,12 +24,18 @@
 </template>
 
 <script setup lang="ts">
-  import type { SubAppConfig } from '@/utils/subAppConfig';
+  import { toRefs, computed } from 'vue';
   import { useRouter } from 'vue-router';
+  import { type SubAppConfig } from '@/utils/subAppConfig';
 
   const router = useRouter();
 
-  defineProps<{ appConfig: SubAppConfig }>();
+  const props = defineProps<{ appConfig: SubAppConfig }>();
+  const { appConfig } = toRefs(props);
+
+  const appUrl = computed(() => {
+    return import.meta.env.DEV && appConfig.value.devUrl ? appConfig.value.devUrl : appConfig.value.url;
+  });
 
   const emit = defineEmits(['config', 'delete']);
   const configClick = () => {

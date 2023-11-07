@@ -17,6 +17,8 @@ export interface SubAppConfig {
   order?: number;
   /** auth code 权限码 */
   authCode?: number | string;
+  /** 是否可以编辑/删除 */
+  isFixed?: boolean;
 }
 
 const localSubAppListKey = 'sub-app-list';
@@ -28,26 +30,49 @@ export const appList: SubAppConfig[] = [
     name: 'quc',
     iconClass: 'i-mdi-account-settings-outline',
     devUrl: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QUC}/`,
-    url: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QUC}/`,
+    url: import.meta.env.VITE_APP_PATH_QUC,
     order: 1,
+    isFixed: true,
   },
   {
     title: '消息通知控制台',
     name: 'qmn',
     iconClass: 'i-mdi-alarm-light-outline',
     devUrl: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QMN}/`,
-    url: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QMN}/`,
+    url: import.meta.env.VITE_APP_PATH_QMN,
     order: 2,
+    isFixed: true,
   },
   {
     title: '任务调度控制台',
     name: 'qts',
     iconClass: 'i-mdi-check-network-outline',
     devUrl: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QTS}/`,
-    url: `//${import.meta.env.VITE_DEV_HOST}:${import.meta.env.VITE_DEV_PORT_QTS}/`,
+    url: import.meta.env.VITE_APP_PATH_QTS,
     order: 3,
+    isFixed: true,
+  },
+  {
+    title: '外部可跨域站点示例(webpack)',
+    iconClass: 'i-mdi-bulletin-board',
+    name: 'webpack',
+    url: 'https://webpack.js.org/',
+    order: 4,
   },
 ];
+
+/**
+ * 获取合适的子应用url：前端开发模式时使用devUrl，否者使用url，并判断是否为完整url，如果不是，使用当前location.origin组成完整url
+ * @param {subAppConfig} config 子应用配置
+ */
+export const resolveSubAppUrl = (config: SubAppConfig) => {
+  const finalUrl = import.meta.env.DEV && config.devUrl ? config.devUrl : config.url;
+  if (finalUrl.startsWith('//') || finalUrl.startsWith('http://') || finalUrl.startsWith('https://')) {
+    return finalUrl;
+  } else {
+    return `${window.location.origin}${finalUrl.startsWith('/') || finalUrl.startsWith('?') ? '' : '/'}${finalUrl}`;
+  }
+};
 
 export const getSubAppList = async () => {
   // TODO 请求接口取得子应用列表

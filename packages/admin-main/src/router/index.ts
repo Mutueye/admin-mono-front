@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router';
 import { generateAllRoutes } from '@qst-admin/layout';
 import { BasePath } from '@/utils/consts';
 import { useAuthStore } from '@qst-admin/auth';
-import { getLocalSubAppList } from '@/utils/subAppConfig';
+import { getLocalSubAppList, resolveSubAppUrl } from '@/utils/subAppConfig';
 import AppWrapper from '@/modules/appWrapper/views/AppWrapper.vue';
 
 const generateRoutes = (staticRoutes: RouteRecordRaw[]): RouteRecordRaw[] => {
@@ -27,7 +27,7 @@ const addSubAppRoutes = (parentRoute?: RouteRecordRaw) => {
       appList.forEach((appConfig) => {
         subAppRoutes.push({
           name: appConfig.name,
-          path: '/' + appConfig.name,
+          path: '/subapp/' + appConfig.name,
           component: AppWrapper,
           meta: {
             title: appConfig.title,
@@ -35,7 +35,7 @@ const addSubAppRoutes = (parentRoute?: RouteRecordRaw) => {
               iconClass: appConfig.iconClass,
               order: appConfig.order,
             },
-            subAppUrl: appConfig.url,
+            subAppUrl: resolveSubAppUrl(appConfig),
           },
         });
       });

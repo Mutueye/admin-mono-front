@@ -2,13 +2,12 @@
   "name": "qmn-console",
   "private": true,
   "version": "1.0.0",
-  "type": "module",
   "packageManager": "pnpm@7.18.1",
   "scripts": {
     "dev": "vite --mode dev",
     "dev:prod": "vite --mode prod",
     "dev:local": "vite --mode local",
-    "build": "vue-tsc  --noEmit && vite build --emptyOutDir --mode prod",
+    "build": "vue-tsc --noEmit && vite build --emptyOutDir --mode prod && pnpm tar",
     "preview": "vite preview",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
@@ -16,7 +15,8 @@
     "lint:es": "eslint --ext .js,.ts,.vue --fix src/",
     "lint:es:check": "eslint --ext .js,.ts,.vue src/",
     "lint:style": "stylelint ./src/**/*.{vue,css,scss} --fix",
-    "lint:style:check": "stylelint ./src/**/*.{vue,css,scss}"
+    "lint:style:check": "stylelint ./src/**/*.{vue,css,scss}",
+    "tar": "node tar.js"
   },
   "dependencies": {
     "@itshixun/qst-request-lib": "^1.0.3",
@@ -26,6 +26,7 @@
     "@qst-admin/composables": "workspace:^",
     "@qst-admin/layout": "workspace:^",
     "@qst-admin/request": "workspace:^",
+    "@qst-admin/tarball": "workspace:^",
     "@qst-admin/theme": "workspace:^",
     "@vueuse/core": "^10.5.0",
     "@vueuse/head": "^2.0.0",
